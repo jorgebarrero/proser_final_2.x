@@ -1,0 +1,92 @@
+<main class="frame">
+  <section class="tablegraph" *ngIf="rows.displayInboundCallsIndicators[0]">
+    <article id="Calls" class="tablegraph-card">
+      <p class="tablegraph-subtitles">Niveles</p>
+
+      <!-- Nivel de servicio -->
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Nivel de servicio</p>
+
+        <p class="tablegraph-number ">
+          {{
+          rows.displayInboundCallsIndicators[0]
+            .inboundServiceLevel | percent: "1.2-2"
+        }}
+        </p>
+      </div>
+
+      <!-- Nivel de atención -->
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Nivel de atención</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.displayInboundCallsIndicators[0]
+            .inboundAttentionLevel | percent: "1.2-2"
+        }}
+        </p>
+      </div>
+
+      <!-- Nivel de abandono -->
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Nivel de abandono</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.displayInboundCallsIndicators[0]
+            .inboundAbandonLevel | percent: "1.2-2"
+        }}
+        </p>
+      </div>
+
+      <div>
+        <p class="tablegraph-subtitles">Tiempos</p>
+      </div>
+
+      <!-- TMO -->
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">TMO</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.displayInboundCallsIndicators[0]
+            .inboundTmo | number: "1.0-2"
+        }}
+        </p>
+      </div>
+
+      <!-- ASA -->
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">ASA</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.displayInboundCallsIndicators[0]
+            .inboundAsa | number: "1.0-2"
+        }}
+        </p>
+      </div>
+
+      <!-- Máx espera en cola -->
+      <div class="tablegraph-table "
+           *ngIf="userSelection.mode.name === 'Actual'">
+        <p class="tablegraph-text">Máx espera en cola</p>
+        <p class="tablegraph-number ">
+          {{
+                rows.displayInboundCurrentCallsIndicators[0]
+                  .maxWaitTimeOnQue | number: "1.0-2"
+              }}
+        </p>
+      </div>
+
+
+      <!-- Max espera -->
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Max espera</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.displayInboundCallsIndicators[0]
+            .maxWaitTime | number: "1.0-2"
+        }}
+        </p>
+      </div>
+    </article>
+
+  </section>
+</main>

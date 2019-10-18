@@ -1,0 +1,10 @@
+column_name
+inv_queue_id
+inv_queue_status
+inv_queue_chk
+inv_queue_name
+inv_queue_shortname
+inv_queue_number
+inv_queue_scale_json
+inv_queue_client_json
+inv_queue_service_json

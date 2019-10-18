@@ -1,0 +1,102 @@
+{
+  "name": "InvQueue",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "InvQueue"
+    }
+  },
+  "properties": {
+    "inv_queue_id": {
+      "type": "number",
+      "id": true
+    },
+    "inv_queue_status": {
+      "type": "string"
+    },
+    "inv_queue_chk": {
+      "type": "number"
+    },
+    "inv_queue_name": {
+      "type": "string"
+    },
+    "inv_queue_shortname": {
+      "type": "string"
+    },
+    "inv_queue_sms_name": {
+      "type": "string"
+    },
+    "inv_queue_number": {
+      "type": "string"
+    },
+    "inv_queue_type": {
+      "type": "string"
+    },
+    "inv_queue_operation_json": {
+      "type": "string"
+    },
+    "inv_queue_system_json": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    }
+  ],
+  "methods": {}
+}

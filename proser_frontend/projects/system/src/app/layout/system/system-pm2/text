@@ -1,0 +1,13 @@
+[PM2] Resurrecting
+[PM2] Restoring processes located in /home/jorge/.pm2/dump.pm2
+┌──────────┬────┬─────────┬──────┬─────┬─────────┬─────────┬────────┬─────┬────────┬───────┬──────────┐
+│ App name │ id │ version │ mode │ pid │ status │ restart │ uptime │ cpu │ mem │ user │ watching │
+├──────────┼────┼─────────┼──────┼─────┼─────────┼─────────┼────────┼─────┼────────┼───────┼──────────┤
+│ SERVER │ 0 │ 0.33.11 │ fork │ N/A │ errored │ 0 │ 0 │ 0% │ 0 B │ jorge │ disabled │
+└──────────┴────┴─────────┴──────┴─────┴─────────┴─────────┴────────┴─────┴────────┴───────┴──────────┘
+ Use `pm2 show <id|name>` to get more details about an app
+
+
+ │ status  │
+ │ status │ 
+ │ status │ 

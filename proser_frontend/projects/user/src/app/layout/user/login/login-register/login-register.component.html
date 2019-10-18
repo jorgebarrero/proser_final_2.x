@@ -1,0 +1,201 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<section id="register">
+
+  <div class="container">
+    <div class="row">
+      <div class=" mx-auto">
+        <div class="card-login">
+          <div class="card mt-3">
+            <div class="card-body">
+              <h3 class="h2 mb-3 font-weight-normal text-center">Registro de
+                usuario</h3>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                <div class="register-form">
+                  <div class="form-group">
+
+
+                    <!-- firstname -->
+                    <label class="register-label">Nombres</label>
+                    <input type="text" formControlName="firstname"
+                           class="form-control register-input"
+                           [ngClass]="{ 'is-invalid': f.firstname.errors }" />
+
+                    <div *ngIf="f.firstname.dirty && f.firstname.errors"
+                         class="register-error">
+                      <div *ngIf="f.firstname.errors.required">El nombre es
+                        obligatorio</div>
+                    </div>
+                  </div>
+
+
+                  <!-- lastname -->
+                  <div class="form-group">
+                    <label class="register-label">Apellidos</label>
+                    <input type="text" formControlName="lastname"
+                           class="form-control register-input "
+                           [ngClass]="{ 'is-invalid': f.lastname.errors }" />
+                    <div *ngIf="f.lastname.dirty && f.lastname.errors"
+                         class="register-error">
+                      <div *ngIf="f.lastname.errors.required">Los apellidos son
+                        obligatorios</div>
+                    </div>
+                  </div>
+
+
+                  <!-- username -->
+                  <div class="form-group">
+                    <label class="register-label">Nombre de usuario</label>
+                    <input type="text" formControlName="username"
+                           (change)="onRecordJsonChange()"
+                           class="form-control register-input"
+                           [ngClass]="{ 'is-invalid': f.username.errors }" />
+                    <div *ngIf="f.username.dirty && f.username.errors"
+                         class="register-error">
+
+                      <div *ngIf="f.username.errors.required">Usuario es
+                        obligatorios</div>
+                      <div *ngIf="f.username.errors.minlength">El usuario debe
+                        tener al menos 6 caracteres</div>
+                    </div>
+                  </div>
+
+                  <!-- email -->
+                  <div class="form-group">
+                    <label class="register-label">Email</label>
+                    <input type="email" formControlName="email"
+                           (change)="onRecordJsonChange()"
+                           class="form-control register-input"
+                           [ngClass]="{ 'is-invalid': f.email.errors }" />
+                    <div *ngIf="f.email.dirty && f.email.errors"
+                         class="register-error">
+
+                      <div *ngIf="f.email.errors.required">Email es obligatorio
+                      </div>
+                      <div *ngIf="f.email.errors.email">Email debe ser una
+                        direccion de correo válida</div>
+                    </div>
+                  </div>
+
+                  <!-- user_legal_id -->
+                  <div class="form-group">
+                    <label class="register-label">Cédula (sin puntos ni
+                      letras)</label>
+                    <input type="text" formControlName="user_legal_id"
+                           class="form-control register-input"
+                           [ngClass]="{ 'is-invalid': f.user_legal_id.errors }" />
+                    <div *ngIf="f.user_legal_id.dirty && f.user_legal_id.errors"
+                         class="register-error">
+                      <div *ngIf="f.user_legal_id.errors.required">Usuario es
+                        obligatorios</div>
+                      <div *ngIf="f.user_legal_id.errors.pattern">La cedula debe
+                        ser un numero de cedula valido sin espacios, letras
+                        puntos o caracteres especiales.</div>
+                    </div>
+                  </div>
+
+
+                  <!-- user_internal_id -->
+                  <div class="form-group">
+                    <label class="register-label">Documento id interno</label>
+                    <input type="text" formControlName="user_internal_id"
+                           class="form-control register-input"
+                           [ngClass]="{ 'is-invalid': f.user_internal_id.errors }"
+                           placeholder="Opcional" />
+                    <div *ngIf="f.user_internal_id.dirty && f.user_internal_id.errors"
+                         class="register-error">
+                      <div *ngIf="f.user_internal_id.errors.required">Este
+                        número no es obligatorios</div>
+                      <div *ngIf="f.user_internal_id.errors.minlength">El
+                        usuario debe tener al menos 6 caracteres</div>
+                    </div>
+                  </div>
+
+
+                  <!-- password -->
+                  <div class="form-group">
+                    <label class="register-label">Clave</label>
+                    <input type="password" formControlName="password"
+                           class="form-control register-input"
+                           [ngClass]="{ 'is-invalid': f.password.errors }" />
+                    <div *ngIf="f.password.dirty && f.password.errors"
+                         class="register-error">
+                      <div *ngIf="f.password.errors.required">La clave es
+                        obligatoria</div>
+                      <div *ngIf="f.password.errors.minlength">La clave debe
+                        tener al menos 6 caracteres</div>
+                    </div>
+                  </div>
+
+
+                  <!-- confirmPassword -->
+                  <div class="form-group">
+                    <label class="register-label">Confirmar clave</label>
+                    <input type="password" formControlName="confirmPassword"
+                           class="form-control register-input"
+                           [ngClass]="{ 'is-invalid': f.confirmPassword.errors }" />
+
+
+                    <div *ngIf="f.confirmPassword.dirty && f.confirmPassword.errors"
+                         class="register-error">
+                      <div *ngIf="f.confirmPassword.errors.required">La
+                        confirmación de la clave es obligatoria</div>
+                      <div *ngIf="f.confirmPassword.errors.mustMatch">Las claves
+                        deben coincidir</div>
+                    </div>
+                  </div>
+
+
+                  <!-- profile -->
+                  <div class="form-group">
+                    <label class="register-label">Perfil</label>
+
+                    <div *ngIf="true">
+                      <p class="register-detail">{{ f.profile.value }}</p>
+                    </div>
+
+                    <input *ngIf="false" type="text" formControlName="profile"
+                           class="form-control register-input"
+                           [ngClass]="{ 'is-invalid': f.profile.errors }" />
+                    <div *ngIf="f.profile.dirty && f.profile.errors"
+                         class="register-error">
+                      <div *ngIf="f.profile.errors.required">La
+                        confirmación de la clave es obligatoria</div>
+                      <div *ngIf="f.profile.errors.mustMatch">Las claves
+                        deben coincidir</div>
+                    </div>
+                  </div>
+
+
+                  <!-- end fields -------------------------------------------------- -->
+                </div>
+
+                <div
+                     class="form-group text-center mt-3 mb-0 register-button-group ">
+
+
+                  <div>
+                    <button class="btn btn-secondary register-button"
+                            (click)="onResetForm()">Borrar forma</button>
+                  </div>
+
+                  <div *ngIf="registerForm.valid && !repeatedRecord">
+                    <button class="btn btn-success register-button"
+                            (click)="onRegister(content)">Registrar</button>
+                  </div>
+                </div>
+                <div class="text-center register-login-text">
+                  <a routerLink="/user/layout/login" class="register-label">Si
+                    tiene cuenta, ingrese aquí</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <button (click)="onCheckIfExists()">check</button> -->

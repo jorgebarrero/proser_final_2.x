@@ -1,0 +1,40 @@
+<section class="main">
+  <p class="subtitles" *ngIf="rows.agentsAuxiliarResume[0] !== undefined">
+    Agentes en auxiliar </p>
+
+  <section class="indicadores indicator-pointer">
+    <article *ngIf="rows.agentsAuxiliarResume"
+             (click)="openDetailModal(new, 'auxiliar') ">
+      <ul class="inidcadores-items"
+          *ngFor="let item of rows.agentsAuxiliarResume">
+
+        <li class="indicadores-cantidad">
+          {{ item.value }}
+        </li>
+        <li class="indicadores-descripcion">
+          {{ item.name | shortNames}}
+        </li>
+        <li class="indicadores-porcentaje">
+          {{ item.duration }}
+        </li>
+
+      </ul>
+    </article>
+  </section>
+</section>
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-outbound-modal-breaks [modalView]="modalView">
+  </app-dashboard-outbound-modal-breaks>
+
+</ng-template>

@@ -1,0 +1,163 @@
+<!----------ALERT MESSAGE------------------------- -->
+<div>
+  <app-alert [alertMessage]="alertMessage"></app-alert>
+</div>
+
+<!----------REPORT HEADER------------------------- -->
+<app-dashboard-dashboard-header [userSelection]="userSelection"
+                                [selectorVisibleFields]="selectorVisibleFields"
+                                [timerConnected]="timerConnected"
+                                (returnResult)="onReturnHeaderResult($event)">
+</app-dashboard-dashboard-header>
+
+
+<section class="main-button">
+  <div>
+    <!-- <button class="btn btn-outline-primary"
+            (click)="onShowGraph()">Gráfico</button>
+    <button class="btn btn-outline-primary"
+            (click)="onShowGroups()">Grupos</button>
+    <button class="btn btn-outline-primary"
+            (click)="onShowHistoric()">{{historicLabel}}</button>
+
+    <a class="small text-secondary">
+      {{rows.dashboardInboundCallsIndicators[0].now | date: 'medium'}}
+    </a> -->
+  </div>
+  <div class="clock ml-auto">
+    <a>
+      <fa-icon [icon]="faClock"></fa-icon> &nbsp; {{timerConnected}}
+    </a>
+  </div>
+</section>
+
+
+<!-- TODAY -->
+<main class="main" *ngIf="historic">
+  <!-- HIGHLIGHTS -->
+  <section class="highlights">
+    <article>
+      <!-- <p class="small"> HIGHLIGHTS </p> -->
+      <app-dashboard-outbound-highlights [rows]="rows">
+      </app-dashboard-outbound-highlights>
+    </article>
+  </section>
+
+
+  <section *ngIf="show_groups">
+    <app-dashboard-dashboard-outbound-groups [userSelection]="userSelection">
+
+    </app-dashboard-dashboard-outbound-groups>
+  </section>
+
+  <section *ngIf="show_graph">
+    <app-dashboard-dashboard-outbound-graph [userSelection]="userSelection"
+                                           [rows]="rows_graph"
+                                           [rows_total]="rows_total_graph"
+                                           [idealResponseTime]="idealResponseTime_graph">
+
+    </app-dashboard-dashboard-outbound-graph>
+  </section>
+
+
+  <section *ngIf="!show_groups && !show_graph">
+    <div class="board">
+      <article class="pane">
+        <app-dashboard-outbound-calls [rows]="rows"
+<<<<<<< HEAD
+                                     [userSelection]="userSelection">
+=======
+                                      [userSelection]="userSelection">
+>>>>>>> feature/display
+        </app-dashboard-outbound-calls>
+      </article>
+
+      <article>
+        <app-dashboard-outbound-levels [rows]="rows"
+<<<<<<< HEAD
+                                      [userSelection]="userSelection">
+=======
+                                       [userSelection]="userSelection">
+>>>>>>> feature/display
+        </app-dashboard-outbound-levels>
+      </article>
+
+      <article>
+        <app-dashboard-outbound-agents [rows]="rows">
+        </app-dashboard-outbound-agents>
+      </article>
+
+      <article>
+        <app-dashboard-outbound-breaks [rows]="rows">
+        </app-dashboard-outbound-breaks>
+      </article>
+    </div>
+  </section>
+</main>
+
+<!-- HISTORIC -->
+<main class="main" *ngIf="!historic">
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights">
+    <article>
+      <!-- <p class="small"> HIGHLIGHTS </p> -->
+      <app-dashboard-outbound-highlights-historic [rows]="rows">
+      </app-dashboard-outbound-highlights-historic>
+    </article>
+  </section>
+
+
+  <section *ngIf="show_groups">
+    <app-dashboard-dashboard-outbound-groups [userSelection]="userSelection">
+
+    </app-dashboard-dashboard-outbound-groups>
+  </section>
+
+  <section *ngIf="show_graph">
+    <app-dashboard-dashboard-outbound-graph [userSelection]="userSelection"
+                                           [rows]="rows_graph"
+                                           [rows_total]="rows_total_graph"
+                                           [idealResponseTime]="idealResponseTime_graph">
+
+    </app-dashboard-dashboard-outbound-graph>
+  </section>
+
+
+  <section *ngIf="!show_groups && !show_graph">
+    <div class=" board">
+      <article class="pane">
+        <app-dashboard-outbound-calls [rows]="rows"
+<<<<<<< HEAD
+                                     [userSelection]="userSelection">
+=======
+                                      [userSelection]="userSelection">
+>>>>>>> feature/display
+        </app-dashboard-outbound-calls>
+      </article>
+
+      <article>
+        <app-dashboard-outbound-levels [rows]="rows"
+<<<<<<< HEAD
+                                      [userSelection]="userSelection">
+=======
+                                       [userSelection]="userSelection">
+>>>>>>> feature/display
+        </app-dashboard-outbound-levels>
+      </article>
+
+      <article>
+        <app-dashboard-dashboard-outbound-agents-historic [rows]="rows">
+        </app-dashboard-dashboard-outbound-agents-historic>
+      </article>
+
+      <article>
+        <app-dashboard-dashboard-outbound-breaks-historic [rows]="rows">
+        </app-dashboard-dashboard-outbound-breaks-historic>
+      </article>
+    </div>
+  </section>
+
+
+
+</main>

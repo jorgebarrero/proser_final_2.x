@@ -1,0 +1,57 @@
+{
+  "name": "MainStoredQueries",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "MainStoredQueries"
+    }
+  },
+  "properties": {
+    "msq_query_id": {
+      "type": "number",
+      "id": true
+    },
+    "msq_query_status": {
+      "type": "string"
+    },
+    "msq_query_chk": {
+      "type": "number"
+    },
+    "msq_query_name": {
+      "type": "string"
+    },
+    "msq_query_selection": {
+      "type": "string"
+    },
+    "msq_query_response": {
+      "type": "string"
+    },
+    "ms_query_rotation": {
+      "type": "string"
+    },
+    "msq_query_datetime": {
+      "type": "string"
+    },
+    "msq_query_date": {
+      "type": "string"
+    },
+    "msq_query_time": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

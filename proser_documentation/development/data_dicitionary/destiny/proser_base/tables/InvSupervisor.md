@@ -1,0 +1,12 @@
+column_name
+inv_supervisor_id
+inv_supervisor_status
+inv_supervisor_chk
+inv_supervisor_name
+inv_supervisor_shortname
+inv_supervisor_legal_id
+inv_supervisor_internal_id
+__JSON__
+inv_supervisor_people_json
+inv_supervisor_operation_json
+inv_supervisor_time_json

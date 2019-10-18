@@ -1,0 +1,82 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<main class="main">
+  <section id="submenu" class="submenu">
+    <article class="submenu-buttons">
+      <div>
+        <a class="btn btn-secondary submenu-btn text-white"
+           (click)="onGetAll()">Supervisor</a>
+      </div>
+      <div>
+        <a class="btn btn-outline-primary submenu-btn"
+           (click)="onGetActive()">Activos</a>
+      </div>
+      <div>
+        <a class="btn btn-outline-primary submenu-btn"
+           (click)="onGetInactive()">Inactivos</a>
+      </div>
+      <div>
+        <a class="btn btn-outline-primary submenu-btn"
+           (click)="onGetAll()">Todos</a>
+      </div>
+
+      <div>
+        <a class="btn btn-outline-success submenu-btn" (click)="onNewRecord()"
+           *ngIf="show_new_button">
+          Nuevo</a>
+      </div>
+
+      <div>
+        <a class="btn btn-outline-primary submenu-btn"
+           *ngIf="show_selected_button" (click)="onShowDetail()">Detalle</a>
+      </div>
+
+      <div>
+        <a class="btn btn-outline-success submenu-btn" (click)="onEditRecord()"
+           *ngIf="show_selected_button">
+          Editar</a>
+      </div>
+    </article>
+
+    <article id="right-menu" class="submenu-buttons ml-auto">
+      <div>
+        <a class="btn btn-outline-primary submenu-btn"
+           (click)="onExportToExcel(rows, excel_subtitle)">
+          Exportar a excel
+        </a>
+      </div>
+
+      <ng-select [items]="filterFieldList" bindLabel="name" [clearable]="false"
+                 [dropdownPosition]="'bottom'" (change)="onFilterFieldList()"
+                 hideSelected="true" [(ngModel)]="selectedFilterField"
+                 placeholder="items-">
+      </ng-select>
+
+      <input type="text" placeholder="Buscar..." [(ngModel)]="findInList"
+             (keyup)="onUpdateFilter(findInList)" />
+
+      <ng-select [items]="rowsInTableList" bindLabel="value" [clearable]="false"
+                 [dropdownPosition]="'bottom'" hideSelected="true"
+                 [(ngModel)]="numberOfRowsInTable" placeholder="items-">
+      </ng-select>
+    </article>
+  </section>
+</main>
+
+<section *ngIf="show_datatable && show_data">
+  <app-crud-inv-supervisor-list [rows]="rows"
+                                [numberOfRowsInTable]="numberOfRowsInTable"
+                                [show_datatable]="show_datatable"
+                                [action]="action"
+                                (listAnswer)="onlistAnswer($event)">
+  </app-crud-inv-supervisor-list>
+</section>
+
+<section *ngIf="!show_datatable && show_data">
+  <app-crud-inv-supervisor-detail [action]="action"
+                                  (editAnswer)="onlistAnswer($event)">
+  </app-crud-inv-supervisor-detail>
+</section>
+
+
+{{ event | json}}

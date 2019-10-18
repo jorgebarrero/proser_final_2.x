@@ -1,0 +1,28 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav" *ngIf="showInMenu >= 20">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle"
+       aria-controls="dropdown-basic">Desarrollador</a>
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/app1/">
+          <fa-icon [icon]="faCoffee"></fa-icon> &nbsp; App1
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/show/">
+          <fa-icon [icon]="faChartArea"></fa-icon> &nbsp; Show
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

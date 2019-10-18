@@ -1,0 +1,176 @@
+Hola 2
+
+<!----------ALERT MESSAGE------------------------- -->
+<div>
+  <app-alert [alertMessage]="alertMessage"></app-alert>
+</div>
+
+
+<!----------REPORT HEADER------------------------- -->
+<app-reports-report-header [userSelection]="userSelection"
+                           [selectorVisibleFields]="selectorVisibleFields"
+                           (returnResult)="onReturnHeaderResult($event)">
+</app-reports-report-header>
+
+<section class="row button-area report">
+
+  <!-- ------- BUTTONS -------------------- -->
+  <article class=" row mr-auto">
+    <!-- --------------------- -->
+    <div class="buttons">
+      <a (click)="show_columns = !show_columns"
+         class="btn btn-outline-primary">Gráfico</a>
+    </div>
+    <!-- --------------------- -->
+    <div class="">
+      <a class="btn btn-outline-primary "
+         (click)="getReportList(userSelection)">
+        Recalcular
+      </a>
+    </div>
+    <!-- --------------------- -->
+    <div class="">
+      <a class="btn btn-outline-primary " (click)="exportToExcel(rows)">
+        Exportar excel
+      </a>
+    </div>
+
+  </article>
+
+
+  <!-- ------- FIND FILEDS -------------------- -->
+  <app-reports-report-finder [rows]="rows" [rows_original]="rows_original"
+                             [initialSelectedFilterField]="initialSelectedFilterField"
+                             [filterFieldList]="filterFieldList"
+                             (returnNumberOfRowsInTable)="onReturnNumberOfRowsInTable($event)"
+                             (returnRowsForTable)="onReturnRowsForTable($event)">
+  </app-reports-report-finder>
+</section>
+
+
+<!-- ------- TABLE REPORT  -------------------- -->
+<section class="report" *ngIf="rows && show">
+  <!-- ------- DATATABLE  -------------------- -->
+  <div>
+    <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'"
+                   [limit]="numberOfRowsInTable.value" [headerHeight]="40"
+                   [footerHeight]="50" [rowHeight]="40" [scrollbarH]="true"
+                   [scrollbarV]="false" [summaryRow]="true" [summaryHeight]="50"
+                   [selectionType]="'single'"
+                   [loadingIndicator]="'Contactando servidor'"
+                   [messages]="{ emptyMessage: 'Sin datos que mostrar' }"
+                   (activate)="onActivate($event)" (select)="onSelect($event)"
+                   data-toggle="modal" role="button" href="#content">
+
+      <!------------------------------------------------- -->
+      <!-- connected------------------------------------- -->
+      <ngx-datatable-column prop="connected" width="20" name="connected"
+                            [frozenLeft]="true">
+
+        <ng-template let-column=" column" let-sort="sortFn"
+                     let-sortDir="sortDir" ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('connected').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <button (click)="openDetailModal(new, selected)"
+                  class="left-black-normal" data-toggle="tooltip"
+                  title="{{ value }}">
+            <i class="fas fa-user {{ value }} "></i>
+          </button>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+
+
+
+
+      <!-- ********************************* END **************************** -->
+    </ngx-datatable>
+  </div>
+
+  <hr />
+</section>
+
+<main class="main"></main>
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-full">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <!-- <app-reports-connection-report-list-detail [rows_detail]="rows_detail"
+                                             [rows_detail_total]="rows_detail_total"
+                                             [model]="model"
+                                             [selected]="selected">
+  </app-reports-connection-report-list-detail> -->
+
+</ng-template>
+
+
+<!-- <button (click)="onCreateModel(model)">Export</button> -->
+
+
+<!-- detail_button------------------------------------- -->
+<!-- <ngx-datatable-column prop="detail_button" width="10" name="detail_button"
+                              headerClass="header" [summaryFunc]="detail_button"
+                              [summaryTemplate]="detail_button"
+                              [frozenLeft]="true">
+          <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                       ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)"> -->
+<!-- {{ value | date: "yyyy-MM-dd HH:mm:ss" }} -->
+<!-- {{ value | date: "yyyy-MM-dd" }} -->
+<!-- {{ value | date: "HH:mm:ss" }} -->
+<!-- [frozenLeft]="true" -->
+<!-- *ngIf="show_columns" -->
+<!--  | percent: "1.2-2" -->
+<!-- | number: "1.0-0"  -->
+<!-- | number:'1.0-2' -->
+<!-- </p>
+          </ng-template>
+  
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <a class="btn detail-button pointer"
+               (click)="openDetailModal(new, selected)">
+              <i class="fas fa-eye "></i>
+            </a>
+          </ng-template>
+  
+          <ng-template id="detail_button">
+            <p></p>
+          </ng-template>
+  
+        </ngx-datatable-column> -->
+
+
+<!-- MODEL-------------------------------------
+         <ngx-datatable-column prop="MODEL" width="75" name="MODEL"
+         [frozenLeft]="true" [summaryTemplate]="MODEL">
+  
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+        ngx-datatable-header-template>
+        <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+        {{model.fieldInfo('MODEL').text}}
+        </p>
+        </ng-template>
+  
+        <ng-template let-value="value" ngx-datatable-cell-template>
+        <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+  
+        <ng-template #MODEL>
+        <p class="left-black-bold">{{rows_total[0].MODEL}}</p>
+        </ng-template>
+  
+        </ngx-datatable-column>
+  -->

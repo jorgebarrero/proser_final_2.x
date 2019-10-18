@@ -1,0 +1,219 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<section id="register" class="register" *ngIf="action && show_data">
+  <div class="card mt-3">
+    <div class="card-body">
+      <h3 class="h2 mb-3 font-weight-normal text-center">
+
+      </h3>
+
+      <form [formGroup]="registerForm">
+        <div class="register-form">
+          <!-- aux_color_id -->
+          <div class="form-group" id="aux_color_id">
+            <label class="register-label">{{model.fieldInfo('aux_color_id').text}}</label>
+
+            <div *ngIf="true">
+              <p class="register-detail">{{ selection.aux_color_id }}</p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord' && false"
+              type="text"
+              formControlName="aux_color_id"
+              class="form-control register-input disabled"
+              [ngClass]="{ 'is-invalid': f.aux_color_id.errors }"
+            />
+
+            <div
+              *ngIf="f.aux_color_id.dirty && f.aux_color_id.errors"
+              class="register-error"
+            >
+              <div *ngIf="f.aux_color_id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+          <!-- aux_color_status -->
+          <div class="form-group" id="aux_color_status">
+            <label class="register-label">{{model.fieldInfo('aux_color_status').text}}</label>
+            <div *ngIf="true">
+              <p class="register-detail">{{ selection.aux_color_status }}</p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord' && false"
+              type="text"
+              formControlName="aux_color_status"
+              class="form-control register-input"
+              [ngClass]="{
+                'is-invalid': f.aux_color_status.errors
+              }"
+            />
+
+            <div
+              *ngIf="f.aux_color_status.dirty && f.aux_color_status.errors"
+              class="register-error"
+            >
+              <div *ngIf="f.aux_color_status.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+          <!-- aux_color_name -->
+          <div class="form-group" id="aux_color_name">
+            <label class="register-label">{{model.fieldInfo('aux_color_name').text}}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.aux_color_name }}</p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord'"
+              type="text"
+              formControlName="aux_color_name"
+              class="form-control register-input"
+              [ngClass]="{ 'is-invalid': f.aux_color_name.errors }"
+            />
+
+            <div
+              *ngIf="f.aux_color_name.dirty && f.aux_color_name.errors"
+              class="register-error"
+            >
+              <div *ngIf="f.aux_color_name.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+          <!-- aux_color_string -->
+          <div class="form-group" id="aux_color_string">
+            <label class="register-label">{{model.fieldInfo('aux_color_string').text}}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.aux_color_string }}</p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord'"
+              type="text"
+              formControlName="aux_color_string"
+              class="form-control register-input"
+              [ngClass]="{ 'is-invalid': f.aux_color_string.errors }"
+            />
+
+            <div
+              *ngIf="f.aux_color_string.dirty && f.aux_color_string.errors"
+              class="register-error"
+            >
+              <div *ngIf="f.aux_color_string.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+          <!-- aux_color_use -->
+          <div class="form-group" id="aux_color_use">
+            <label class="register-label">{{model.fieldInfo('aux_color_use').text}}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.aux_color_use }}</p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord'"
+              type="text"
+              formControlName="aux_color_use"
+              class="form-control register-input"
+              [ngClass]="{ 'is-invalid': f.aux_color_use.errors }"
+            />
+
+            <div
+              *ngIf="f.aux_color_use.dirty && f.aux_color_use.errors"
+              class="register-error"
+            >
+              <div *ngIf="f.aux_color_use.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <article class="form-group mt-3 mb-0 mr-auto register-button-group">
+          <div>
+            <button
+              type="button"
+              class="btn btn-warning  register-button"
+              (click)="onCancel()"
+            >
+              Cancelar
+            </button>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              class="btn btn-secondary  register-button"
+              *ngIf="action.action === 'newRecord'"
+              (click)="onReset()"
+            >
+              Reiniciar
+            </button>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              class="btn btn-danger  register-button"
+              *ngIf="
+                action.action === 'editRecord' &&
+                selection.aux_color_status === 'I'
+              "
+              (click)="onDelete()"
+            >
+              Eliminar
+            </button>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              class="btn btn-danger  register-button"
+              *ngIf="
+                action.action === 'editRecord' &&
+                selection.aux_color_status === 'A'
+              "
+              (click)="onDeactivate()"
+            >
+              Desactivar
+            </button>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              class="btn btn-primary  register-button"
+              *ngIf="
+                action.action === 'editRecord' &&
+                selection.aux_color_status === 'I'
+              "
+              (click)="onReactivate()"
+            >
+              Reactivar
+            </button>
+          </div>
+
+          <div
+            *ngIf="
+              registerForm.status === 'VALID' &&
+              action.action !== 'showRecord' &&
+              (!registerForm.pristine || show_submit_button)
+            "
+          >
+            <button
+              type="button"
+              class="btn btn-success  register-button"
+              (click)="onSubmit(registerForm.value)"
+            >
+              Guardar
+            </button>
+          </div>
+        </article>
+      </form>
+    </div>
+  </div>
+</section>

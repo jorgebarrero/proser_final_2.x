@@ -1,0 +1,11 @@
+<article class=" ">
+
+  <!-- LINES IN REPORT -->
+  <ng-select class="agent-box ml-1 " [items]="listOfRowsInTable"
+             [ngStyle]="{'display':'block', 'width': '60px', 'text-align': 'right'}"
+             bindLabel="name" [clearable]="false" [dropdownPosition]="'bottom'"
+             hideSelected="true" [(ngModel)]="crudRecord.rowsInDatatable"
+             placeholder="lineas-">
+  </ng-select>
+  <!-- --------------------- -->
+</article>

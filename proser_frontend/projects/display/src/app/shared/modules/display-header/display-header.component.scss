@@ -1,0 +1,61 @@
+// @import "projects/reports/src/app/shared/styles/reports/header-reports";
+// @import "shared/styles/styles";
+
+.header-block {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-gap: 1rem;
+  margin: 5px 20px 0px 20px;
+}
+
+.header-left {
+  background: rgb(188, 218, 246);
+  text-align: left;
+}
+
+.header-center {
+  background: rgb(188, 218, 246);
+  text-align: center;
+}
+
+.header-right {
+  background: rgb(188, 218, 246);
+  text-align: right;
+}
+
+// TEXT OPTIONS
+
+.callenter-title {
+  font-weight: 600;
+}
+
+.selector-text-link {
+  color: rgb(3, 49, 13);
+  font-size: 0.9rem;
+}
+
+.report-title {
+  color: darkred;
+}
+.report-date {
+  color: rgb(24, 3, 49);
+  font-size: 1.2rem;
+}
+.report-time {
+  color: rgb(3, 49, 13);
+  font-size: 1rem;
+}
+.report-call {
+  color: rgb(3, 49, 13);
+  font-size: 2rem;
+}
+
+.report-selection {
+  color: rgb(3, 49, 13);
+  font-size: 1.2rem;
+}
+
+.btn {
+  font-size: 1rem;
+  margin: 5px;
+}

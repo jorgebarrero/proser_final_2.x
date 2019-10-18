@@ -1,0 +1,24 @@
+<main class="frame">
+  <div class="inner">
+    <p class="subtitles text-center">Resumen de agentes</p>
+
+    <table class="table">
+
+      <tr>
+        <th class="table-header">Concepto</th>
+        <th class="table-header">Personas</th>
+        <th class="table-header">Duracion</th>
+        <th class="table-header">Promedio</th>
+      </tr>
+      <tr *ngFor="let item of rows.agentHistoricResume"
+          class="inidcadores-items">
+        <td class="indicadores-cantidad"><i class="fas fa-user"></i> &nbsp;
+          {{ item.concept}} </td>
+        <td class="indicadores-descripcion text-left">{{ item.count_agents}}
+        </td>
+        <td class="indicadores-porcentaje">{{ item.duration_agents }}</td>
+        <td class="indicadores-porcentaje">{{ item.average_agents }}</td>
+      </tr>
+    </table>
+  </div>
+</main>

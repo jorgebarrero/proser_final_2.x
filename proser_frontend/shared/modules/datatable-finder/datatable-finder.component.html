@@ -1,0 +1,24 @@
+<article class="row ml-1">
+  <!-- SELECTION FIELD -->
+  <ng-select class=" agent-box  fields mr-1 "
+             [ngStyle]="{'display':'block', 'width': '150px', 'text-align': 'left'}"
+             [items]="crudRecord.filterFieldList" bindLabel="text"
+             [clearable]="false" [dropdownPosition]="'bottom'"
+             hideSelected="true" [(ngModel)]="crudRecord.selectedFilterField"
+             placeholder="items-">
+
+    <ng-template ng-option-tmp let-item="item">
+      <div title="{{item.text}}">{{item.text}}</div>
+    </ng-template>
+
+  </ng-select>
+  <!-- --------------------- -->
+
+
+
+  <!-- INPUT TEXT -->
+  <input type="text" class=" agent-box  ml-1" placeholder="Buscar..."
+         [(ngModel)]="findInList" (keyup)="onUpdateFilter(findInList)" />
+  <!-- --------------------- -->
+
+</article>

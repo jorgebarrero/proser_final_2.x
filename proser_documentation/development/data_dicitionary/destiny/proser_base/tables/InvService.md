@@ -1,0 +1,8 @@
+column_name
+inv_service_id
+inv_service_status
+inv_service_chk
+inv_service_name
+inv_service_shortname
+inv_service_type
+inv_service_use

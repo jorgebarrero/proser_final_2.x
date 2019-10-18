@@ -1,0 +1,21 @@
+<main class="frame">
+  <section>
+    <p class="subtitles"
+       *ngIf="rows.agentsAssignationResume[0] === undefined && rows.agentsAuxiliarResume[0] === undefined">
+      Auxiliares</p>
+    <!-- AUXILIAR -->
+    <article>
+      <app-display-inbound-breaks-auxiliar [rows]="rows">
+      </app-display-inbound-breaks-auxiliar>
+    </article>
+
+    <!-- ASSIGNATION -->
+    <article>
+      <app-display-inbound-breaks-assignations [rows]="rows">
+      </app-display-inbound-breaks-assignations>
+    </article>
+  </section>
+</main>
+
+
+<!-- *ngIf="!rows.agentsAuxiliarResume && !rows.agentsAssignationResume" -->

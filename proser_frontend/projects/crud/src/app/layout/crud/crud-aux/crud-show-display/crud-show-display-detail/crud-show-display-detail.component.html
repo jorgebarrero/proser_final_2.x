@@ -1,0 +1,326 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<section id="register" class="register" *ngIf="action && show_data">
+  <div class="card mt-3">
+    <div class="card-body">
+      <h3 class="h2 mb-3 font-weight-normal text-center">
+
+      </h3>
+
+      <form [formGroup]="registerForm">
+        <div class="register-form">
+          <!-- pro_show_display_id -->
+          <div class="form-group" id="pro_show_display_id">
+            <label
+                   class="register-label">{{model.fieldInfo('pro_show_display_id').text}}</label>
+
+            <div *ngIf="true">
+              <p class="register-detail">{{ selection.pro_show_display_id }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord' && false" type="text"
+                   formControlName="pro_show_display_id"  (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.pro_show_display_id.errors }" />
+
+            <div *ngIf="f.pro_show_display_id.dirty && f.pro_show_display_id.errors"
+                 class="register-error">
+              <div *ngIf="f.pro_show_display_id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+          <!-- pro_show_display_status -->
+          <div class="form-group" id="pro_show_display_status">
+            <label
+                   class="register-label">{{model.fieldInfo('pro_show_display_status').text}}</label>
+
+            <div *ngIf="true">
+              <p class="register-detail">{{ selection.pro_show_display_status }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord' && false" type="text"
+                   formControlName="pro_show_display_status"  (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.pro_show_display_status.errors }" />
+
+            <div *ngIf="f.pro_show_display_status.dirty && f.pro_show_display_status.errors"
+                 class="register-error">
+              <div *ngIf="f.pro_show_display_status.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+          <!-- pro_show_display_name -->
+          <div class="form-group" id="pro_show_display_name">
+            <label
+                   class="register-label">{{model.fieldInfo('pro_show_display_name').text}}</label>
+            <div *ngIf="false">
+              <p class="register-detail">{{ selection.pro_show_display_name }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="pro_show_display_name"  (change)="onRecordJsonChange()"
+                   class="form-control register-input" [ngClass]="{
+                'is-invalid': f.pro_show_display_name.errors
+              }" />
+
+            <div *ngIf="f.pro_show_display_name.dirty && f.pro_show_display_name.errors"
+                 class="register-error">
+              <div *ngIf="f.pro_show_display_name.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+          <!-- pro_show_display_weekday -->
+          <div class="form-group" id="pro_show_display_weekday">
+            <label
+                   class="register-label">{{model.fieldInfo('pro_show_display_weekday').text}}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.pro_show_display_weekday }}
+              </p>
+            </div>
+
+            <div class="form-control register-input">
+              <ng-select [items]="weekDayList" bindLabel="name"
+                         placeholder="Dia de semana" [dropdownPosition]="'auto'"
+                         [searchable]="false" [clearable]="true"
+                         [multiple]="true" hideSelected="true"
+                         formControlName="pro_show_display_weekday"
+                         (change)="onRecordJsonChange()">
+              </ng-select>
+            </div>
+
+
+            <div *ngIf="f.pro_show_display_weekday.dirty && f.pro_show_display_weekday.errors"
+                 class="register-error">
+              <div *ngIf="f.pro_show_display_weekday.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+          <!-- pro_show_display_start_time -->
+          <div class="form-group" id="pro_show_display_start_time">
+            <label
+                   class="register-label">{{model.fieldInfo('pro_show_display_start_time').text}}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.pro_show_display_start_time }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="pro_show_display_start_time"  (change)="onRecordJsonChange()"
+                   class="form-control register-input"
+                   [ngClass]="{ 'is-invalid': f.pro_show_display_start_time.errors }" />
+
+            <div *ngIf="f.pro_show_display_start_time.dirty && f.pro_show_display_start_time.errors"
+                 class="register-error">
+              <div *ngIf="f.pro_show_display_start_time.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+          <!-- pro_show_display_end_time -->
+          <div class="form-group" id="pro_show_display_end_time">
+            <label
+                   class="register-label">{{model.fieldInfo('pro_show_display_end_time').text}}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.pro_show_display_end_time }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="pro_show_display_end_time"  (change)="onRecordJsonChange()"
+                   class="form-control register-input"
+                   [ngClass]="{ 'is-invalid': f.pro_show_display_end_time.errors }" />
+
+            <div *ngIf="f.pro_show_display_end_time.dirty && f.pro_show_display_end_time.errors"
+                 class="register-error">
+              <div *ngIf="f.pro_show_display_end_time.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- pro_show_display_type -->
+          <div class="form-group" id="pro_show_display_type">
+            <label
+                   class="register-label">{{model.fieldInfo('pro_show_display_type').text}}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.pro_show_display_type }}
+              </p>
+            </div>
+
+            <div class="form-control register-input">
+              <ng-select [items]="displayTypeList" bindLabel="name"
+                         placeholder="Display" [dropdownPosition]="'auto'"
+                         [searchable]="false" [clearable]="false"
+                         [multiple]="false" hideSelected="true"
+                         formControlName="pro_show_display_type"  (change)="onRecordJsonChange()"
+                         (change)="onRecordJsonChange()">
+              </ng-select>
+            </div>
+
+            <div *ngIf="f.pro_show_display_type.dirty && f.pro_show_display_type.errors"
+                 class="register-error">
+              <div *ngIf="f.pro_show_display_type.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- pro_show_display_selection -->
+          <div class="form-group" id="pro_show_display_selection">
+            <label
+                   class="register-label">{{model.fieldInfo('pro_show_display_selection').text}}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.pro_show_display_selection }}
+              </p>
+            </div>
+
+            <div class="form-control register-input">
+
+              <button class="btn btn-outline-secondary"
+                      (click)="editUserSelection(new)">Editar</button>
+              <!-- <button class="btn btn-outline-primary"
+                      (click)="copyUserSelection()">Guardar</button> -->
+            </div>
+            <!-- <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="pro_show_display_selection"
+                   class="form-control register-input"
+                   [ngClass]="{ 'is-invalid': f.pro_show_display_selection.errors }" 
+                   (click)=copyUserSelection()/> -->
+
+            <div *ngIf="f.pro_show_display_selection.dirty && f.pro_show_display_selection.errors"
+                 class="register-error">
+              <div *ngIf="f.pro_show_display_selection.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- pro_show_display_view -->
+          <div class="form-group" id="pro_show_display_view">
+            <label
+                   class="register-label">{{model.fieldInfo('pro_show_display_view').text}}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.pro_show_display_view }}
+              </p>
+            </div>
+
+
+            <div class="form-control register-input">
+              <ng-select [items]="viewTypeList" bindLabel="name"
+                         placeholder="Vistas" [dropdownPosition]="'auto'"
+                         [searchable]="false" [clearable]="true"
+                         [multiple]="true" hideSelected="true"
+                         formControlName="pro_show_display_view"
+                         (change)="onRecordJsonChange()">
+              </ng-select>
+            </div>
+
+            <div *ngIf="f.pro_show_display_view.dirty && f.pro_show_display_view.errors"
+                 class="register-error">
+              <div *ngIf="f.pro_show_display_view.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <article class="form-group mt-3 mb-0 mr-auto register-button-group">
+          <div>
+            <button type="button" class="btn btn-warning  register-button"
+                    (click)="onCancel()">
+              Cancelar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-secondary  register-button"
+                    *ngIf="action.action === 'newRecord'" (click)="onReset()">
+              Reiniciar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-danger  register-button" *ngIf="
+                action.action === 'editRecord' &&
+                selection.pro_show_display_status === 'I'
+              " (click)="onDelete()">
+              Eliminar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-danger  register-button" *ngIf="
+                action.action === 'editRecord' &&
+                selection.pro_show_display_status === 'A'
+              " (click)="onDeactivate()">
+              Desactivar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-primary  register-button"
+                    *ngIf="
+                action.action === 'editRecord' &&
+                selection.pro_show_display_name === 'I'
+              " (click)="onReactivate()">
+              Reactivar
+            </button>
+          </div>
+
+          <div *ngIf="
+              registerForm.status === 'VALID' &&
+              action.action !== 'showRecord' 
+            ">
+            <button type="button" class="btn btn-success  register-button"
+                    (click)="onSubmit(registerForm.value)">
+              Guardar
+            </button>
+          </div>
+        </article>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- &&
+              (!registerForm.pristine || show_submit_button) -->
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-full">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Seleccione las opciones el reporte</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <div class="" id="result">
+    <app-selector [userSelection]="userSelection"
+                  [selectorVisibleFields]="selectorVisibleFields"
+                  (userSelectionBack)="updateSelection($event)"
+                  (closeSelector)="closeSelector($event)">
+    </app-selector>
+  </div>
+</ng-template>

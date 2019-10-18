@@ -1,0 +1,7 @@
+column_name
+inv_client_id
+inv_client_status
+inv_client_chk
+inv_client_name
+inv_client_shortname
+inv_client_type

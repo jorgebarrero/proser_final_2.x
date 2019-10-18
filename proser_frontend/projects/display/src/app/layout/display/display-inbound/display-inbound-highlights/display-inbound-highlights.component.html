@@ -1,0 +1,129 @@
+<main class="grid" *ngIf="rows">
+
+  <!-- LEVELS -->
+
+
+
+  <!-- Nivel de servicio -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].inboundServiceLevel}}"
+         *ngIf="rows.colors">
+      <!-- <div class="indicator-cell "> -->
+      <p class="indicator-label">Nivel de servicio</p>
+      <p class="indicator-note">Base cálculo =
+        {{rows.displayInboundCallsIndicators[0].idealResponseTime}}"</p>
+      <p class="indicator-number ">
+        {{
+            rows.displayInboundCallsIndicators[0]
+              .inboundServiceLevel | percent: "1.2-2"
+          }}
+      </p>
+    </div>
+
+  </article>
+
+
+  <!-- Nivel de atención -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].inboundAttentionLevel}}"
+         *ngIf="rows.colors">
+      <p class="indicator-label">Nivel de atención</p>
+      <p class="indicator-number ">
+        {{
+              rows.displayInboundCallsIndicators[0]
+                .inboundAttentionLevel | percent: "1.2-2"
+            }}
+    </div>
+  </article>
+
+
+  <!-- CALLS -->
+
+
+  <!-- Llamadas en cola -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].callsOnQueue}}"
+         *ngIf="rows.colors">
+      <p class="indicator-label">Llamadas<br />en cola</p>
+      <p class="indicator-number ">
+        {{
+          rows.displayInboundCurrentCallsIndicators[0]
+                .callsOnQueue
+            }}
+      </p>
+    </div>
+  </article>
+
+
+  <!-- Llamadas activas -->
+  <article class=" frame">
+    <div class="indicator-cell">
+      <p class="indicator-label">Llamadas<br />activas</p>
+      <p class="indicator-number ">
+        {{
+                      rows.displayInboundCurrentCallsIndicators[0]
+                        .callsActive
+                    }}
+      </p>
+    </div>
+  </article>
+
+
+  <!-- GRAY INDICATORS -->
+
+
+  <!-- Agentes planificados -->
+  <article class=" frame">
+    <div class="indicator-cell gray">
+      <p class="indicator-label">Agentes<br />planificados</p>
+      <p class="indicator-number ">
+        {{
+                      rows.agentsPlannedTotal[0]
+                        .agentsPlannedTotal
+                    }}
+      </p>
+    </div>
+  </article>
+
+
+  <!-- Agentes conectados -->
+  <article class="frame">
+    <div class="indicator-cell gray">
+      <p class="indicator-label">Agentes<br />conectados</p>
+      <p class="indicator-number ">
+        {{
+                  rows.agentsConnectedTotal[0]
+                    .agentsConnectedTotal
+                }}
+      </p>
+    </div>
+  </article>
+
+  <!-- Agentes efectivos -->
+  <article class="frame">
+    <div class="indicator-cell gray">
+      <p class="indicator-label">Agentes<br />efectivos</p>
+      <p class="indicator-number ">
+        {{
+                  rows.agentsConnectedTotal[0]
+                    .agentsEffectiveTotal
+                }}
+      </p>
+    </div>
+  </article>
+
+  <!-- TMO -->
+  <article class="frame">
+    <div class="indicator-cell gray">
+      <p class="indicator-label">TMO</p>
+      <p class="indicator-number ">
+        {{
+                  rows.displayInboundCallsIndicators[0]
+                    .inboundTmo | number: "1.0-0"
+                }}
+      </p>
+    </div>
+  </article>
+
+
+</main>

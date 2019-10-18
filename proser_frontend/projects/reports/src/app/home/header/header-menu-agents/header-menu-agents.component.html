@@ -1,0 +1,39 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle"
+       aria-controls="dropdown-basic">Agentes</a>
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/reports/layout/connection-report/">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Conexion desconexion
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/reports/layout/auxiliar-report/">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Detalle auxiliares
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/reports/layout/assignation-report/">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Detalle asignaciones
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>

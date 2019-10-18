@@ -1,0 +1,35 @@
+export class MainCdrModel {
+  cdr_id: number;
+  cdr_calldate: string;
+  cdr_clid: string;
+  cdr_src: string;
+  cdr_dst: string;
+  cdr_dcontext: string;
+  cdr_channel: string;
+  cdr_dstchannel: string;
+  cdr_lastapp: string;
+  cdr_lastdata: string;
+  cdr_duration_sec: string;
+  cdr_billsec_sec: string;
+  cdr_disposition: string;
+  cdr_amaflags: string;
+  cdr_accountcode: string;
+  cdr_uniqueid: string;
+  cdr_userfield: string;
+  cdr_recordingfile: string;
+  cdr_cnum: string;
+  cdr_cnam: string;
+  cdr_outbound_cnum: string;
+  cdr_outbound_cnam: string;
+  cdr_dst_cnam: string;
+  cdr_did: string;
+  __CALLCENTER__: string;
+  cdr_callcenter_name: string;
+  cdr_agent_id: number;
+  cdr_queue_id: number;
+  __DATE__: string;
+  cdr_date: string;
+  __HCA__: string;
+  cdr_hca_agent_serial_id: string;
+  cdr_hca_queue_serial_id: string;
+}

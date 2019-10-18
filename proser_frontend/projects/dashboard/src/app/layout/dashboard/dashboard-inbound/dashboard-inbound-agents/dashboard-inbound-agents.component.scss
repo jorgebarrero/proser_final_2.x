@@ -1,0 +1,97 @@
+@import "shared/styles/responsive/responsive-sizes";
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+.indicator-pointer {
+  cursor: pointer;
+}
+
+.frame {
+  border: solid 1px lightgray;
+  min-height: 50vh;
+  border-radius: 5px;
+  page-break-after: 3px;
+}
+
+.inner {
+  padding: 3px;
+}
+
+.subtitles {
+  padding: 3px 0 0.5rem 0;
+  background: lightgray;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.pie {
+  display: inline;
+}
+
+#parent {
+  position: relative;
+}
+
+#child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 30%;
+  width: 50%;
+  margin: -10% 0 0 -40%;
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "xl")) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30%;
+    width: 50%;
+    margin: -15% 0 0 -40%;
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "lg")) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "md")) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .pie {
+    display: none;
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "sm")) {
+  .dashboard {
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+  .pie {
+    display: none;
+  }
+}

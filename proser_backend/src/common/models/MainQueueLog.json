@@ -1,0 +1,69 @@
+{
+  "name": "MainQueueLog",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "MainQueueLog"
+    }
+  },
+  "properties": {
+    "queuelog_id": {
+      "type": "number",
+      "id": true
+    },
+    "queuelog_time": {
+      "type": "string"
+    },
+    "queuelog_uniqueid": {
+      "type": "string"
+    },
+    "queuelog_queuename": {
+      "type": "string"
+    },
+    "queuelog_agent": {
+      "type": "string"
+    },
+    "queuelog_event": {
+      "type": "string"
+    },
+    "queuelog_data": {
+      "type": "string"
+    },
+    "queuelog_data1": {
+      "type": "string"
+    },
+    "queuelog_data2": {
+      "type": "string"
+    },
+    "queuelog_data3": {
+      "type": "string"
+    },
+    "queuelog_data4": {
+      "type": "string"
+    },
+    "queuelog_data5": {
+      "type": "string"
+    },
+    "queuelog_created": {
+      "type": "string"
+    },
+    "queuelog_date": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

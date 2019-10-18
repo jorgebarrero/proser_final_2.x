@@ -1,0 +1,14 @@
+column_name
+inv_agent_id
+inv_agent_status
+inv_agent_chk
+inv_agent_name
+inv_agent_shortname
+inv_agent_extension
+inv_agent_legal_id
+inv_agent_internal_id
+inv_agent_type
+__JSON__
+inv_agent_people_json
+inv_agent_operation_json
+inv_agent_time_json

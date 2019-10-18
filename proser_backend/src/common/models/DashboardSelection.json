@@ -1,0 +1,41 @@
+{
+  "name": "DashboardSelection",
+  "base": "Model",
+  "idInjection": true,
+  "properties": {
+    "userSelection": {
+      "type": "userSelection",
+      "required": true
+    },
+    "modalView": {
+      "type": "any",
+      "required": true
+    },
+    "typeId": {
+      "type": "any",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "projects": {
+      "type": "hasMany",
+      "model": "project",
+      "foreignKey": "ownerId"
+    },
+    "teams": {
+      "type": "hasMany",
+      "model": "team",
+      "foreignKey": "ownerId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

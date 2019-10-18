@@ -1,0 +1,44 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle"
+       aria-controls="dropdown-basic">Comandos</a>
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/app1/layout/show/show-inbound/">
+          <fa-icon [icon]="faIdBadge"></fa-icon> &nbsp; Selector Test
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/app1/selector/">
+          <fa-icon [icon]="faIdBadge"></fa-icon> &nbsp; Selector
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/app1/home/">
+          <fa-icon [icon]="faIdBadge"></fa-icon> &nbsp; app1
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/init/home/">
+          <fa-icon [icon]="faIdBadge"></fa-icon> &nbsp; Home
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>

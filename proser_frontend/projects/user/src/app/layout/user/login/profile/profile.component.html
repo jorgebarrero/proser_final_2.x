@@ -1,0 +1,80 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<section id="login" *ngIf="currentUserInfo">
+  <div class="container">
+    <div class="row">
+      <div class=" mx-auto">
+        <div class="card-login">
+          <div class="card mt-3">
+            <div class="card-body">
+              <!-- --------------------------------------------- -->
+              <div class="login-columns">
+                <label class="login-label">id</label>
+                <p>{{ currentUserInfo.id }}</p>
+              </div>
+              <hr />
+              <!-- --------------------------------------------- -->
+              <div class="login-columns ">
+                <label class="login-label">Nombre</label>
+                <p>{{ currentUserInfo.firstname }}</p>
+              </div>
+              <hr />
+              <!-- --------------------------------------------- -->
+              <div class="login-columns">
+                <label class="login-label">Apellido</label>
+                <p>{{ currentUserInfo.lastname }}</p>
+              </div>
+              <hr />
+              <!-- --------------------------------------------- -->
+              <div class="login-columns">
+                <label class="login-label">Perfil</label>
+                <p>{{ currentUserInfo.profile }}</p>
+              </div>
+              <hr />
+              <!-- --------------------------------------------- -->
+              <div class="login-columns">
+                <label class="login-label">Cédula</label>
+                <p>{{ currentUserInfo.user_legal_id }}</p>
+              </div>
+              <hr />
+              <!-- --------------------------------------------- -->
+              <div class="login-columns">
+                <label class="login-label">Identificación laboral</label>
+                <p>{{ currentUserInfo.user_internal_id }}</p>
+              </div>
+              <hr />
+              <!-- --------------------------------------------- -->
+              <!-- <div class="login-columns">
+                <label class="login-label">Foto</label>
+                <p>{{ currentUserInfo.user_photo_path }}</p>
+              </div>
+              <hr /> -->
+              <!-- --------------------------------------------- -->
+              <div class="login-columns">
+                <label class="login-label">Nombre de usuario</label>
+                <p>{{ currentUserInfo.username }}</p>
+              </div>
+              <hr />
+              <!-- --------------------------------------------- -->
+              <div class="login-columns">
+                <label class="login-label">Email</label>
+                <p>{{ currentUserInfo.email }}</p>
+              </div>
+              <hr />
+              <!-- --------------------------------------------- -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+
+{ "firstname": "Jorge", "lastname": "Barrero", "user_legal_id": "24058992",
+"user_internal_id": "jorgeabarrero", "user_photo_path": null, "profile": "user",
+"realm": null, "username": "jorgebarrero", "email": "jorgebarrero@gmail.com",
+"emailVerified": null, "id": 22 }
+
+-->

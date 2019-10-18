@@ -1,0 +1,33 @@
+.navbar {
+  font-size: 1.1rem;
+
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(28, 28, 91, 1) 48%,
+    rgba(10, 99, 117, 1) 98%
+  );
+}
+
+.dropdown-item {
+  font-size: 1.1rem;
+}
+
+.right-menu-text {
+  font-size: 0.9rem;
+}
+
+.right-menu-inline {
+  display: inline;
+}
+
+.chapter {
+  color: yellow;
+  text-decoration: none;
+}
+
+.chapter:hover {
+  color: green;
+  text-decoration: none;
+}

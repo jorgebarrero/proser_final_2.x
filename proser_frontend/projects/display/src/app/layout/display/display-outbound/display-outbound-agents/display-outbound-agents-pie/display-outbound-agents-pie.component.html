@@ -1,0 +1,9 @@
+<div  class="chart-wrapper" *ngIf="rows.agentsConnectedByGroup">
+  <canvas baseChart [data]="getValues(rows.agentsConnectedByGroup)"
+          [labels]="getLabels(rows.agentsConnectedByGroup)"
+          [chartType]="pieChartType" [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="getColor(rows.agentsConnectedByGroup)"
+          [legend]="pieChartLegend">
+  </canvas>
+</div>

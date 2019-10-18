@@ -1,0 +1,73 @@
+<main class="frame">
+  <section class="tablegraph" *ngIf="rows.displayInboundCallsIndicators[0]">
+    <article id="Calls" class="tablegraph-card">
+
+      <p class="tablegraph-subtitles">Llamadas</p>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Recibidas</p>
+
+        <p class="tablegraph-number">
+          {{ rows.displayInboundCallsIndicators[0].inboundReceived | number:'1.0-0'}}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Atendidas</p>
+        <p class="tablegraph-number">
+          {{ rows.displayInboundCallsIndicators[0].inboundAttended | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Abandonadas</p>
+        <p class="tablegraph-number">
+          {{ rows.displayInboundCallsIndicators[0].inboundAbandoned | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Cortas (menos de:
+          {{ rows.displayInboundCallsIndicators[0].shortTimeDef}}")</p>
+        <p class="tablegraph-number">
+          {{ rows.displayInboundCallsIndicators[0].inboundShort | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">
+          Atendidas en menos de: {{
+            rows.displayInboundCallsIndicators[0].idealResponseTime }}"
+        </p>
+        <p class="tablegraph-number">
+          {{ rows.displayInboundCallsIndicators[0].inboundBeforeTime | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">
+          Atendidas en más de: {{
+              rows.displayInboundCallsIndicators[0].idealResponseTime }}"
+        </p>
+        <p class="tablegraph-number">
+          {{ rows.displayInboundCallsIndicators[0].inboundAfterTime | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Colgadas por agente</p>
+        <p class="tablegraph-number">
+          {{ rows.displayInboundCallsIndicators[0].inboundHungAgent  }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Perdidas</p>
+        <p class="tablegraph-number">
+          {{ rows.displayInboundCallsIndicators[0].inboundLostCallsTotal  }}
+        </p>
+      </div>
+
+    </article>
+  </section>
+</main>

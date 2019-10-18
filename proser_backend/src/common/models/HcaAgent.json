@@ -1,0 +1,130 @@
+{
+  "name": "HcaAgent",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "HcaAgent"
+    }
+  },
+  "properties": {
+    "hca_agent_serial_id": {
+      "type": "string"
+    },
+    "hca_agent_origin": {
+      "type": "string"
+    },
+    "hca_agent_date": {
+      "type": "string"
+    },
+    "hca_agent_id": {
+      "type": "number"
+    },
+    "hca_agent_name": {
+      "type": "string"
+    },
+    "hca_agent_extension": {
+      "type": "string"
+    },
+    "hca_agent_status": {
+      "type": "string"
+    },
+    "hca_agent_laborday": {
+      "type": "number"
+    },
+    "__JSON__": {
+      "type": "string"
+    },
+    "hca_agent_people_json": {
+      "type": "number"
+    },
+    "hca_agent_operation_json": {
+      "type": "string"
+    },
+    "hca_agent_time_json": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    }
+  ],
+  "methods": {}
+}

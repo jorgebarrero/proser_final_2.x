@@ -1,0 +1,156 @@
+{
+  "name": "MainCdr",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "MainCdr"
+    }
+  },
+  "properties": {
+    "cdr_id": {
+      "type": "number",
+      "id": true
+    },
+    "cdr_calldate": {
+      "type": "string"
+    },
+    "cdr_clid": {
+      "type": "string"
+    },
+    "cdr_src": {
+      "type": "string"
+    },
+    "cdr_dst": {
+      "type": "string"
+    },
+    "cdr_dcontext": {
+      "type": "string"
+    },
+    "cdr_channel": {
+      "type": "string"
+    },
+    "cdr_dstchannel": {
+      "type": "string"
+    },
+    "cdr_lastapp": {
+      "type": "string"
+    },
+    "cdr_lastdata": {
+      "type": "string"
+    },
+    "cdr_duration_sec": {
+      "type": "number"
+    },
+    "cdr_billsec_sec": {
+      "type": "number"
+    },
+    "cdr_disposition": {
+      "type": "string"
+    },
+    "cdr_amaflags": {
+      "type": "number"
+    },
+    "cdr_accountcode": {
+      "type": "string"
+    },
+    "cdr_uniqueid": {
+      "type": "string"
+    },
+    "cdr_userfield": {
+      "type": "string"
+    },
+    "cdr_recordingfile": {
+      "type": "string"
+    },
+    "cdr_cnum": {
+      "type": "string"
+    },
+    "cdr_cnam": {
+      "type": "string"
+    },
+    "cdr_outbound_cnum": {
+      "type": "string"
+    },
+    "cdr_outbound_cnam": {
+      "type": "string"
+    },
+    "cdr_dst_cnam": {
+      "type": "string"
+    },
+    "cdr_did": {
+      "type": "string"
+    },
+    "__CALLCENTER__": {
+      "type": "number"
+    },
+    "cdr_callcenter_name": {
+      "type": "string"
+    },
+    "cdr_call_type": {
+      "type": "string"
+    },
+    "cdr_call_class": {
+      "type": "string"
+    },
+    "cdr_agent_extension": {
+      "type": "string"
+    },
+    "cdr_queue_number": {
+      "type": "string"
+    },
+    "cdr_agent_id": {
+      "type": "number"
+    },
+    "cdr_queue_id": {
+      "type": "number"
+    },
+    "__DATE__": {
+      "type": "number"
+    },
+    "cdr_date": {
+      "type": "string"
+    },
+    "__HCA__": {
+      "type": "number"
+    },
+    "cdr_hca_agent_serial_id": {
+      "type": "string"
+    },
+    "cdr_hca_queue_serial_id": {
+      "type": "string"
+    },
+    "__MADE__": {
+      "type": "number"
+    },
+    "cdr_call_made": {
+      "type": "number"
+    },
+    "cdr_call_fail": {
+      "type": "number"
+    },
+    "cdr_call_answered": {
+      "type": "number"
+    },
+    "cdr_call_efective": {
+      "type": "number"
+    },
+    "cdr_call_hungout": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

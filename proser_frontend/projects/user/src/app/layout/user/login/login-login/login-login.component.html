@@ -1,0 +1,73 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<section id="login">
+  <div class="container">
+    <div class="row">
+      <div class=" mx-auto">
+        <div class="card-login">
+          <div class="card mt-3">
+            <div class="card-body">
+              <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <h3 class="h2 mb-3 font-weight-normal text-center">Login</h3>
+
+                <div class="login-form">
+                  <div class="login-two-col">
+                    <div class="form-group">
+                      <label class="login-label">Usuario</label>
+                      <input type="text" formControlName="username"
+                             class="form-control login-input"
+                             [ngClass]="{ 'is-invalid': f.username.errors }" />
+
+                      <!-- {{submitted}} -->
+                      <!-- {{loginForm.value.username}} -->
+
+                      <div *ngIf="f.username.dirty && f.username.errors"
+                           class="login-error">
+                        <div *ngIf="f.username.errors.required">
+                          El usuario es obligatorio
+                        </div>
+                        <div *ngIf="f.username.errors.minlength">
+                          El usuario es muy corto
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="login-label">Contraseña</label>
+                      <input type="password" formControlName="password"
+                             class="form-control login-input"
+                             [ngClass]="{ 'is-invalid': f.password.errors }" />
+
+                      <div *ngIf="f.password.dirty && f.password.errors"
+                           class="login-error">
+                        <div *ngIf="f.password.errors.required">
+                          El password es obligatorio
+                        </div>
+                        <div *ngIf="f.password.errors.minlength">
+                          El password es muy corto
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="loginForm.valid">
+                    <button type="submit"
+                            class="btn btn-lg btn-primary btn-block">
+                      Login
+                    </button>
+                  </div>
+
+                  <div class="form-group text-center" *ngIf="env.autoregister">
+                    <a routerLink="/user/layout/login/login-register/"
+                       class="form-control login-link">Si no tiene cuenta,
+                      registrese aquí</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

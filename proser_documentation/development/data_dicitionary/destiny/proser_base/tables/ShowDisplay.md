@@ -1,0 +1,8 @@
+column_name
+show_display_id
+show_display_name
+show_display_weekday
+show_display_start_time
+show_display_end_time
+show_display_selection
+show_display_view

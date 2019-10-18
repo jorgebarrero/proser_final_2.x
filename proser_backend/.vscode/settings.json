@@ -1,0 +1,47 @@
+{
+  "files.exclude": {
+    ".babelrc": true,
+    ".editorconfig": true,
+    ".eslintrc.json": true,
+    ".eslintrc.js": true,
+    ".eslintrc.original.json": true,
+    ".gitignore": false,
+    ".jshintignore": true,
+    ".jshintrc": true,
+    ".npmignore": true,
+    ".vscode": false,
+    "dist-backend": false,
+    "**/*.css": true,
+    "**/*.map": true,
+    "**/*.spec.ts": true,
+
+    ".htaccess": true,
+
+    "LICENSE": true,
+    "node_modules": true
+  },
+  "files.watcherExclude": {
+    ".babelrc": true,
+    ".editorconfig": true,
+    ".eslintrc.json": true,
+    ".eslintrc.original.json": true,
+    ".gitignore": true,
+    ".jshintignore": true,
+    ".jshintrc": true,
+    ".npmignore": true,
+    ".env": false,
+
+    "node_modules": false
+  },
+  "git.ignoreLimitWarning": true,
+  "cSpell.ignoreWords": [
+    "caminos",
+    "excelencia",
+    "servicio"
+  ],
+  "cSpell.words": [
+    "DAYLY",
+    "lsof",
+    "realagents"
+  ]
+}

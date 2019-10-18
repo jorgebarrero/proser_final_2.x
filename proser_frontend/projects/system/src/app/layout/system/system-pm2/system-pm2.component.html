@@ -1,0 +1,55 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<main class="container">
+  <section class="layout">
+    <h1>Reiniciar</h1>
+    <p>Es una funcionalidad que administra el reinicio del backend</p>
+    <ul class="small">
+      <li>
+        <p><span class="strong">resurrect:</span> reinicia el pm2 en caso que
+          este apagado</p>
+      </li>
+      <li>
+        <p><span class="strong">restart:</span> apaga y enciende el pm2</p>
+      </li>
+      <li>
+        <p> <span class="strong">reboot:</span> reinicia el servidor con un
+          soft-restart (tendra que
+          recargar la
+          pagina despues de unos 30 segundos)</p>
+      </li>
+    </ul>
+    <article class="button-layout">
+      <!-- <button
+        class="btn btn-danger text-xl-center button-text"
+        (click)="onKill()"
+      >
+        kill
+      </button> -->
+      <button class="btn btn-success text-xl-center button-text"
+              (click)="onResurrect()">
+        resurrect
+      </button>
+      <button class="btn btn-outline-success text-xl-center button-text"
+              (click)="onRestart()">
+        restart
+      </button>
+
+      <button class="btn btn-danger text-xl-center button-text"
+              (click)="onReboot()">
+        reboot
+      </button>
+
+
+    </article>
+    <p class="monospaced">
+      <span [innerHTML]="message"></span>
+    </p>
+
+    <!-- <p class="monospaced">
+      <span>{{temp}}</span>
+    </p> -->
+
+
+  </section>
+</main>

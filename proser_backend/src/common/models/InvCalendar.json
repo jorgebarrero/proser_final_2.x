@@ -1,0 +1,116 @@
+{
+  "name": "InvCalendar",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "InvCalendar"
+    }
+  },
+  "properties": {
+    "inv_calendar_id": {
+      "type": "number",
+      "id": 1
+    },
+    "inv_calendar_name": {
+      "type": "string"
+    },
+    "inv_calendar_type": {
+      "type": "string"
+    },
+    "inv_calendar_status": {
+      "type": "string"
+    },
+    "inv_calendar_chk": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "hollydays": {
+      "type": "hasMany",
+      "model": "InvCalendarDay",
+      "foreignKey": "inv_calendar_id"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,7 @@
+column_name
+inv_calendarday_id
+inv_calendar_id
+inv_calendarday_status
+inv_calendarday_date
+inv_calendarday_name
+inv_calendarday_type

@@ -1,0 +1,33 @@
+::ng-deep .modal-dialog {
+  max-width: 98%;
+  width: 95%;
+}
+
+::ng-deep .modal-header {
+  color: white;
+  // background: rgb(43, 107, 226);
+  background: rgb(30, 112, 22);
+}
+
+::ng-deep .modal-dialog .modal-sm {
+  max-width: 50%;
+  width: 95%;
+}
+
+.modal-full {
+  min-width: 90%;
+  margin: 5% 5% 5% 5%;
+  align-content: center;
+}
+
+.modal-lg {
+  min-width: 80%;
+  margin: 5% 5% 5% 5%;
+  align-content: center;
+}
+
+.modal-md {
+  min-width: 60%;
+  margin: 5% 5% 5% 5%;
+  align-content: center;
+}

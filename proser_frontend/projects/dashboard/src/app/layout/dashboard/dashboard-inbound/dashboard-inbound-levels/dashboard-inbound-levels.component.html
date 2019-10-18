@@ -1,0 +1,130 @@
+<main class="frame">
+  <section class="tablegraph" *ngIf="rows.dashboardInboundCallsIndicators[0]">
+    <article id="Calls" class="tablegraph-card">
+      <p class="tablegraph-subtitles">Niveles</p>
+
+      <!-- Nivel de servicio -->
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'inboundServiceLevel')">
+        <p class="tablegraph-text"
+           >Nivel de
+          servicio
+        </p>
+
+        <p class="tablegraph-number ">
+          {{
+          rows.dashboardInboundCallsIndicators[0]
+            .inboundServiceLevel | percent: "1.2-2"
+        }}
+        </p>
+      </div>
+
+      <!-- Nivel de atención -->
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'inboundAttentionLevel') ">
+        <p class="tablegraph-text"
+           >Nivel de
+          atención</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.dashboardInboundCallsIndicators[0]
+            .inboundAttentionLevel | percent: "1.2-2"
+        }}
+        </p>
+      </div>
+
+      <!-- Nivel de abandono -->
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'inboundAbandonLevel') ">
+        <p class="tablegraph-text"
+           >Nivel de
+          abandono</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.dashboardInboundCallsIndicators[0]
+            .inboundAbandonLevel | percent: "1.2-2"
+        }}
+        </p>
+      </div>
+
+      <div>
+        <p class="tablegraph-subtitles">Tiempos</p>
+      </div>
+
+      <!-- TMO -->
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'inboundTmo') ">
+        <p class="tablegraph-text"
+           >TMO</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.dashboardInboundCallsIndicators[0]
+            .inboundTmo | number: "1.0-2"
+        }}
+        </p>
+      </div>
+
+      <!-- ASA -->
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'inboundAsa') ">
+        <p class="tablegraph-text"
+           >ASA</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.dashboardInboundCallsIndicators[0]
+            .inboundAsa | number: "1.0-2"
+        }}
+        </p>
+      </div>
+
+      <!-- Máx espera en cola -->
+      <div class="tablegraph-table pointer"
+           *ngIf="userSelection.mode.name === 'Actual'"
+           (click)="openDetailModal(new, 'maxWaitTimeOnQue') ">
+        <p class="tablegraph-text"
+           >Máx espera en
+          cola</p>
+        <p class="tablegraph-number ">
+          {{
+                rows.dashboardInboundCurrentCallsInicators[0]
+                  .maxWaitTimeOnQue | number: "1.0-2"
+              }}
+        </p>
+      </div>
+
+
+      <!-- Max espera -->
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'maxWaitTime') ">
+        <p class="tablegraph-text"
+           >Max espera</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.dashboardInboundCallsIndicators[0]
+            .maxWaitTime | number: "1.0-2"
+        }}
+        </p>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-inbound-modal-text [argument]="argument"
+                                              [rows]="rows">
+  </app-dashboard-dashboard-inbound-modal-text>
+
+</ng-template>

@@ -1,0 +1,57 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle"
+       aria-controls="dropdown-basic">Operación</a>
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-client/menu">
+          <fa-icon [icon]="faIndustry"></fa-icon> &nbsp; Clientes
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-queue/menu">
+          <fa-icon [icon]="faCommentDots"></fa-icon> &nbsp; Colas
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-service/menu">
+          <fa-icon [icon]="faConciergeBell"></fa-icon> &nbsp; Servicios
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-campaign/menu">
+          <fa-icon [icon]="faCrosshairs"></fa-icon> &nbsp; Campañas
+        </a>
+      </li>
+
+      <div class="dropdown-divider"></div>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-scale/menu">
+          <fa-icon [icon]="faChartLine"></fa-icon> &nbsp; Escalas
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>

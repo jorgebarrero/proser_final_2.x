@@ -1,0 +1,24 @@
+<section class="main">
+  <p class="subtitles" *ngIf="rows.agentsHistoricBreakResume[0] !== undefined">
+    Historico auxiliares</p>
+
+  <section class="indicadores">
+    <article *ngIf="rows.agentsHistoricBreakResume">
+      <ul class="inidcadores-items"
+          *ngFor="let item of rows.agentsHistoricBreakResume">
+        <li class="indicadores-descripcion text-left pointer"
+            (click)="selectLine(break, item.id)">
+          {{ item.value }}
+        </li>
+        <li class="indicadores-cantidad pointer"
+            (click)="selectLine(break, item.id)">
+          {{ item.name | shortNames }}
+        </li>
+        <li class="indicadores-porcentaje pointer"
+            (click)="selectLine(break, item.id)">
+          {{ item.duration }}
+        </li>
+      </ul>
+    </article>
+  </section>
+</section>

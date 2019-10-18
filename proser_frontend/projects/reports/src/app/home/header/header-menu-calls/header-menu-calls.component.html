@@ -1,0 +1,99 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle"
+       aria-controls="dropdown-basic">Llamadas</a>
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/reports/layout/inbound-report/">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Entrantes
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/reports/layout/inbound-interval-report/">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Entrantes por intervalo
+        </a>
+      </li>
+
+      <div class="dropdown-divider"></div>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/reports/layout/outbound-report/">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Salientes manuales
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/reports/layout/outbound-interval-report/">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Salientes manuales por
+          intervalo
+        </a>
+      </li>
+
+      <!-- <div class="dropdown-divider"></div> -->
+
+      <!-- MENU ITEM-->
+      <!-- <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/reports/layout/automaitc-report/">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Automáticas diario
+        </a>
+      </li> -->
+
+
+      <!-- MENU ITEM-->
+      <!-- <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/reports/layout/automaitc-interval-report/">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Automáticas por
+          intervalo
+        </a>
+      </li> -->
+
+      <div class="dropdown-divider"></div>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/reports/layout/detail-calls-report/">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Detalle de llamadas
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/reports/layout/abandoned-report">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Llamadas Abandonadas
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/reports/layout/wait-time-report">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Tiempo de espera
+        </a>
+      </li>
+
+
+    </ul>
+  </div>
+</div>

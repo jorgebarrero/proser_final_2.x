@@ -1,0 +1,99 @@
+{
+  "name": "AuxHour",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "aux_hour_id": {
+      "type": "number",
+      "id": true
+    },
+    "aux_hour_name": {
+      "type": "string"
+    },
+    "aux_hour_value": {
+      "type": "string"
+    },
+    "aux_hour_status": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    }
+  ],
+  "methods": {}
+}

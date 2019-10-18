@@ -1,0 +1,19 @@
+"emailDs": {
+    "name": "emailDs",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "mail.hmoservisalud.com",
+        "secure": true,
+        "port": 25,
+        "tls": {
+          "rejectUnauthorized": true
+        },
+        "auth": {
+          "user": "seguridadit@hmoservisalud.com",
+          "pass": "Caracas2019"
+        }
+      }
+    ]
+  }

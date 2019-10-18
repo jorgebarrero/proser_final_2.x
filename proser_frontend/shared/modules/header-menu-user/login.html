@@ -1,0 +1,32 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle"
+       aria-controls="dropdown-basic">Login/Register</a>
+
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/user/layout/login/">
+          <i class="fas fa-digital-tachograph"></i> &nbsp; Login
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/user/layout/login/login-register/">
+          <i class="fas fa-chart-area"></i> &nbsp; Register
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>

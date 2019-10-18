@@ -1,0 +1,116 @@
+{
+  "name": "InvService",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "InvService"
+    }
+  },
+  "properties": {
+    "inv_service_id": {
+      "type": "number",
+      "id": true
+    },
+    "inv_service_status": {
+      "type": "string"
+    },
+    "inv_service_chk": {
+      "type": "number"
+    },
+    "inv_service_name": {
+      "type": "string"
+    },
+    "inv_service_shortname": {
+      "type": "string"
+    },
+    "inv_service_type": {
+      "type": "string"
+    },
+    "inv_service_use": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    }
+  ],
+  "methods": {}
+}

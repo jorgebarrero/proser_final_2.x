@@ -1,0 +1,122 @@
+{
+  "name": "InvScheduleDay",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "InvScheduleDay"
+    }
+  },
+  "properties": {
+    "inv_scheduleday_id": {
+      "type": "number",
+      "id": true
+    },
+    "inv_schedule_id": {
+      "type": "number"
+    },
+    "inv_scheduleday_weekday": {
+      "type": "number"
+    },
+    "inv_scheduleday_name": {
+      "type": "string"
+    },
+    "inv_scheduleday_start_time": {
+      "type": "string"
+    },
+    "inv_scheduleday_end_time": {
+      "type": "string"
+    },
+    "inv_scheduleday_legal_break": {
+      "type": "string"
+    },
+    "inv_scheduleday_laborday": {
+      "type": "number"
+    },
+    "inv_scheduleday_duration": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "schedule": {
+      "type": "belongsTo",
+      "model": "InvSchedule",
+      "foreignKey": "inv_schedule_id"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": ["READ", "WRITE"]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "accessType": ["READ", "WRITE"]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "create",
+        "deleteById",
+        "findById",
+        "find",
+        "patchAttributes",
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "accessType": ["READ", "WRITE"]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "property": [
+        "create",
+        "deleteById",
+        "findById",
+        "find",
+        "patchAttributes",
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "accessType": ["READ", "WRITE"]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "property": [
+        "create",
+        "deleteById",
+        "findById",
+        "find",
+        "patchAttributes",
+        "replaceById"
+      ]
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ]
+  },
+  "User": {
+    "dataSource": "mysqlProser",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "mysqlProser",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mysqlProser",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mysqlProser",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mysqlProser",
+    "public": false
+  },
+  "Email": {
+    "dataSource": "emailDs"
+  },
+  "Userbase": {
+    "dataSource": "mysqlProser",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": false
+    }
+  }
+}

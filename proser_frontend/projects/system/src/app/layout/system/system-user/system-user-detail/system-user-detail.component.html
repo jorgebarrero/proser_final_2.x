@@ -1,0 +1,460 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<section id="register" class="register" *ngIf="action && show_data">
+  <div class="card mt-3">
+    <div class="card-body">
+      <h3 class="h2 mb-3 font-weight-normal text-center">
+        <!-- {{report_title}} -->
+      </h3>
+
+      <form [formGroup]="registerForm">
+        <div class="register-form">
+          <!-------------------------- FIELD START --------------------------->
+
+
+
+          <!-- id --------------------------------------------- -->
+          <div class="form-group" id="id">
+            <label class="register-label">
+              {{
+              model.fieldInfo('id').text
+            }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.id }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="id" (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.id.errors }" />
+
+            <div *ngIf="f.id.dirty && f.id.errors" class="register-error">
+              <div *ngIf="f.id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+          <!-- firstname --------------------------------------------- -->
+          <div class="form-group" firstname="firstname">
+            <label class="register-label">
+              {{
+                model.fieldInfo('firstname').text
+              }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.firstname }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="firstname" (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalfirstname': f.firstname.errors }" />
+
+            <div *ngIf="f.firstname.dirty && f.firstname.errors"
+                 class="register-error">
+              <div *ngIf="f.firstname.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- lastname --------------------------------------------- -->
+          <div class="form-group" lastname="lastname">
+            <label class="register-label">
+              {{
+              model.fieldInfo('lastname').text
+            }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.lastname }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="lastname" (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.lastname.errors }" />
+
+            <div *ngIf="f.lastname.dirty && f.lastname.errors"
+                 class="register-error">
+              <div *ngIf="f.lastname.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- profile_json --------------------------------------------- -->
+          <div class="form-group" profile_json="profile_json">
+            <label class="register-label">
+              <!-- {{
+                model.fieldInfo('profile_json').text
+              }} -->
+              Perfil
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.profile_json }}</p>
+            </div>
+
+            <div class="form-control register-input">
+              <ng-select [items]="typeList" bindLabel="name"
+                         placeholder="Perfil" [dropdownPosition]="'auto'"
+                         [searchable]="false" [clearable]="false"
+                         [multiple]="false" hideSelected="true"
+                         formControlName="profile_json"
+                         (change)="onRecordJsonChange()"
+                         (change)="onRecordJsonChange()">
+              </ng-select>
+            </div>
+
+            <div *ngIf="f.profile_json.dirty && f.profile_json.errors"
+                 class="register-error">
+              <div *ngIf="f.profile_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- realm --------------------------------------------- -->
+          <div class="form-group" realm="realm">
+            <label class="register-label">
+              {{
+                model.fieldInfo('realm').text
+              }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.realm }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="realm" (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.realm.errors }" />
+
+            <div *ngIf="f.realm.dirty && f.realm.errors" class="register-error">
+              <div *ngIf="f.realm.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- username --------------------------------------------- -->
+          <div class="form-group" username="username">
+            <label class="register-label">
+              {{
+                model.fieldInfo('username').text
+              }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.username }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="username" (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.username.errors }" />
+
+            <div *ngIf="f.username.dirty && f.username.errors"
+                 class="register-error">
+              <div *ngIf="f.username.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- password --------------------------------------------- -->
+          <div class="form-group" password="password">
+            <label class="register-label">
+              {{
+                model.fieldInfo('password').text
+              }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.password }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="password" (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.password.errors }" />
+
+            <div *ngIf="f.password.dirty && f.password.errors"
+                 class="register-error">
+              <div *ngIf="f.password.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- email --------------------------------------------- -->
+          <div class="form-group" email="email">
+            <label class="register-label">
+              {{
+                model.fieldInfo('email').text
+              }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.email }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="email" (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.email.errors }" />
+
+            <div *ngIf="f.email.dirty && f.email.errors" class="register-error">
+              <div *ngIf="f.email.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- emailVerified --------------------------------------------- -->
+          <div class="form-group" emailVerified="emailVerified">
+            <label class="register-label">
+              {{
+                    model.fieldInfo('emailVerified').text
+                  }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.emailVerified }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="emailVerified"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.emailVerified.errors }" />
+
+            <div *ngIf="f.emailVerified.dirty && f.emailVerified.errors"
+                 class="register-error">
+              <div *ngIf="f.emailVerified.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- verificationToken --------------------------------------------- -->
+          <div class="form-group" verificationToken="verificationToken">
+            <label class="register-label">
+              {{
+                  model.fieldInfo('verificationToken').text
+                }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.verificationToken }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="verificationToken"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.verificationToken.errors }" />
+
+            <div *ngIf="f.verificationToken.dirty && f.verificationToken.errors"
+                 class="register-error">
+              <div *ngIf="f.verificationToken.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <!-- memberId --------------------------------------------- -->
+          <div class="form-group" memberId="memberId">
+            <label class="register-label">
+              {{
+                  model.fieldInfo('memberId').text
+                }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.memberId }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="memberId" (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.memberId.errors }" />
+
+            <div *ngIf="f.memberId.dirty && f.memberId.errors"
+                 class="register-error">
+              <div *ngIf="f.memberId.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <!-- user_legal_id --------------------------------------------- -->
+          <div class="form-group" user_legal_id="user_legal_id">
+            <label class="register-label">
+              {{
+                model.fieldInfo('user_legal_id').text
+              }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.user_legal_id }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="user_legal_id"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.user_legal_id.errors }" />
+
+            <div *ngIf="f.user_legal_id.dirty && f.user_legal_id.errors"
+                 class="register-error">
+              <div *ngIf="f.user_legal_id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- user_internal_id --------------------------------------------- -->
+          <div class="form-group" user_internal_id="user_internal_id">
+            <label class="register-label">
+              {{
+                model.fieldInfo('user_internal_id').text
+              }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.user_internal_id }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="user_internal_id"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.user_internal_id.errors }" />
+
+            <div *ngIf="f.user_internal_id.dirty && f.user_internal_id.errors"
+                 class="register-error">
+              <div *ngIf="f.user_internal_id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <!-- user_photo_path --------------------------------------------- -->
+          <div class="form-group" user_photo_path="user_photo_path">
+            <label class="register-label">
+              {{
+                model.fieldInfo('user_photo_path').text
+              }}
+            </label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.user_photo_path }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="user_photo_path"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.user_photo_path.errors }" />
+
+            <div *ngIf="f.user_photo_path.dirty && f.user_photo_path.errors"
+                 class="register-error">
+              <div *ngIf="f.user_photo_path.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-------------------------- FIELD SECTION END --------------------------->
+
+        </div>
+
+
+        <!-------------------------- BUTTONS START --------------------------->
+        <article class="form-group mt-3 mb-0 mr-auto register-button-group">
+          <div>
+            <button type="button" class="btn btn-warning  register-button"
+                    (click)="onCancel()">
+              Cancelar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-secondary  register-button"
+                    *ngIf="action.action === 'newRecord'" (click)="onReset()">
+              Reiniciar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-danger  register-button" *ngIf="
+                action.action === 'editRecord'
+              " (click)="onDelete()">
+              Eliminar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-danger  register-button" *ngIf="
+                action.action === 'editRecord' &&
+                selection.inv_agent_status === 'A'
+              " (click)="onDeactivate()">
+              Desactivar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-primary  register-button"
+                    *ngIf="
+                action.action === 'editRecord' &&
+                selection.inv_agent_status === 'I'
+              " (click)="onReactivate()">
+              Reactivar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-success  register-button"
+                    (click)="onSubmit(registerForm.value)">
+              Guardar
+            </button>
+          </div>
+        </article>
+      </form>
+    </div>
+  </div>
+</section>

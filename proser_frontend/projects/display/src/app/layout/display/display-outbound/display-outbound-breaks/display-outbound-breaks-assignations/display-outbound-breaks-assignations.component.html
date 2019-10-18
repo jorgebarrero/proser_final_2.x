@@ -1,0 +1,24 @@
+<section class="main">
+  <p class="subtitles" *ngIf="rows.agentsAssignationResume[0] !== undefined">
+    Agentes en
+    asignación</p>
+  <section class="indicadores">
+    <article *ngIf="rows.agentsAssignationResume">
+      <ul class="inidcadores-items"
+          *ngFor="let item of rows.agentsAssignationResume">
+        <li class="indicadores-cantidad "
+            (click)="selectLine(assigned, item.id)">
+          {{ item.value }}
+        </li>
+        <li class="indicadores-descripcion "
+            (click)="selectLine(assigned, item.id)">
+          {{ item.name }}
+        </li>
+        <li class="indicadores-porcentaje "
+            (click)="selectLine(assigned, item.id)">
+          {{ item.duration }}
+        </li>
+      </ul>
+    </article>
+  </section>
+</section>

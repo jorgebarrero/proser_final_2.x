@@ -1,0 +1,310 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<section id="register" class="register" *ngIf="action && show_data">
+  <div class="card mt-3">
+    <div class="card-body">
+      <h3 class="h2 mb-3 font-weight-normal text-center">
+        <!-- {{report_title}} -->
+      </h3>
+
+      <form [formGroup]="registerForm">
+        <div class="register-form">
+          <!-------------------------- FIELD START --------------------------->
+
+          <!-- inv_scheduleday_id -->
+          <div class="form-group" id="inv_scheduleday_id">
+            <label class="register-label">{{
+              model.fieldInfo('inv_scheduleday_id').text
+            }}</label>
+
+            <div *ngIf="true">
+              <p class="register-detail">{{ selection.inv_scheduleday_id }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord' && false" type="text"
+                   formControlName="inv_scheduleday_id"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.inv_scheduleday_id.errors }" />
+
+            <div *ngIf="f.inv_scheduleday_id.dirty && f.inv_scheduleday_id.errors"
+                 class="register-error">
+              <div *ngIf="f.inv_scheduleday_id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- inv_schedule_id -->
+          <div class="form-group" id="inv_schedule_id">
+            <label class="register-label">{{
+              model.fieldInfo('inv_schedule_id').text
+            }}</label>
+            <div *ngIf="true">
+              <p class="register-detail">{{ selection.inv_schedule_id }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord' && false" type="text"
+                   formControlName="inv_schedule_id"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input" [ngClass]="{
+                'is-invalid': f.inv_schedule_id.errors
+              }" />
+
+            <div *ngIf="f.inv_schedule_id.dirty && f.inv_schedule_id.errors"
+                 class="register-error">
+              <div *ngIf="f.inv_schedule_id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- inv_scheduleday_weekday -->
+          <div class="form-group" id="inv_scheduleday_weekday">
+            <label class="register-label">{{
+              model.fieldInfo('inv_scheduleday_weekday').text
+            }}</label>
+            <div *ngIf="true">
+              <p class="register-detail">
+                {{ selection.inv_scheduleday_weekday }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord' && false" type="text"
+                   formControlName="inv_scheduleday_weekday"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input"
+                   [ngClass]="{ 'is-invalid': f.inv_scheduleday_weekday.errors }" />
+
+            <div *ngIf="
+                f.inv_scheduleday_weekday.dirty &&
+                f.inv_scheduleday_weekday.errors
+              " class="register-error">
+              <div *ngIf="f.inv_scheduleday_weekday.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- inv_scheduleday_name -->
+          <div class="form-group" id="inv_scheduleday_name">
+            <label class="register-label">{{
+              model.fieldInfo('inv_scheduleday_name').text
+            }}</label>
+            <div *ngIf="true">
+              <p class="register-detail">
+                {{ selection.inv_scheduleday_name }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord' && false" type="text"
+                   formControlName="inv_scheduleday_name"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input"
+                   [ngClass]="{ 'is-invalid': f.inv_scheduleday_name.errors }" />
+
+            <div *ngIf="
+                f.inv_scheduleday_name.dirty && f.inv_scheduleday_name.errors
+              " class="register-error">
+              <div *ngIf="f.inv_scheduleday_name.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- inv_scheduleday_start_time -->
+          <div class="form-group" id="inv_scheduleday_start_time">
+            <label class="register-label">{{
+              model.fieldInfo('inv_scheduleday_start_time').text
+            }}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.inv_scheduleday_start_time }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="inv_scheduleday_start_time"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input"
+                   [ngClass]="{ 'is-invalid': f.inv_scheduleday_start_time.errors }" />
+
+            <div *ngIf="
+                f.inv_scheduleday_start_time.dirty &&
+                f.inv_scheduleday_start_time.errors
+              " class="register-error">
+              <div *ngIf="f.inv_scheduleday_start_time.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+          <!-- inv_scheduleday_end_time -->
+          <div class="form-group" id="inv_scheduleday_end_time">
+            <label class="register-label">{{
+              model.fieldInfo('inv_scheduleday_end_time').text
+            }}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.inv_scheduleday_end_time }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="inv_scheduleday_end_time"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input"
+                   [ngClass]="{ 'is-invalid': f.inv_scheduleday_end_time.errors }" />
+
+            <div *ngIf="
+                f.inv_scheduleday_end_time.dirty &&
+                f.inv_scheduleday_end_time.errors
+              " class="register-error">
+              <div *ngIf="f.inv_scheduleday_end_time.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- inv_scheduleday_legal_break -->
+          <div class="form-group" id="inv_scheduleday_legal_break">
+            <label class="register-label">{{
+              model.fieldInfo('inv_scheduleday_legal_break').text
+            }}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.inv_scheduleday_legal_break }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="inv_scheduleday_legal_break"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input"
+                   [ngClass]="{ 'is-invalid': f.inv_scheduleday_legal_break.errors }" />
+
+            <div *ngIf="
+                f.inv_scheduleday_legal_break.dirty &&
+                f.inv_scheduleday_legal_break.errors
+              " class="register-error">
+              <div *ngIf="f.inv_scheduleday_legal_break.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- inv_scheduleday_laborday -->
+          <div class="form-group" id="inv_scheduleday_laborday">
+            <label class="register-label">{{
+              model.fieldInfo('inv_scheduleday_laborday').text
+            }}</label>
+            <div *ngIf="true">
+              <p class="register-detail">
+                {{ selection.inv_scheduleday_laborday }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord' && false" type="text"
+                   formControlName="inv_scheduleday_laborday"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input"
+                   [ngClass]="{ 'is-invalid': f.inv_scheduleday_laborday.errors }" />
+
+            <div *ngIf="
+                f.inv_scheduleday_laborday.dirty &&
+                f.inv_scheduleday_laborday.errors
+              " class="register-error">
+              <div *ngIf="f.inv_scheduleday_laborday.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- inv_scheduleday_duration -->
+          <div class="form-group" id="inv_scheduleday_duration">
+            <label class="register-label">{{
+              model.fieldInfo('inv_scheduleday_duration').text
+            }}</label>
+            <div *ngIf="true">
+              <p class="register-detail">
+                {{ selection.inv_scheduleday_duration }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord' && false" type="text"
+                   formControlName="inv_scheduleday_duration"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input"
+                   [ngClass]="{ 'is-invalid': f.inv_scheduleday_duration.errors }" />
+
+            <div *ngIf="
+                f.inv_scheduleday_duration.dirty &&
+                f.inv_scheduleday_duration.errors
+              " class="register-error">
+              <div *ngIf="f.inv_scheduleday_duration.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+        </div>
+        <!-------------------------- BUTTONS --------------------------->
+
+        <article class="form-group mt-3 mb-0 mr-auto register-button-group">
+          <div>
+            <button type="button" class="btn btn-warning  register-button"
+                    (click)="onCancel()">
+              Cancelar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-secondary  register-button"
+                    *ngIf="action.action === 'newRecord'" (click)="onReset()">
+              Reiniciar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-danger  register-button" *ngIf="
+                action.action === 'editRecord' &&
+                selection.inv_scheduleday_status === 'I'
+              " (click)="onDelete()">
+              Eliminar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-danger  register-button" *ngIf="
+                action.action === 'editRecord' &&
+                selection.inv_scheduleday_status === 'A'
+              " (click)="onDeactivate()">
+              Desactivar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-primary  register-button"
+                    *ngIf="
+                action.action === 'editRecord' &&
+                selection.inv_scheduleday_status === 'I'
+              " (click)="onReactivate()">
+              Reactivar
+            </button>
+          </div>
+
+          <div *ngIf="
+              registerForm.status === 'VALID' &&
+              action.action !== 'showRecord' 
+            ">
+            <button type="button" class="btn btn-success  register-button"
+                    (click)="onSubmit(registerForm.value)">
+              Guardar
+            </button>
+          </div>
+        </article>
+      </form>
+    </div>
+  </div>
+</section>
+
+&&
+<!-- (!registerForm.pristine || show_submit_button) -->

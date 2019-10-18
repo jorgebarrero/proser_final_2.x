@@ -1,0 +1,5 @@
+http://localhost:3151/api/RoleMappings/findOne?filter=%7B%22where%22%3A%7B%22principalId%22%3A%2217%22%7D%7D&access_token=DIwOpUEPOH8ZxUejywOubLsScZa4cUQZsgr9errBD6SLuQdeIOKpM7SkyFpqm8fY
+
+
+
+http://localhost:3151/api/RoleMappings/findOne?filter=%7B%22where%22%3A%7B%22principalId%22%3A%2217%22%7D%7D&access_token=nztludVNoB0vFzjgxK0zj5yXze7jMTSGbFdAfk9Hdg8PL8lsfa7iyLtMENftzqv9

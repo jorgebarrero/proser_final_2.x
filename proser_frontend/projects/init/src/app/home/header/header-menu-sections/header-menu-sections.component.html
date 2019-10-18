@@ -1,0 +1,75 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle"
+       aria-controls="dropdown-basic">Secciones</a>
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/display/">
+          <fa-icon [icon]="faDigitalTachograph"></fa-icon> &nbsp; Display
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/dashboard/">
+          <fa-icon [icon]="faChartArea"></fa-icon> &nbsp; Dashboard
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/reports/">
+          <fa-icon [icon]="faSwatchbook"></fa-icon>&nbsp; Reportes
+        </a>
+      </li>
+
+
+      <!-- DIVIDER-->
+      <li class="divider dropdown-divider"></li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/crud/" *ngIf="showInMenu >= 5">
+          <fa-icon [icon]="faMarker"></fa-icon>&nbsp; Configuración
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/audit/" *ngIf="showInMenu >= 5">
+          <fa-icon [icon]="faEye"></fa-icon> &nbsp; Auditoría
+        </a>
+      </li>
+
+      <!-- DIVIDER-->
+      <li class="divider dropdown-divider"></li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/system/"
+           *ngIf="showInMenu >= 10">
+          <fa-icon [icon]="faMagic"></fa-icon> &nbsp; Sistema
+        </a>
+      </li>
+
+      <!-- DIVIDER-->
+      <li class="divider dropdown-divider"></li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item" routerLink="/user/">
+          <fa-icon [icon]="faUserTie"></fa-icon> &nbsp; Usuario
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>

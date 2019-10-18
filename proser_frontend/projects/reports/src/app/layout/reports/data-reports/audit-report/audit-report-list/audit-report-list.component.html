@@ -1,0 +1,427 @@
+<div>
+  <app-alert [alertMessage]="alertMessage"></app-alert>
+</div>
+
+<div class="">
+  <app-reports-report-header [userSelection]="userSelection"
+                             [selectorVisibleFields]="selectorVisibleFields"
+                             (returnResult)="onReturnHeaderResult($event)">
+  </app-reports-report-header>
+</div>
+<section class="row button-area report">
+  <!-- ------- BUTTONS -------------------- -->
+
+  <article class=" row mr-auto">
+    <!-- --------------------- -->
+<!--     <div class="buttons">
+      <a (click)="show_columns = !show_columns"
+         class="btn btn-outline-primary">Data adicional</a>
+    </div> -->
+    <!-- --------------------- -->
+    <div class="">
+      <a class="btn btn-outline-primary " (click)="exportToExcel(rows)">
+        Exportar excel
+      </a>
+    </div>
+  </article>
+
+  <!-- ------- FIND FILEDS -------------------- -->
+
+  <app-reports-report-finder [rows]="rows" [rows_original]="rows_original"
+                             [initialSelectedFilterField]="initialSelectedFilterField"
+                             [filterFieldList]="filterFieldList"
+                             (returnNumberOfRowsInTable)="onReturnNumberOfRowsInTable($event)"
+                             (returnRowsForTable)="onReturnRowsForTable($event)">
+  </app-reports-report-finder>
+
+</section>
+
+<section *ngIf="!show">
+    <h1>Obteniendo datos del servidor...</h1>
+  </section>
+
+<section class="report " *ngIf="rows && show">
+  <div>
+    <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'"
+                   [limit]="numberOfRowsInTable.value" [headerHeight]="75"
+                   [footerHeight]="50" [rowHeight]="40" [scrollbarH]="true"
+                   [scrollbarV]="false" [summaryRow]="false"
+                   [summaryHeight]="30" [selectionType]="'single'"
+                   [loadingIndicator]="'Contactando servidor'"
+                   [messages]="{ emptyMessage: 'Sin datos que mostrar' }"
+                   (activate)="onActivate($event, 'selected')"
+                   (select)="onSelect($event)" data-toggle="modal" role="button"
+                   href="#content">
+      <!-- audit_detail buton------------------------------------- -->
+
+      <ngx-datatable-column prop="audit_date" width="50" name="date"
+                            headerClass="header" [summaryFunc]="countAuditDate"
+                            [summaryTemplate]="audit_date" [frozenLeft]="true">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <button class="btn btn-sm btn-primary" (click)="openModal(new)">
+            <i class="fas fa-user-tie"></i>
+          </button>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- audit_date------------------------------------- -->
+
+      <ngx-datatable-column prop="audit_id" width="80" name="date"
+                            headerClass="header" [summaryFunc]="countAuditDate"
+                            [summaryTemplate]="audit_date" [frozenLeft]="true">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('audit_id').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-bold">{{ value }}</p>
+        </ng-template>
+        <ng-template id="audit_date">
+          <p>xxxx</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- audit_date------------------------------------- -->
+
+      <ngx-datatable-column prop="audit_date" width="100" name="date"
+                            headerClass="header" [summaryFunc]="countAuditDate"
+                            [summaryTemplate]="audit_date" [frozenLeft]="true">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            Fecha
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-bold">{{ value | date: "yyyy-MM-dd" }}</p>
+        </ng-template>
+        <ng-template id="audit_date">
+          <p>xxxx</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- inv_agent_name ------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_agent_name" width="150"
+                            [frozenLeft]="true">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Agente
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- audit_break_name------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_break_name" width="200"
+                            [frozenLeft]="true">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Concepto
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- audit_datetime_init------------------------------------- -->
+
+      <ngx-datatable-column prop="audit_datetime_init" width="80">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Inicio
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value | date:"HH:MM:SS"}}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- audit_datetime_end------------------------------------- -->
+
+      <ngx-datatable-column prop="audit_datetime_end" width="80">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Final
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value | date:"HH:MM:SS"}}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+
+      <!-- audit_duration------------------------------------- -->
+
+      <ngx-datatable-column prop="audit_duration" width="80">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Duración
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- audit_duration_sec------------------------------------- -->
+
+      <ngx-datatable-column prop="audit_duration_sec" width="100">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Duración sec
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+
+      <!-- audit_agent_id ------------------------------------- -->
+
+      <ngx-datatable-column prop="audit_agent_id" width="80">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Id Agente
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- inv_agent_legal_id ------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_agent_legal_id" width="100">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Cédula
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- inv_agent_internal_id ------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_agent_internal_id" width="100">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Doc. Interno
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- supervisor ------------------------------------- -->
+
+      <ngx-datatable-column prop="supervisor" width="100">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Supervisor
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- schedule ------------------------------------- -->
+
+      <ngx-datatable-column prop="schedule" width="100">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Turno
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- role ------------------------------------- -->
+
+      <ngx-datatable-column prop="role" width="100">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Rol
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- client ------------------------------------- -->
+
+      <ngx-datatable-column prop="client" width="100">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Cliente
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- queue ------------------------------------- -->
+
+      <ngx-datatable-column prop="queue" width="100">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Cola
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- service ------------------------------------- -->
+
+      <ngx-datatable-column prop="service" width="100">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Servicio
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- campaign ------------------------------------- -->
+
+      <ngx-datatable-column prop="campaign" width="100" *ngIf="show_columns">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Campaña
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- audit_status  ------------------------------------- -->
+
+      <ngx-datatable-column prop="audit_status" width="80" *ngIf="show_columns">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Estatus
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- audit_cdr_queues  ------------------------------------- -->
+
+      <ngx-datatable-column prop="audit_cdr_queues" width="200"
+                            *ngIf="show_columns">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-normal" (click)="sort($event, sortDir, sortFn)">
+            Queues
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal_negro">{{ value }}</p>
+        </ng-template>
+
+        <!-- ********************************* END **************************** -->
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+
+  <hr />
+</section>
+
+<main class="main"></main>
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-full">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <div class="main " id="result" *ngIf="selected">
+    <div class="register">
+      <div class="register-form">
+        <ul class="register-column">
+          <li *ngFor="let item of onObjectToArray(selected)">
+            <div class="two-column">
+              <label class="register-label">{{ item.key }}</label>
+              <p class="register-input">{{ item.value }}</p>
+            </div>
+            <hr />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</ng-template>

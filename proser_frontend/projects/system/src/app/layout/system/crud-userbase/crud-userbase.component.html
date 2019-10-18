@@ -1,0 +1,30 @@
+<app-alert [alertMessage]="crudRecord.alertMessage"></app-alert>
+
+<section class="main">
+  <!-- HEADER -->
+  <div>
+    <app-user-crud-userbase-header [crudRecord]="crudRecord"
+                                   (exportData)="onExport()">
+    </app-user-crud-userbase-header>
+  </div>
+
+  <!-- ********************************************************************************* -->
+
+  <!-- DATATABLE -->
+
+  <div id="datatable" *ngIf="crudRecord.showDatatable">
+    <app-user-crud-userbase-list [crudRecord]="crudRecord"
+                                 (listAnswer)="onListAnswer($event)">
+    </app-user-crud-userbase-list>
+  </div>
+
+
+  <!-- ********************************************************************************* -->
+
+  <!-- INDIVIDUAL RECORD DETAIL -->
+  <div id="individual-record" *ngIf="crudRecord.showDetail">
+    <app-user-crud-userbase-detail [crudRecord]="crudRecord">
+    </app-user-crud-userbase-detail>
+
+  </div>
+</section>

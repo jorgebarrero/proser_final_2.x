@@ -1,0 +1,43 @@
+{
+  "initial:before": {
+    "loopback#favicon": {}
+  },
+  "initial": {
+    "compression": {},
+    "cors": {
+      "params": {
+        "origin": true,
+        "credentials": true,
+        "maxAge": 86400
+      }
+    }
+  },
+  "session": {},
+  "auth": {},
+  "parse": {},
+  "routes": {
+    "loopback#rest": {
+      "paths": ["${restApiRoot}"]
+    }
+  },
+  "files": {
+    "loopback#static": [
+      {
+        "name": "public",
+        "paths": ["/public"],
+        "params": "$!../public"
+      },
+      {
+        "name": "audio",
+        "paths": ["/audio"],
+        "params": "${DESTINY_FILE_PATH}"
+      }
+    ]
+  },
+  "final": {
+    "loopback#urlNotFound": {}
+  },
+  "final:after": {
+    "strong-error-handler": {}
+  }
+}

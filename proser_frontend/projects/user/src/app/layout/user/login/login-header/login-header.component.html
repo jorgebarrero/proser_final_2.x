@@ -1,0 +1,23 @@
+<section>
+  <nav class="navbar navbar-expand-lg navbar-dark configheader-menu">
+    <header-menu-brand></header-menu-brand>
+
+    <a routerLink="/init/home" class="chapter nav-link">Home</a>
+
+    <article class="collapse navbar-collapse" id="navigation">
+
+
+      <!-- ---- LEFT MENU --------- -->
+      <div *ngIf="!currentUser">
+        <app-user-login-header-login>
+        </app-user-login-header-login>
+      </div>
+
+
+      <!-- ---- RIGHT MENU --------- -->
+      <div class="navbar-nav ml-auto">
+        <header-menu-user></header-menu-user>
+      </div>
+    </article>
+  </nav>
+</section>

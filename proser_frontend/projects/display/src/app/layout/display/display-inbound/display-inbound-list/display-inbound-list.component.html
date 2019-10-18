@@ -1,0 +1,119 @@
+<!----------ALERT MESSAGE------------------------- -->
+<div>
+  <app-alert [alertMessage]="alertMessage"></app-alert>
+</div>
+
+<!----------REPORT HEADER------------------------- -->
+<app-display-display-header [userSelection]="userSelection"
+                            [selectorVisibleFields]="selectorVisibleFields"
+                            [timerConnected]="timerConnected"
+                            (returnResult)="onReturnHeaderResult($event)">
+</app-display-display-header>
+
+<section class="main-button">
+    <div>
+      <!-- <button class="btn btn-outline-primary"
+              (click)="onShowGraph()">Gráfico</button>
+      <button class="btn btn-outline-primary"
+              (click)="onShowGroups()">Grupos</button>
+      <button class="btn btn-outline-primary"
+              (click)="onShowHistoric()">{{historicLabel}}</button>
+  
+      <a class="small text-secondary">
+        {{rows.dashboardInboundCallsIndicators[0].now | date: 'medium'}}
+      </a> -->
+    </div>
+    <div class="clock ml-auto">
+      <a>
+        <fa-icon [icon]="faClock"></fa-icon> &nbsp; {{timerConnected}}
+      </a>
+    </div>
+  </section>
+
+
+
+<!-- TODAY -->
+<main class="main" *ngIf="!historic">
+  <!-- HIGHLIGHTS -->
+  <section class="highlights" *ngIf="rows">
+    <article>
+      <!-- <p class="small"> HIGHLIGHTS </p> -->
+      <app-display-inbound-highlights [rows]="rows">
+      </app-display-inbound-highlights>
+    </article>
+  </section>
+
+
+  <section>
+    <div class="board">
+      <article class="pane">
+        <app-display-inbound-calls [rows]="rows"
+                                   [userSelection]="userSelection">
+        </app-display-inbound-calls>
+      </article>
+
+      <article>
+        <app-display-inbound-levels [rows]="rows"
+                                    [userSelection]="userSelection">
+        </app-display-inbound-levels>
+      </article>
+
+      <article>
+        <app-display-inbound-agents [rows]="rows"></app-display-inbound-agents>
+      </article>
+
+      <article>
+        <app-display-inbound-breaks [rows]="rows">
+        </app-display-inbound-breaks>
+      </article>
+    </div>
+  </section>
+</main>
+
+<!-- HISTORIC -->
+<main class="main" *ngIf="historic">
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights" *ngIf="rows">
+    <article>
+      <!-- <p class="small"> HIGHLIGHTS </p> -->
+      <app-display-inbound-highlights-historic [rows]="rows">
+      </app-display-inbound-highlights-historic>
+    </article>
+  </section>
+
+
+  <section>
+    <div class=" board">
+      <article class="pane">
+        <app-display-inbound-calls [rows]="rows"
+                                   [userSelection]="userSelection">
+        </app-display-inbound-calls>
+      </article>
+
+      <article>
+        <app-display-inbound-levels [rows]="rows"
+                                    [userSelection]="userSelection">
+        </app-display-inbound-levels>
+      </article>
+
+      <article>
+        <app-display-display-inbound-agents-historic [rows]="rows">
+        </app-display-display-inbound-agents-historic>
+      </article>
+
+      <article>
+        <app-display-display-inbound-breaks-historic [rows]="rows">
+        </app-display-display-inbound-breaks-historic>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<section class="info">
+  <p class="very-small">
+    Última actualización:
+    {{rows.displayInboundCallsIndicators[0].now | date: 'medium'}}
+  </p>
+</section>

@@ -1,0 +1,29 @@
+<article class="row ml-1">
+  <ng-select class=" agent-box submenu-field mr-1" [items]="filterFieldList"
+             bindLabel="text" [clearable]="false" [dropdownPosition]="'bottom'"
+             hideSelected="true" [(ngModel)]="selectedFilterField"
+             placeholder="items-">
+
+    <ng-template ng-option-tmp let-item="item">
+      <div title="{{item.text}}">{{item.text}}</div>
+    </ng-template>
+
+  </ng-select>
+
+  <!-- --------------------- -->
+
+  <input type="text" class=" agent-box submenu-field ml-1"
+         placeholder="Buscar..." [(ngModel)]="findInList"
+         (keyup)="onUpdateFilter(findInList)" />
+
+  <!-- --------------------- -->
+
+  <ng-select class=" agent-box ml-1" [items]="listOfRowsInTable"
+             bindLabel="name" [clearable]="false" [dropdownPosition]="'bottom'"
+             hideSelected="true" [(ngModel)]="numberOfRowsInTable"
+             placeholder="lineas-"
+             (change)="onChangeNumberOfRowsInTable($event)">
+  </ng-select>
+
+  <!-- --------------------- -->
+</article>

@@ -1,0 +1,65 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle"
+       aria-controls="dropdown-basic">General</a>
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-show-display/menu">
+          <fa-icon [icon]="faLaptop"></fa-icon> &nbsp; Display
+        </a>
+      </li>
+
+      <div class="dropdown-divider"></div>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-aux-color/menu">
+          <fa-icon [icon]="faPalette"></fa-icon> &nbsp; Colores
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-aux-hour/menu">
+          <fa-icon [icon]="faClock"></fa-icon> &nbsp; Horas
+        </a>
+      </li>
+
+      <div class="dropdown-divider"></div>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-aux-interval/menu">
+          <fa-icon [icon]="faList"></fa-icon> &nbsp; Intervalos
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-aux-line/menu">
+          <fa-icon [icon]="faStream"></fa-icon> &nbsp; Líneas
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>

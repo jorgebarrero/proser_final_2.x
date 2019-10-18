@@ -1,0 +1,61 @@
+{
+  "name": "ProScheduleChange",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "pro_schedulechange_id": {
+      "type": "number",
+      "required": true
+    },
+    "pro_schedulechange_agent_serial_id": {
+      "type": "string"
+    },
+    "pro_schedulechange_agent_id": {
+      "type": "string"
+    },
+    "pro_schedulechange_agent_name": {
+      "type": "string"
+    },
+    "pro_schedulechange_start_date": {
+      "type": "string"
+    },
+    "pro_schedulechange_end_date": {
+      "type": "string"
+    },
+    "pro_schedulechange_start_time": {
+      "type": "string"
+    },
+    "pro_schedulechange_end_time": {
+      "type": "string"
+    },
+    "pro_schedulechange_type": {
+      "type": "string"
+    },
+    "pro_schedulechange_supervisor_id": {
+      "type": "string"
+    },
+    "pro_schedulechange_description": {
+      "type": "string"
+    },
+    "__JSON__": {
+      "type": "string"
+    },
+    "pro_schedulechange_people_json": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

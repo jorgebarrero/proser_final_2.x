@@ -1,0 +1,87 @@
+{
+  "name": "RealCallEntry",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "RealCallEntry"
+    }
+  },
+  "properties": {
+    "callentry_id": {
+      "type": "number",
+      "id": 1,
+      "required": true
+    },
+    "callentry_agent_id": {
+      "type": "number",
+      "required": true
+    },
+    "callentry_queue_id": {
+      "type": "number",
+      "required": true
+    },
+    "callentry_contact_id": {
+      "type": "number",
+      "required": true
+    },
+    "callentry_callerid": {
+      "type": "string",
+      "required": true
+    },
+    "callentry_datetime_init": {
+      "type": "string",
+      "required": true
+    },
+    "callentry_datetime_end": {
+      "type": "string",
+      "required": true
+    },
+    "callentry_duration_sec": {
+      "type": "number",
+      "required": true
+    },
+    "callentry_status": {
+      "type": "string",
+      "required": true
+    },
+    "callentry_transfer": {
+      "type": "string",
+      "required": true
+    },
+    "callentry_datetime_entry_queue": {
+      "type": "string",
+      "required": true
+    },
+    "callentry_duration_wait_sec": {
+      "type": "number",
+      "required": true
+    },
+    "callentry_uniqueid": {
+      "type": "string",
+      "required": true
+    },
+    "callentry_campaign_id": {
+      "type": "number",
+      "required": true
+    },
+    "callentry_trunk": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

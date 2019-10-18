@@ -1,0 +1,86 @@
+<section id="intro" class="container intro">
+  <div class="intro-header intro-container">
+    <div class="intro-logo ">
+      <a href="{{ env.callcenterSlogan }}" target="blank">
+        <img src="{{ env.callcenterLogo }}" class="img-fluid" />
+      </a>
+    </div>
+    <div>
+      <h1 class="display-3 mb-0">Componente</h1>
+      <h2 class="display-5 mt-0">{{ env.callcenterSlogan }}</h2>
+      <h5 class="display-5">{{ env.callcenterName }} - {{ env.version }}</h5>
+    </div>
+  </div>
+</section>
+
+<section id="photo" class="photo-container">
+  <div class="photo-grid">
+    <div>
+      <div class="card card-primary">
+        <div class="card-header">
+          <div class="header-block">
+            <p class="index-title">
+              Servicios Entrantes
+            </p>
+          </div>
+        </div>
+        <div>
+          <a routerLink="/" [routerLinkActive]="['active']">
+            <img src="assets/img/intro/portada-01.jpg" class="img-fluid" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card card-primary">
+        <div class="card-header">
+          <div class="header-block">
+            <p class="index-title">
+              Salientes Automáticos
+            </p>
+          </div>
+        </div>
+        <div>
+          <a routerLink="/" [routerLinkActive]="['active']">
+            <img src="assets/img/intro/portada-02.jpg" class="img-fluid" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card card-primary">
+        <div class="card-header">
+          <div class="header-block">
+            <p class="index-title">
+              Salientes Manuales
+            </p>
+          </div>
+        </div>
+        <div>
+          <a routerLink="/" [routerLinkActive]="['active']">
+            <img src="assets/img/intro/portada-03.jpg" class="img-fluid" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card card-primary">
+        <div class="card-header">
+          <div class="header-block">
+            <p class="index-title">
+              Gestion de personal
+            </p>
+          </div>
+        </div>
+        <div>
+          <a routerLink="/" [routerLinkActive]="['active']">
+            <img src="assets/img/intro/portada-04.jpg" class="img-fluid" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

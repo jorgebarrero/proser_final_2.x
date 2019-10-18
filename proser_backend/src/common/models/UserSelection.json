@@ -1,0 +1,136 @@
+{
+  "name": "UserSelection",
+  "base": "Model",
+  "idInjection": true,
+  "properties": {
+    "title": {
+      "type": "any"
+    },
+    "entity_selection": {
+      "type": "any",
+      "required": true
+    },
+    "options": {
+      "type": "any",
+      "required": true
+    },
+    "legend": {
+      "type": "any",
+      "required": true
+    },
+    "mode": {
+      "type": "any",
+      "required": true
+    },
+    "type": {
+      "type": "any",
+      "required": true
+    },
+    "start_date": {
+      "type": "any",
+      "required": true
+    },
+    "end_date": {
+      "type": "any",
+      "required": true
+    },
+    "start_time": {
+      "type": "any",
+      "required": true
+    },
+    "end_time": {
+      "type": "any",
+      "required": true
+    },
+    "login": {
+      "type": "any",
+      "required": true
+    },
+    "auxiliar": {
+      "type": "any",
+      "required": true
+    },
+    "assignation": {
+      "type": "any",
+      "required": true
+    },
+    "client": {
+      "type": "any",
+      "required": true
+    },
+    "queue": {
+      "type": "any",
+      "required": true
+    },
+    "service": {
+      "type": "any",
+      "required": true
+    },
+    "campaign": {
+      "type": "any",
+      "required": true
+    },
+    "supervisor": {
+      "type": "any",
+      "required": true
+    },
+    "agent": {
+      "type": "any",
+      "required": true
+    },
+    "role": {
+      "type": "any",
+      "required": true
+    },
+    "schedule": {
+      "type": "any",
+      "required": true
+    },
+    "last_minutes": {
+      "type": "any",
+      "required": true
+    },
+    "interval": {
+      "type": "any",
+      "required": true
+    },
+    "groupBy": {
+      "type": "any",
+      "required": true
+    },
+    "orderBy": {
+      "type": "any",
+      "required": true
+    },
+    "limitBy": {
+      "type": "any",
+      "required": true
+    },
+    "status": {
+      "type": "any",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "projects": {
+      "type": "hasMany",
+      "model": "project",
+      "foreignKey": "ownerId"
+    },
+    "teams": {
+      "type": "hasMany",
+      "model": "team",
+      "foreignKey": "ownerId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "now-date.component.scss"
+    ],
+    "names": [],
+    "file": "now-date.component.css"
+}

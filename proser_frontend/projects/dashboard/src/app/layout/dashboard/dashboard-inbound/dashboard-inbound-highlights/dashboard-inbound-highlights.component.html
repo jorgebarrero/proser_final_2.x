@@ -1,0 +1,191 @@
+<main class="grid" *ngIf="rows">
+
+  <!-- LEVELS -->
+
+
+  <!-- Nivel de servicio -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].inboundServiceLevel}} indicator-pointer"
+         *ngIf="rows.colors"
+         (click)="openDetailModal(new, 'inboundServiceLevel') ">
+      <!-- <div class="indicator-cell "> -->
+      <p class="indicator-label">Nivel de
+        servicio</p>
+      <p class="indicator-note">Base cálculo =
+        {{rows.dashboardInboundCallsIndicators[0].idealResponseTime}}"</p>
+      <p class="indicator-number ">
+        {{
+            rows.dashboardInboundCallsIndicators[0]
+              .inboundServiceLevel | percent: "1.2-2"
+          }}
+      </p>
+    </div>
+
+  </article>
+
+
+  <!-- Nivel de atención -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].inboundAttentionLevel}} indicator-pointer"
+         *ngIf="rows.colors"
+         (click)="openDetailModal(new, 'inboundAttentionLevel') ">
+      <p class="indicator-label">Nivel de atención</p>
+      <p class="indicator-number ">
+        {{
+              rows.dashboardInboundCallsIndicators[0]
+                .inboundAttentionLevel | percent: "1.2-2"
+            }}
+    </div>
+  </article>
+
+
+  <!-- CALLS -->
+
+
+  <!-- Llamadas en cola -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].callsOnQueue}} indicator-pointer"
+         *ngIf="rows.colors"
+         (click)="openDetailModal(currentCalls, 'en-cola') ">
+      <p class="indicator-label">Llamadas<br />en cola</p>
+      <p class="indicator-number ">
+        {{
+          rows.dashboardInboundCurrentCallsInicators[0]
+                .callsOnQueue
+            }}
+      </p>
+    </div>
+  </article>
+
+
+  <!-- Llamadas activas -->
+  <article class=" frame">
+    <div class="indicator-cell indicator-pointer"
+         (click)="openDetailModal(currentCalls, 'activa') ">
+      <p class="indicator-label">Llamadas<br />activas</p>
+      <p class="indicator-number ">
+        {{
+                      rows.dashboardInboundCurrentCallsInicators[0]
+                        .callsActive
+                    }}
+      </p>
+    </div>
+  </article>
+
+
+  <!-- GRAY INDICATORS -->
+
+
+  <!-- Agentes planificados -->
+  <article class=" frame">
+    <div class="indicator-cell gray ">
+      <p class="indicator-label">Agentes<br />planificados</p>
+      <p class="indicator-number ">
+        {{
+                      rows.agentsPlannedTotal[0]
+                        .agentsPlannedTotal
+                    }}
+      </p>
+    </div>
+  </article>
+
+
+  <!-- Agentes conectados -->
+  <article class="frame">
+    <div class="indicator-cell gray indicator-pointer"
+         (click)="openDetailModal(currentAgents, 'conectado') ">
+      <p class="indicator-label">Agentes<br />conectados</p>
+      <p class="indicator-number ">
+        {{
+                  rows.agentsConnectedTotal[0]
+                    .agentsConnectedTotal
+                }}
+      </p>
+    </div>
+  </article>
+
+  <!-- Agentes efectivos -->
+  <article class="frame">
+    <div class="indicator-cell gray indicator-pointer"
+         (click)="openDetailModal(currentAgents, 'efectivo') ">
+      <p class="indicator-label">Agentes<br />efectivos</p>
+      <p class="indicator-number ">
+        {{
+                  rows.agentsConnectedTotal[0]
+                    .agentsEffectiveTotal
+                }}
+      </p>
+    </div>
+  </article>
+
+  <!-- TMO -->
+  <article class="frame">
+    <div class="indicator-cell gray indicator-pointer"
+         (click)="openDetailModal(new, 'inboundTmo') ">
+      <p class="indicator-label">TMO</p>
+      <p class="indicator-number ">
+        {{
+                  rows.dashboardInboundCallsIndicators[0]
+                    .inboundTmo | number: "1.0-0"
+                }}
+      </p>
+    </div>
+  </article>
+
+
+</main>
+
+<!-- 
+<button (click)="openDetailModal(new, 'inboundServiceLevel') ">new</button>
+<button
+        (click)="openDetailModal(currentCalls, 'en-cola') ">currentCalls</button> -->
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-inbound-modal-text [argument]="argument"
+                                              [rows]="rows"
+                                              (closeModal)="onCloseModal()">
+  </app-dashboard-dashboard-inbound-modal-text>
+
+</ng-template>
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #currentCalls class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-inbound-modal-currentcalls [modalView]="modalView">
+  </app-dashboard-dashboard-inbound-modal-currentcalls>
+
+</ng-template>
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #currentAgents class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-inbound-modal-agents [modalView]="modalView"
+                                                (closeModal)="onCloseModal()">
+  </app-dashboard-dashboard-inbound-modal-agents>
+
+</ng-template>

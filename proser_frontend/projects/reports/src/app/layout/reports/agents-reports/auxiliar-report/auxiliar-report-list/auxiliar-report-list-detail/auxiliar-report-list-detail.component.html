@@ -1,0 +1,278 @@
+<div class="main " id="result" *ngIf="selected">
+  <div class="register">
+    <div class="register-form">
+
+      <ngx-datatable class="material" [rows]="rows_detail"
+                     [columnMode]="'force'" [limit]="10" [headerHeight]="40"
+                     [footerHeight]="50" [rowHeight]="40" [scrollbarH]="true"
+                     [scrollbarV]="false" [summaryRow]="true"
+                     [summaryHeight]="40" [selectionType]="'single'"
+                     [loadingIndicator]="'Contactando servidor'"
+                     [messages]="{ emptyMessage: 'Sin datos que mostrar' }"
+                     (activate)="onActivate($event)" (select)="onSelect($event)"
+                     data-toggle="modal" role="button" href="#content">
+
+        <!------------------------------------------------- -->
+        <!-- record_id------------------------------------- -->
+
+        <ngx-datatable-column prop="record_id" width="75" name="record_id"
+                              [frozenLeft]="true">
+
+          <ng-template let-column="column" let-sort="sortFn"
+                       let-sortDir="sortDir" ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('record_id').text}}
+            </p>
+          </ng-template>
+
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value }}</p>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <!------------------------------------------------- -->
+        <!-- agent_id------------------------------------- -->
+
+        <ngx-datatable-column prop="agent_id" width="75" name="agent_id"
+                              [frozenLeft]="true">
+
+          <ng-template let-column="column" let-sort="sortFn"
+                       let-sortDir="sortDir" ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('agent_id').text}}
+            </p>
+          </ng-template>
+
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value }}</p>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <!------------------------------------------------- -->
+        <!-- connected------------------------------------- -->
+        <ngx-datatable-column prop="connected" width="20" name="connected"
+                              [frozenLeft]="true">
+
+          <ng-template let-column=" column" let-sort="sortFn"
+                       let-sortDir="sortDir" ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('connected').text}}
+            </p>
+          </ng-template>
+
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p data-toggle="tooltip" title="{{ value }}">
+              <i class="fas fa-user {{ value }} "></i>
+            </p>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <!-- previous_day------------------------------------- -->
+        <!-- <ngx-datatable-column prop="previous_day" width="20" name="previous_day"
+                 [frozenLeft]="true"
+                 [summaryTemplate]="previous_day">
+
+<ng-template let-column="column" let-sort="sortFn"
+          let-sortDir="sortDir" ngx-datatable-header-template>
+<p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+ {{model.fieldInfo('previous_day').text}}
+</p>
+</ng-template>
+
+<ng-template let-value="value" ngx-datatable-cell-template>
+<p class="left-black-normal">{{ value }}</p>
+</ng-template>
+
+<ng-template #previous_day>
+<p class="left-black-bold">{{rows_total[0].previous_day}}</p>
+</ng-template>
+
+</ngx-datatable-column> -->
+
+
+        <!------------------------------------------------- -->
+        <!-- agent_name------------------------------------- -->
+
+        <ngx-datatable-column prop="agent_name" width="200" name="agent_name"
+                              [frozenLeft]="true">
+
+          <ng-template let-column="column" let-sort="sortFn"
+                       let-sortDir="sortDir" ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('agent_name').text}}
+            </p>
+          </ng-template>
+
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value }}</p>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <!------------------------------------------------- -->
+        <!-- break_name------------------------------------- -->
+
+        <ngx-datatable-column prop="break_name" width="200" name="break_name"
+                              [frozenLeft]="true">
+
+          <ng-template let-column="column" let-sort="sortFn"
+                       let-sortDir="sortDir" ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('break_name').text}}
+            </p>
+          </ng-template>
+
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value }}</p>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <!------------------------------------------------- -->
+        <!-- duration_time------------------------------------- -->
+
+        <ngx-datatable-column prop="duration_time" width="100"
+                              name="duration_time"
+                              [summaryTemplate]="duration_time">
+
+          <ng-template let-column="column" let-sort="sortFn"
+                       let-sortDir="sortDir" ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('duration_time').text}}
+            </p>
+          </ng-template>
+
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value }}</p>
+          </ng-template>
+
+          <ng-template #duration_time>
+            <p class="left-black-bold">{{rows_detail_total[0].duration_time}}
+            </p>
+          </ng-template>
+
+        </ngx-datatable-column>
+
+        <!------------------------------------------------- -->
+        <!-- duration_time_secs------------------------------------- -->
+        <ngx-datatable-column prop="duration_time_secs" width="100"
+                              name="duration_time_secs"
+                              [summaryTemplate]="duration_time_secs">
+
+          <ng-template let-column="column" let-sort="sortFn"
+                       let-sortDir="sortDir" ngx-datatable-header-template>
+            <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('duration_time_secs').text  }}
+            </p>
+          </ng-template>
+
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="right-black-normal">{{ value | number: "1.0-0" }}</p>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ng-template #duration_time_secs>
+          <p class="right-black-bold">
+            {{rows_detail_total[0].duration_time_secs | number: "1.0-0"}}</p>
+        </ng-template>
+
+        <!------------------------------------------------- -->
+        <!-- min_date------------------------------------- -->
+
+        <ngx-datatable-column prop="min_date" width="100" name="min_date"
+                              [summaryTemplate]="min_date">
+
+          <ng-template let-column="column" let-sort="sortFn"
+                       let-sortDir="sortDir" ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('min_date').text}}
+            </p>
+          </ng-template>
+
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value | date: "yyyy-MM-dd" }}</p>
+          </ng-template>
+
+          <ng-template #min_date>
+            <p class="left-black-bold">
+              {{rows_detail_total[0].min_date | date: "yyyy-MM-dd"}}
+            </p>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <!------------------------------------------------- -->
+        <!-- max_date------------------------------------- -->
+
+        <ngx-datatable-column prop="max_date" width="100" name="max_date"
+                              [summaryTemplate]="max_date">
+
+          <ng-template let-column="column" let-sort="sortFn"
+                       let-sortDir="sortDir" ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('max_date').text}}
+            </p>
+          </ng-template>
+
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value | date: "yyyy-MM-dd" }}</p>
+          </ng-template>
+
+          <ng-template #max_date>
+            <p class="left-black-bold">
+              {{rows_detail_total[0].max_date | date: "yyyy-MM-dd"}}
+            </p>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <!------------------------------------------------- -->
+        <!-- start_time------------------------------------- -->
+
+        <ngx-datatable-column prop="start_time" width="100" name="start_time"
+                              [summaryTemplate]="start_time">
+
+          <ng-template let-column="column" let-sort="sortFn"
+                       let-sortDir="sortDir" ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('start_time').text}}
+            </p>
+          </ng-template>
+
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value }}</p>
+          </ng-template>
+
+          <ng-template #start_time>
+            <p class="left-black-bold">{{rows_detail_total[0].start_time}}
+            </p>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <!------------------------------------------------- -->
+        <!-- end_time------------------------------------- -->
+
+        <ngx-datatable-column prop="end_time" width="100" name="end_time"
+                              [summaryTemplate]="end_time">
+
+          <ng-template let-column="column" let-sort="sortFn"
+                       let-sortDir="sortDir" ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('end_time').text}}
+            </p>
+          </ng-template>
+
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value  }}</p>
+          </ng-template>
+
+          <ng-template #end_time>
+            <p class="left-black-bold">{{rows_detail_total[0].end_time}}
+            </p>
+          </ng-template>
+        </ngx-datatable-column>
+
+
+
+        <!-- ********************************* END **************************** -->
+      </ngx-datatable>
+
+    </div>
+  </div>
+</div>

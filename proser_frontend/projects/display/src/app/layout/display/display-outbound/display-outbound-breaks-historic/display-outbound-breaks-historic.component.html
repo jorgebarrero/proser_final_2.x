@@ -1,0 +1,18 @@
+<main class="frame">
+  <section>
+    <p class="subtitles"
+       *ngIf="rows.agentsHistoricAssignationResume[0] === undefined && rows.agentsHistoricBreakResume[0] === undefined">
+      Auxiliares</p>
+    <!-- AUXILIAR -->
+    <article>
+      <app-display-display-outbound-breaks-auxiliar-historic [rows]="rows">
+      </app-display-display-outbound-breaks-auxiliar-historic>
+    </article>
+
+    <!-- ASSIGNATION -->
+    <article>
+      <app-display-display-outbound-breaks-assignations-historic [rows]="rows">
+      </app-display-display-outbound-breaks-assignations-historic>
+    </article>
+  </section>
+</main>

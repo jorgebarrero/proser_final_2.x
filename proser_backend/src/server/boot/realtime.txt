@@ -1,0 +1,12 @@
+var es = require("event-stream");
+module.exports = function(app) {
+  var AuxColor = app.models.AuxColor;
+
+  AuxColor.createChangeStream(function(err, changes) {
+    changes.pipe(es.stringify()).pipe(process.stdout);
+  });
+
+  AuxColor.create({
+    foo: "bar"
+  });
+};

@@ -1,0 +1,25 @@
+.layout {
+  margin-top: 20px;
+}
+
+.button-layout {
+  margin-top: 20px;
+  display: flex;
+}
+
+.button-text {
+  font-size: 1rem;
+  margin-top: 20px;
+  margin-right: 5px;
+}
+
+.monospaced {
+  margin-top: 20px;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.strong {
+  font-weight: 600;
+  color: rgb(46, 46, 133);
+}

@@ -1,0 +1,15 @@
+column_name
+queuelog_id
+queuelog_time
+queuelog_uniqueid
+queuelog_queuename
+queuelog_agent
+queuelog_event
+queuelog_data
+queuelog_data1
+queuelog_data2
+queuelog_data3
+queuelog_data4
+queuelog_data5
+queuelog_created
+queuelog_date

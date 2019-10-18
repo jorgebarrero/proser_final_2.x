@@ -1,0 +1,208 @@
+@import "projects/reports/src/app/shared/styles/datatable/datatable";
+
+.button-area {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 1rem;
+}
+
+.btn {
+  font-size: 1rem;
+  margin-right: 3px;
+}
+
+.submenu-btn {
+  font-size: 1rem;
+  margin-right: 3px;
+}
+.submenu-field {
+  width: 40%;
+}
+
+.report {
+  margin: 20px;
+}
+
+.agent-box {
+  font-size: 0.9rem;
+}
+
+.mycontainer {
+  padding: 0;
+  margin: 10px;
+}
+
+.subtiulo {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+
+.small_tittle {
+  font-size: 0.8rem;
+  color: grey;
+}
+
+.botonera {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-area {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.alerta {
+  background: #fff3cd;
+  color: 856404;
+}
+
+.identificacion-reporte {
+  h2 {
+    font-size: 2em;
+  }
+
+  h5 {
+    font-size: 0.9em;
+  }
+}
+
+.indicadores {
+  h4 {
+    font-size: 0.9em;
+    margin-top: 1em;
+    font-weight: 800;
+    text-align: right;
+  }
+
+  .btn {
+    font-size: 2em;
+    text-align: right;
+    color: white;
+  }
+
+  .row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.table {
+  font-size: 0.8em;
+  tr {
+    line-height: 25px;
+    min-height: 25px;
+    height: 25px;
+  }
+  .numero {
+    font-size: 1.8em;
+    font-weight: 800;
+    text-align: right;
+  }
+}
+
+.tablas {
+  h4 {
+    background: #adb5bd;
+    padding: 5px;
+    font-size: 0.9em;
+    margin-top: 1em;
+    font-weight: 800;
+    text-align: center;
+  }
+}
+
+.panel {
+  h4 {
+    margin-top: 1em;
+    font-size: 1.2em;
+  }
+}
+
+.table-column ::ng-deep {
+  background: none;
+}
+
+.table-column:hover ::ng-deep {
+  background: none;
+}
+
+.table-column .right-black-normal {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.si-conectado {
+  color: green;
+}
+
+.no-conectado {
+  color: red;
+}
+
+.detail-button {
+  color: blue;
+}
+
+.detail-button:hover {
+  color: yellow;
+}
+
+.celda_derecha_azul {
+  color: blue;
+  text-align: right;
+}
+
+.celda_derecha_verde {
+  color: darkgreen;
+  text-align: right;
+}
+
+.celda_derecha_gris {
+  color: orangered;
+  text-align: right;
+}
+
+.celda_derecha_rojo {
+  color: red;
+  text-align: right;
+}
+
+.celda_derecha_negro {
+  color: rgb(51, 50, 50);
+  text-align: right;
+}
+
+.celda_derecha {
+  color: black;
+  text-align: right;
+}
+
+.left-black-bold {
+  color: black;
+  text-align: left;
+  font-weight: 600;
+}
+
+.left-black-normal {
+  color: black;
+  text-align: left;
+}
+
+.right-black-bold {
+  color: black;
+  text-decoration: none;
+  text-align: right;
+  font-weight: 600;
+}
+
+.right-black-normal {
+  color: black !important;
+  text-align: right !important;
+}

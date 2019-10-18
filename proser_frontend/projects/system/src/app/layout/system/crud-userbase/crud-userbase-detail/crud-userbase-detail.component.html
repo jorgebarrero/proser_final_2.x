@@ -1,0 +1,418 @@
+<!-- <app-alert [alertMessage]="crudRecord.alertMessage"></app-alert> -->
+
+<section id="register" class="register" *ngIf="true">
+
+  <div class=" card mt-3">
+    <div class="card-body">
+      <h3 class="h2 mb-3 font-weight-normal text-center">
+        {{crudRecord.title}}
+      </h3>
+
+      <form [formGroup]="registerForm">
+        <div class="register-form">
+          <!-------------------------- FIELD START --------------------------->
+
+
+
+          <!-- id --------------------------------------------- -->
+          <div class="form-group" id="id">
+            <label class="register-label">
+              {{
+              crudRecord.model.fieldInfo('id').text
+            }}
+            </label>
+
+            <div *ngIf="true">
+              <p class="register-detail">{{ crudRecord.currentRecord.id }}</p>
+            </div>
+            <input *ngIf="false" type="text" formControlName="id"
+                   (change)="onRecordChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.id.errors }" />
+
+            <div *ngIf="f.id.dirty && f.id.errors" class="register-error">
+              <div *ngIf="f.id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- firstname --------------------------------------------- -->
+          <div class="form-group" firstname="firstname">
+            <label class="register-label">
+              {{crudRecord.model.fieldInfo('firstname').text}}
+            </label>
+
+            <div *ngIf="crudRecord.action === 'view'">
+              <p class="register-detail">
+                {{ crudRecord.currentRecord.firstname }}
+              </p>
+            </div>
+            <input *ngIf="crudRecord.action === 'edit' || crudRecord.action === 'new'"
+                   type="text" formControlName="firstname"
+                   (change)="onRecordChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.firstname.errors }" />
+
+            <div *ngIf="f.firstname.dirty && f.firstname.errors"
+                 class="register-error">
+              <div *ngIf="f.firstname.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+          <!-- lastname --------------------------------------------- -->
+          <div class="form-group" lastname="lastname">
+            <label class="register-label">
+              {{crudRecord.model.fieldInfo('lastname').text}}
+            </label>
+
+            <div *ngIf="crudRecord.action === 'view'">
+              <p class="register-detail">{{ crudRecord.currentRecord.lastname }}
+              </p>
+            </div>
+            <input *ngIf="crudRecord.action === 'edit' || crudRecord.action === 'new'"
+                   type="text" formControlName="lastname"
+                   (change)="onRecordChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.lastname.errors }" />
+
+            <div *ngIf="f.lastname.dirty && f.lastname.errors"
+                 class="register-error">
+              <div *ngIf="f.lastname.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- username --------------------------------------------- -->
+          <div class="form-group" username="username">
+            <label class="register-label">
+              {{crudRecord.model.fieldInfo('username').text}}
+            </label>
+
+            <div *ngIf="crudRecord.action === 'view'">
+              <p class="register-detail">{{ crudRecord.currentRecord.username }}
+              </p>
+            </div>
+            <input *ngIf="crudRecord.action === 'edit' || crudRecord.action === 'new'"
+                   type="text" formControlName="username"
+                   (change)="onRecordChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.username.errors }" />
+            <div *ngIf="f.username.dirty && f.username.errors"
+                 class="register-error">
+
+              <div *ngIf="f.username.errors.required">Usuario es
+                obligatorios</div>
+              <div *ngIf="f.username.errors.minlength">El usuario debe
+                tener al menos 6 caracteres</div>
+            </div>
+          </div>
+
+
+
+
+          <!-- password --------------------------------------------- -->
+          <div class="form-group" password="password">
+            <label class="register-label">
+              {{crudRecord.model.fieldInfo('password').text}}
+            </label>
+
+            <div *ngIf="crudRecord.action === 'view'">
+              <p class="register-detail">{{ crudRecord.currentRecord.password }}
+              </p>
+            </div>
+            <input *ngIf="crudRecord.action === 'edit' || crudRecord.action === 'new'"
+                   type="text" formControlName="password"
+                   (change)="onRecordChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.password.errors }" />
+
+            <div *ngIf="f.password.dirty && f.password.errors"
+                 class="register-error">
+              <div *ngIf="f.password.errors.required">La clave es
+                obligatoria</div>
+              <div *ngIf="f.password.errors.minlength">La clave debe
+                tener al menos 6 caracteres</div>
+            </div>
+          </div>
+
+
+          <!-- confirmPassword --------------------------------------------- -->
+          <div class="form-group" confirmPassword="confirmPassword">
+            <label class="register-label">
+              {{crudRecord.model.fieldInfo('confirmPassword').text}}
+            </label>
+
+            <div *ngIf="crudRecord.action === 'view'">
+              <p class="register-detail">
+                {{ crudRecord.currentRecord.confirmPassword }}
+              </p>
+            </div>
+            <input *ngIf="crudRecord.action === 'edit' || crudRecord.action === 'new'"
+                   type="text" formControlName="confirmPassword"
+                   (change)="onRecordChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.confirmPassword.errors }" />
+
+            <div *ngIf="f.confirmPassword.dirty && f.confirmPassword.errors"
+                 class="register-error">
+              <div *ngIf="f.confirmPassword.errors.required">La
+                confirmación de la clave es obligatoria</div>
+              <div *ngIf="f.confirmPassword.errors.mustMatch">Las claves
+                deben coincidir</div>
+            </div>
+          </div>
+
+
+
+
+          <!-- email --------------------------------------------- -->
+          <div class="form-group" email="email">
+            <label class="register-label">
+              {{crudRecord.model.fieldInfo('email').text}}
+            </label>
+
+            <div *ngIf="crudRecord.action === 'view'">
+              <p class="register-detail">{{ crudRecord.currentRecord.email }}
+              </p>
+            </div>
+            <input *ngIf="crudRecord.action === 'edit' || crudRecord.action === 'new'"
+                   type="text" formControlName="email"
+                   (change)="onRecordChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.email.errors }" />
+
+            <div *ngIf="f.email.dirty && f.email.errors" class="register-error">
+
+              <div *ngIf="f.email.errors.required">Email es obligatorio
+              </div>
+              <div *ngIf="f.email.errors.email">Email debe ser una
+                direccion de correo válida</div>
+            </div>
+          </div>
+
+
+          <!-- memberId --------------------------------------------- -->
+          <div class="form-group" memberId="memberId">
+            <label class="register-label">
+              {{crudRecord.model.fieldInfo('memberId').text}}
+            </label>
+
+            <div *ngIf="crudRecord.action === 'view'">
+              <p class="register-detail">{{ crudRecord.currentRecord.memberId }}
+              </p>
+            </div>
+            <input *ngIf="crudRecord.action === 'edit' || crudRecord.action === 'new'"
+                   type="text" formControlName="memberId"
+                   (change)="onRecordChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.memberId.errors }" />
+
+            <div *ngIf="f.memberId.dirty && f.memberId.errors"
+                 class="register-error">
+              <div *ngIf="f.memberId.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <!-- user_legal_id --------------------------------------------- -->
+          <div class="form-group" user_legal_id="user_legal_id">
+            <label class="register-label">
+              {{crudRecord.model.fieldInfo('user_legal_id').text}}
+            </label>
+
+            <div *ngIf="crudRecord.action === 'view'">
+              <p class="register-detail">
+                {{ crudRecord.currentRecord.user_legal_id }}</p>
+            </div>
+            <input *ngIf="crudRecord.action === 'edit' || crudRecord.action === 'new'"
+                   type="text" formControlName="user_legal_id"
+                   (change)="onRecordChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.user_legal_id.errors }" />
+
+            <div *ngIf="f.user_legal_id.dirty && f.user_legal_id.errors"
+                 class="register-error">
+              <div *ngIf="f.user_legal_id.errors.required">Usuario es
+                obligatorios</div>
+              <div *ngIf="f.user_legal_id.errors.pattern">La cedula debe
+                ser un numero de cedula valido sin espacios, letras
+                puntos o caracteres especiales.</div>
+            </div>
+          </div>
+
+
+
+
+          <!-- user_internal_id --------------------------------------------- -->
+          <div class="form-group" user_internal_id="user_internal_id">
+            <label class="register-label">
+              {{crudRecord.model.fieldInfo('user_internal_id').text}}
+            </label>
+
+            <div *ngIf="crudRecord.action === 'view'">
+              <p class="register-detail">
+                {{ crudRecord.currentRecord.user_internal_id }}</p>
+            </div>
+            <input *ngIf="crudRecord.action === 'edit' || crudRecord.action === 'new'"
+                   type="text" formControlName="user_internal_id"
+                   (change)="onRecordChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.user_internal_id.errors }" />
+
+            <div *ngIf="f.user_internal_id.dirty && f.user_internal_id.errors"
+                 class="register-error">
+              <div *ngIf="f.user_internal_id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <!-- user_photo_path --------------------------------------------- -->
+          <div class="form-group" user_photo_path="user_photo_path">
+            <label class="register-label">
+              {{crudRecord.model.fieldInfo('user_photo_path').text}}
+            </label>
+
+            <div *ngIf="crudRecord.action === 'view'">
+              <p class="register-detail">
+                {{ crudRecord.currentRecord.user_photo_path }}</p>
+            </div>
+            <input *ngIf="crudRecord.action === 'edit' || crudRecord.action === 'new'"
+                   type="text" formControlName="user_photo_path"
+                   (change)="onRecordChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.user_photo_path.errors }" />
+
+            <div *ngIf="f.user_photo_path.dirty && f.user_photo_path.errors"
+                 class="register-error">
+              <div *ngIf="f.user_photo_path.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- profile_json --------------------------------------------- -->
+          <div class="form-group" profile_json="profile_json">
+            <label class="register-label">
+              <!-- {{
+                crudRecord.model.fieldInfo('profile_json').text
+              }} -->
+              Perfil
+            </label>
+
+            <div *ngIf="crudRecord.action === 'view'">
+              <p class="register-detail">
+                <span *ngIf="crudRecord.currentRecord.profile_json">
+                  {{ crudRecord.currentRecord.profile_json.name }}</span> </p>
+            </div>
+
+            <div class="form-control register-input"
+                 *ngIf="crudRecord.action === 'edit' || crudRecord.action === 'new'">
+              <ng-select [items]="crudRecord.profileList" bindLabel="name"
+                         placeholder="Perfil" [dropdownPosition]="'auto'"
+                         [searchable]="false" [clearable]="false"
+                         [multiple]="false" hideSelected="true"
+                         formControlName="profile_json"
+                         (change)="onRecordChange()"
+                         (change)="onRecordChange()">
+              </ng-select>
+            </div>
+
+            <div *ngIf="f.profile_json.dirty && f.profile_json.errors"
+                 class="register-error">
+              <div *ngIf="f.profile_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-------------------------- FIELD SECTION END --------------------------->
+
+        </div>
+
+
+        <!-------------------------- BUTTONS START --------------------------->
+        <section>
+
+
+          <article class="form-group mt-3 mb-0 mr-auto register-button-group">
+
+
+            <div>
+              <button type="button" class="btn btn-warning  register-button"
+                      (click)="onCancel()"
+                      *ngIf="crudRecord.buttonCancel.value">
+                Cancelar
+              </button>
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-secondary  register-button"
+                      (click)="onReset()" *ngIf="crudRecord.buttonReset.value">
+                Reiniciar
+              </button>
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-danger  register-button"
+                      (click)="onDelete()" *ngIf="crudRecord.action === 'edit'">
+                Eliminar
+              </button>
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-danger  register-button"
+                      (click)="onDeactivate()"
+                      *ngIf="crudRecord.buttonDeactivate.value">
+                Desactivar
+              </button>
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-primary  register-button"
+                      (click)="
+              onReactivate()" *ngIf="crudRecord.buttonReactivate.value">
+                Reactivar
+              </button>
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-success  register-button"
+                      (click)="onSubmit()"
+                      *ngIf="(registerForm.status === 'VALID' && !registerForm.pristine  && crudRecord.action==='new') || (!registerForm.pristine && crudRecord.action==='edit')">
+                Guardar
+              </button>
+            </div>
+
+          </article>
+
+        </section>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- || (!registerForm.pristine && crudRecord.action==='edit') -->

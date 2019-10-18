@@ -1,0 +1,137 @@
+{
+  "name": "InvCampaign",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "InvCampaign"
+    }
+  },
+  "properties": {
+    "inv_campaign_id": {
+      "type": "number",
+      "id": 1
+    },
+    "inv_campaign_status": {
+      "type": "string"
+    },
+    "inv_campaign_chk": {
+      "type": "number"
+    },
+    "inv_campaign_name": {
+      "type": "string"
+    },
+    "inv_campaign_shortname": {
+      "type": "string"
+    },
+    "inv_campaign_description": {
+      "type": "string"
+    },
+    "inv_campaign_queue_id": {
+      "type": "string"
+    },
+    "inv_campaign_queue_name": {
+      "type": "string"
+    },
+    "inv_campaign_queue_number": {
+      "type": "string"
+    },
+    "inv_campaign_aftercall_time": {
+      "type": "number"
+    },
+    "inv_campaign_start_date": {
+      "type": "date"
+    },
+    "inv_campaign_end_date": {
+      "type": "date"
+    },
+    "inv_campaign_start_time": {
+      "type": "string"
+    },
+    "inv_campaign_end_time": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    }
+  ],
+  "methods": {}
+}

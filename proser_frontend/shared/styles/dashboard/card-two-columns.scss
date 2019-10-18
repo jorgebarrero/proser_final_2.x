@@ -1,0 +1,112 @@
+@import 'shared/styles/responsive/responsive-sizes';
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+.tablegraph {
+  margin: 0px 1px 0px -3px;
+
+  .tablegraph-card {
+    flex: 1;
+    border-radius: 5px;
+    min-width: 25%;
+    min-height: 100%;
+    margin-left: 5px;
+  }
+
+  .tablegraph-subtitles {
+    margin: 200;
+    padding: 3px 0 0.5rem 0;
+    background: lightgray;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .tablegraph-table {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    margin: 0;
+    padding: 5px 5px 0px 5px;
+  }
+
+  .tablegraph-table:nth-child(even) {
+    background: #f2f2f2;
+  }
+
+  .tablegraph-table:nth-child(odd) {
+    background: #fff;
+  }
+
+  .tablegraph-table:first-child {
+    background: #f2f2f2;
+    margin-top: 10px;
+  }
+
+  .tablegraph-table:last-child {
+    background: #fff;
+    margin-bottom: 10px;
+  }
+
+  .tablegraph-text {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 1rem;
+    padding: 5px 20px 0px 0px;
+    color: $gray-700;
+  }
+
+  .tablegraph-number {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding-top: 0px;
+  }
+}
+
+
+
+@media screen and (max-width: map-get($grid-breakpoints, "lg")) {
+
+  .tablegraph {
+    margin: 0px 1px 0px -3px;
+  
+  
+    .tablegraph-text {
+      font-size: 1rem;
+
+    }
+  
+    .tablegraph-number {
+      font-size: 1.1rem;
+
+    }
+  }
+
+}
+
+
+.pointer {
+  cursor: pointer;
+}

@@ -1,0 +1,113 @@
+<section>
+  <nav class="navbar navbar-expand-lg navbar-dark configheader-menu">
+    <a routerLink="/init/home" class="navbar-brand"
+      ><img
+        src="assets/img/logos_proser/proser-logo-xsm.png"
+        width="160"
+        height="40"
+        alt=""
+    /></a>
+
+    <!--# Responsive button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navigation"
+      aria-controls="#navigation"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--/ Responsive button -->
+
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a routerLink="/system/home" class="nav-link">System</a>
+        </li>
+
+        <header-menu [menuItems]="menuItems"></header-menu>
+
+        <!-- ----------------------------------- -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navdrop"
+            role="button"
+            data-toggle="dropdown"
+            data-hover="dropdown"
+            >Demo</a
+          >
+
+          <div class="dropdown-menu" aria-labelledby="navdrop">
+            <a
+              class="dropdown-item configheader-menu"
+              routerLink="/system/layout/system/system-inbound/"
+            >
+              <i class="fas fa-user-tie"></i> Inbound
+            </a>
+            <!-- <a
+              class="dropdown-item configheader-menu"
+              routerLink="/system/layout/system/system-inbound/system-inbound-selector/"
+            >
+              <i class="fas fa-users"></i> Selector
+            </a> -->
+            <!-- -------------------------- -->
+            <div class="dropdown-divider"></div>
+            <!-- -------------------------- -->
+
+            <!-- <a
+              *ngIf="currentUser"
+              class="dropdown-item configheader-menu"
+              routerLink="/layout/"
+            >
+              <i class="fas fa-users"></i> Menu Principal
+            </a> -->
+          </div>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown"></li>
+
+        <li class="nav-item dropdown" ngbDropdown>
+          <a
+            class="nav-link "
+            id="navdrop"
+            role="button"
+            data-toggle="dropdown"
+            data-hover="dropdown"
+          >
+            <span class="nav-link active small">
+              <span *ngIf="currentUser">
+                &nbsp; <i class="fas fa-user"></i>
+              </span>
+              <span *ngIf="currentUser">
+                &nbsp; <app-now-user></app-now-user
+              ></span>
+              <span *ngIf="currentUser">
+                &nbsp; <app-connection></app-connection
+              ></span>
+              <span *ngIf="currentUser">
+                &nbsp; <app-now-time></app-now-time
+              ></span> </span
+          ></a>
+
+          <div class="dropdown-menu" aria-labelledby="navdrop">
+            <a class="dropdown-item " routerLink="/login/login-profile/">
+              <i class="fas fa-id-badge"></i> Perfil
+            </a>
+
+            <div class="dropdown-divider"></div>
+
+            <a class="dropdown-item " (click)="onLogout()">
+              <i class="fas fa-power-off"></i> Logout
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</section>

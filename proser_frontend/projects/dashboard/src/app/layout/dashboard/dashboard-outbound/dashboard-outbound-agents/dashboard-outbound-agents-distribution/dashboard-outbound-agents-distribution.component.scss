@@ -1,0 +1,43 @@
+@import "projects/dashboard/src/app/shared/styles/dashboard/card-two-columns";
+
+
+.table{
+  display: flex;
+}
+
+.element {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 1px 5px 1px 1px;
+}
+
+
+.indicadores {
+  margin: 10px;
+  font-size: 1rem;
+  color: gray;
+
+}
+
+.indicadores-cantidad {
+    font-size: 1.5rem;
+    max-width: 40%;
+  }
+
+.indicadores-descripcion {
+    max-width: 50%;
+  }
+
+.indicadores-porcentaje {
+    max-width: 10%;
+  }
+
+
+.indicadores-subtitles {
+  margin: 200;
+  padding: 3px 0 0.5rem 0;
+  background: lightgray;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+}

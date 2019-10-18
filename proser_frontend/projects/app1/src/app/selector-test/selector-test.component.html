@@ -1,0 +1,24 @@
+<section>Test</section>
+
+<div *ngIf="userSelection">
+  {{ userSelection.title }}
+  {{ userSelection.entity_selection }}
+  {{ userSelection.options }}
+  {{ userSelection.legend }}
+</div>
+
+<button (click)="toogleShow()">Show</button>
+
+<div *ngIf="show">
+  <app-selector
+    [userSelection]="userSelection"
+    [selectorVisibleFields]="selectorVisibleFields"
+    (userSelectionBack)="updateSelection($event)"
+  ></app-selector>
+</div>
+
+<div *ngIf="!show && userSelection">
+  {{ userSelection | json }}
+</div>
+
+<app-selector></app-selector>

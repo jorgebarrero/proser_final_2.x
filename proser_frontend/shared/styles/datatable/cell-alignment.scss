@@ -1,0 +1,76 @@
+// CELL COLORS
+.cell-color-black {
+  color: black;
+}
+.cell-color-gray {
+  color: gray;
+}
+.cell-color-blue {
+  color: blue;
+}
+.cell-color-red {
+  color: red;
+}
+.cell-color-green {
+  color: green;
+}
+
+// CELL ALIGNMENT
+
+.cell-alignment-left {
+  text-align: left;
+}
+
+.cell-alignment-right {
+  text-align: right;
+}
+
+.cell-alignment-center {
+  text-align: center;
+}
+
+.left-black-normal {
+  color: black;
+  text-align: left;
+}
+
+// CELL WE
+
+.cell-weight-normal {
+  font-weight: 300;
+}
+
+.cell-weight-bold {
+  font-weight: 600;
+}
+
+// PREDEFINED
+
+.cell-title {
+  color: black;
+  text-decoration: none;
+  text-align: left;
+  font-weight: 600;
+}
+
+.cell-title-right {
+  color: black;
+  text-decoration: none;
+  text-align: right;
+  font-weight: 600;
+}
+
+.cell-data {
+  color: black !important;
+  text-align: left !important;
+}
+
+.cell-data-right {
+  color: black !important;
+  text-align: right !important;
+}
+
+.cell-data-center {
+  color: black !important;
+  text-align: center !important;
+}

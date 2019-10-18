@@ -1,0 +1,36 @@
+<p class="text-secondary" *ngIf="!show">Buscando grabación de </p>
+<h1>{{recordSelection.agent_name}}</h1>
+<h2>{{recordSelection.start_date}} - {{recordSelection.start_time}}</h2>
+<h3>{{recordSelection.call_type}} </h3>
+<h3>{{recordSelection.call_source}} - {{recordSelection.call_destiny}} </h3>
+<h3 class="small text-danger">{{recordSelection.call_status}}</h3>
+<p *ngIf="!show">Favor esperar unos segundos.... </p>
+<hr>
+<p *ngIf="!status" class="small">Es probable que no haya grabación de esta
+  llamada</p>
+<!-- <div class="" *ngIf="show">
+  <a class="btn btn-outline-primary " (click)="downloadFile()">
+    Guardar grabación original
+  </a>
+</div> -->
+
+
+
+<div class="" *ngIf="show">
+  <a class="btn btn-outline-primary " (click)="downloadFile('mp3')">
+    Guardar grabación
+  </a>
+</div>
+
+<hr>
+
+<div *ngIf="show">
+  <mat-basic-audio-player [audioUrl]="msbapAudioUrl" [title]="msbapTitle"
+                          [displayTitle]="msbapDisplayTitle"
+                          [displayVolumeControls]="msaapDisplayVolumeControls">
+  </mat-basic-audio-player>
+
+</div>
+
+
+<a class="text-secondary small" href="{{msbapAudioUrl}}" target="_blank">url</a>

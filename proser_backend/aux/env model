@@ -1,0 +1,94 @@
+# TEST CONNECTION
+FOO=bar
+NODE_ENV='development'
+
+# CALLCENTER SUBTITLES
+CALLCENTER_NAME=HMO- Aps
+CALLCENTER_SLOGAN=Servicio médicos de excelencia
+CALLCENTER_LOGO=/assets/img/logos_client/hmo-logo.png
+CALLCENTER_SITE=http://www.hmoservisalud.com/HMO-Servisalud/
+# ------------------------------------------------------------------------
+
+# PORT
+DEFAULT_PORT=3161
+# ------------------------------------------------------------------------
+
+# MAIN DATABASE CONNECTION
+CONNECTION_LIMIT=10
+REPORTS_DB_HOST=localhost
+REPORTS_DB_PORT=3306
+REPORTS_DB_USER=root
+REPORTS_DB_PASSWORD=M4pr0t3l
+# ------------------------------------------------------------------------
+
+# MAIN DATABASE NAME
+REPORTS_PROSER_DB=proser_base_new
+
+# REPORTS_PROSER_DB=proser_hmo_aps
+# REPORTS_PROSER_DB=proser_drc_dos_caminos
+# ------------------------------------------------------------------------
+
+# ORIGIN DATABASE CONNECTION
+CONNECTION_LIMIT=10
+ORIGIN_DB_HOST=172.20.0.235
+ORIGIN_DB_USER=readmaprotel
+ORIGIN_DB_PASSWORD=M4pr0t3l
+ 
+# ORIGIN_DB_HOST=10.30.4.50
+# ORIGIN_DB_HOST=172.20.0.235
+# ------------------------------------------------------------------------
+
+# DATABASES NAMES
+ORIGIN_ASTERISK_DB=asterisk
+ORIGIN_ASTERISKCDR_DB=asteriskcdrdb
+ORIGIN_CALLCENTER_DB=call_center
+# ------------------------------------------------------------------------
+
+# RECORDING PATH
+## MAIN PATH
+ORIGIN_RECORDING_PATH=/var/spool/asterisk/monitor
+ORIGIN_QUEUE_JSON=http://10.30.4.55/proser/bk_TS/src/public/realtime/realtime.json
+DESTINY_FILE_PATH=/var/www/html/proser_reports/src/public/audio/
+DESTINY_FILE_PATH_SMS=/var/www/html/proser_reports/src/public/sms/
+## HAVE TO ADD TO TH PATH /YYYY/MM/DD/recordigfile
+## SAMPLE /var/spool/asterisk/monitor/2019/05/09
+# ------------------------------------------------------------------------
+
+# CALLCENTER
+CDR_CALLCENTER_NAME=TEST
+CDR_TIME_INTERVAL=15000
+CDR_BATCH_LIMIT= 500;
+CDR_BATCH_LIMIT_SLOW= 250;
+# ------------------------------------------------------------------------
+
+# AUTOMATIC MARKER QUEUE FIRST CHAR
+# QUEUES WITH THIS PREFIX ARE CONSIDERED MARKER QUEUES
+CDR_MARKER_CHAR_ID=9
+# ------------------------------------------------------------------------
+
+# CALL TIME
+CDR_SHORTCALL_TIME=10
+CDR_SERVICE_IDEAL_TIME=19.9
+CDR_GHOSTCALL_TIME=10
+# ------------------------------------------------------------------------
+
+# SPEED IN MILLISECONDS
+UPDATE_FAST= 5000
+UPDATE_MEDIUM= 20000
+UPDATE_SLOW= 30000
+UPDATE_VERY_SLOW = 3600000
+# ------------------------------------------------------------------------
+
+# DATE
+# MONDAY IS DAY:
+MONDAY_CONFIG=1
+TEST_DATE='2019-07-19'
+# ------------------------------------------------------------------------
+
+# COLORSCALE:
+COLORSCALE_NAME=Normal
+# ------------------------------------------------------------------------
+
+# AUTO REGISTER
+AUTOREGISTER=true
+# ------------------------------------------------------------------------

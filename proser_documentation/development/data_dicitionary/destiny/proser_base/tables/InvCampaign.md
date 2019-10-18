@@ -1,0 +1,15 @@
+column_name
+inv_campaign_id
+inv_campaign_status
+inv_campaign_chk
+inv_campaign_name
+inv_campaign_shortname
+inv_campaign_description
+inv_campaign_queue_id
+inv_campaign_queue_name
+inv_campaign_queue_number
+inv_campaign_aftercall_time
+inv_campaign_start_date
+inv_campaign_end_date
+inv_campaign_start_time
+inv_campaign_end_time

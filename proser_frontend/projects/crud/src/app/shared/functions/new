@@ -1,0 +1,11 @@
+  let scheduleFileds = `
+    inv_scheduleday_id,
+    inv_schedule_id,
+    inv_scheduleday_weekday,
+    inv_scheduleday_name,
+    inv_scheduleday_start_time,
+    inv_scheduleday_end_time,
+    inv_scheduleday_legal_break,
+    inv_scheduleday_laborday,
+    inv_scheduleday_duration
+    `;

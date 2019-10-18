@@ -1,0 +1,79 @@
+<main class="frame">
+  <section class="tablegraph" *ngIf="rows.dashboardOutboundCallsIndicators[0]">
+    <article id="Calls" class="tablegraph-card">
+      <p class="tablegraph-subtitles">Niveles</p>
+
+      <!-- Nivel de servicio -->
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'outboundContactLevel')">
+        <p class="tablegraph-text">Nivel de contactabilidad</p>
+
+        <p class="tablegraph-number ">
+          {{
+          rows.dashboardOutboundCallsIndicators[0]
+            .outboundContactLevel | percent: "1.2-2"
+        }}
+        </p>
+      </div>
+
+      <!-- Nivel de efectividad -->
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'outboundEffectiveLevel')">
+        <p class="tablegraph-text">Nivel de efectividad</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.dashboardOutboundCallsIndicators[0]
+            .outboundEffectiveLevel | percent: "1.2-2"
+        }}
+        </p>
+      </div>
+
+      <div>
+        <p class="tablegraph-subtitles">Tiempos</p>
+      </div>
+
+      <!-- TMO -->
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'outboundTMO')">
+        <p class="tablegraph-text">TMO</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.dashboardOutboundCallsIndicators[0]
+            .outboundTMO | number: "1.0-2"
+        }}
+        </p>
+      </div>
+
+      <!-- TIEMPO OPERACION -->
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'operation_time')">
+        <p class="tablegraph-text">Tiempo de operación</p>
+        <p class="tablegraph-number ">
+          {{
+          rows.dashboardOutboundCallsIndicators[0]
+            .operation_time
+        }}
+        </p>
+      </div>
+
+     
+    </article>
+
+  </section>
+</main>
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-outbound-modal-text [argument]="argument"
+                                              [rows]="rows">
+  </app-dashboard-dashboard-outbound-modal-text>
+
+</ng-template>

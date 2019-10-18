@@ -1,0 +1,11 @@
+column_name
+msq_query_id
+msq_query_status
+msq_query_chk
+msq_query_name
+msq_query_selection
+msq_query_response
+ms_query_rotation
+msq_query_datetime
+msq_query_date
+msq_query_time

@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "projects/crud/src/app/layout/crud/crud-inv/crud-inv-supervisor"
+    },
+    {
+      "path": "projects/crud/src/app/layout/crud/crud-inv/crud-inv-agent"
+    },
+    {
+      "path": "shared"
+    }
+  ],
+  "settings": {
+    "git.ignoreLimitWarning": true
+  }
+}

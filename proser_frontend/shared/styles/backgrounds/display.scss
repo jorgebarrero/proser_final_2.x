@@ -1,0 +1,51 @@
+.base-bkg {
+  min-height: 100vh;
+  min-width: 100%;
+  // background-image: linear-gradient(to right, rgb(250, 117, 117), yellow);
+
+  background: rgba(242, 246, 248, 1);
+  background: -moz-linear-gradient(
+    top,
+    rgba(242, 246, 248, 1) 30%,
+    rgba(179, 216, 242, 1) 63%,
+    rgba(133, 195, 237, 1) 87%,
+    rgba(133, 195, 237, 1) 99%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(30%, rgba(242, 246, 248, 1)),
+    color-stop(63%, rgba(179, 216, 242, 1)),
+    color-stop(87%, rgba(133, 195, 237, 1)),
+    color-stop(99%, rgba(133, 195, 237, 1))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(242, 246, 248, 1) 30%,
+    rgba(179, 216, 242, 1) 63%,
+    rgba(133, 195, 237, 1) 87%,
+    rgba(133, 195, 237, 1) 99%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(242, 246, 248, 1) 30%,
+    rgba(179, 216, 242, 1) 63%,
+    rgba(133, 195, 237, 1) 87%,
+    rgba(133, 195, 237, 1) 99%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(242, 246, 248, 1) 30%,
+    rgba(179, 216, 242, 1) 63%,
+    rgba(133, 195, 237, 1) 87%,
+    rgba(133, 195, 237, 1) 99%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(242, 246, 248, 1) 30%,
+    rgba(179, 216, 242, 1) 63%,
+    rgba(133, 195, 237, 1) 87%,
+    rgba(133, 195, 237, 1) 99%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#85c3ed', GradientType=0 );
+}

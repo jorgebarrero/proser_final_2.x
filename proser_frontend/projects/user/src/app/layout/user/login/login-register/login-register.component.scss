@@ -1,0 +1,49 @@
+.register{
+  &-form {
+     background: lightblue;
+     padding: 1rem 1rem 0rem 1rem;
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     grid-gap: 1rem;
+   }
+ 
+   .form-group {
+     margin: 0;
+   }
+ 
+   &-error{
+     color: red;
+     font-size: 0.8rem;
+   }
+   &-label {
+     font-size: 0.9rem;
+   }
+   &-input {
+     font-size: 1rem;
+   }
+   &-button-group {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     grid-gap: 1rem;
+   }
+ 
+   &-button {
+     font-size: 1.1rem;
+   }
+ 
+   &-login-text {
+     padding: 5px;
+     font-size: 1.1rem;
+   }
+ }
+ 
+ 
+ @media screen and (max-width: 576px) {
+   .register-form {
+     padding: 1rem;
+     display: grid;
+     grid-template-columns: 1fr;
+     grid-gap: 1rem;
+   }
+ }
+ 

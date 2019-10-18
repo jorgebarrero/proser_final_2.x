@@ -1,0 +1,160 @@
+<main class="grid" *ngIf="rows">
+
+  <!-- LEVELS -->
+
+  <!-- Nivel de contactabilidad -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].outboundContactLevel}} indicator-pointer"
+         *ngIf="rows.colors"
+         (click)="openDetailModal(new, 'outboundContactLevel') ">
+      <!-- <div class="indicator-cell "> -->
+      <p class="indicator-label">Nivel de contactabilidad</p>
+      <!-- <p class="indicator-note">Base cálculo =
+        {{rows.dashboardOutboundCallsIndicators[0].idealResponseTime}}"</p> -->
+      <p class="indicator-number ">
+        {{
+            rows.dashboardOutboundCallsIndicators[0]
+              .outboundContactLevel | percent: "1.2-2"
+          }}
+      </p>
+    </div>
+
+  </article>
+
+
+  <!-- Nivel de efectividad -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].outboundEffectiveLevel}} indicator-pointer"
+         *ngIf="rows.colors"
+         (click)="openDetailModal(new, 'outboundEffectiveLevel') ">
+      <p class="indicator-label">Nivel de efectividad</p>
+      <p class="indicator-number ">
+        {{
+              rows.dashboardOutboundCallsIndicators[0]
+                .outboundEffectiveLevel | percent: "1.2-2"
+            }}
+    </div>
+  </article>
+
+
+
+
+
+
+  <!-- CALLS -->
+
+
+  <!-- Llamadas en contestadas -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].outboundAnswered}} indicator-pointer"
+    (click)="openDetailModal(calls, 'saliente-contestada') "
+         *ngIf="rows.colors">
+      <p class="indicator-label">Llamadas<br /> contestadas</p>
+      <p class="indicator-number ">
+        {{
+            rows.dashboardOutboundCallsIndicators[0].outboundAnswered
+              }}
+      </p>
+    </div>
+  </article>
+
+
+
+
+  <!-- GRAY INDICATORS -->
+
+
+
+  <!-- Agentes planificados -->
+  <article class=" frame">
+    <div class="indicator-cell gray">
+      <p class="indicator-label">Agentes<br />planificados</p>
+      <p class="indicator-number ">
+        {{
+                        rows.agentsPlannedTotal[0]
+                          .agentsPlannedTotal
+                      }}
+      </p>
+    </div>
+  </article>
+
+
+  <!-- Agentes conectados -->
+  <article class="frame">
+    <div class="indicator-cell gray indicator-pointer"
+    (click)="openDetailModal(currentAgents, 'conectado') ">
+      <p class="indicator-label">Agentes<br />conectados</p>
+      <p class="indicator-number ">
+        {{
+                  rows.agentsConnectedTotal[0]
+                    .agentsConnectedTotal
+                }}
+      </p>
+    </div>
+  </article>
+
+  <!-- TMO -->
+  <article class="frame">
+    <div class="indicator-cell gray indicator-pointer"
+    (click)="openDetailModal(new, 'outboundTMO') ">
+      <p class="indicator-label">TMO</p>
+      <p class="indicator-number ">
+        {{
+                  rows.dashboardOutboundCallsIndicators[0]
+                    .outboundTMO | number: "1.0-0"
+                }}
+      </p>
+    </div>
+  </article>
+
+</main>
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-outbound-modal-text [argument]="argument"
+                                              [rows]="rows"
+                                              (closeModal)="onCloseModal()">
+  </app-dashboard-dashboard-outbound-modal-text>
+
+</ng-template>
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #calls class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-outbound-modal-calls [modalView]="modalView">
+  </app-dashboard-dashboard-outbound-modal-calls>
+
+  </ng-template>
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #currentAgents class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-outbound-modal-agents [modalView]="modalView"
+                                                (closeModal)="onCloseModal()">
+  </app-dashboard-dashboard-outbound-modal-agents>
+
+</ng-template>

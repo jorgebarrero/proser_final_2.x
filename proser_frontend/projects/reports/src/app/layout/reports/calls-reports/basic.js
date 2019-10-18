@@ -1,0 +1,10 @@
+callsAbandonedReport;
+callsAutomaticDailyByIntervalReport;
+callsAutomaticDailyReport;
+callsDetailReport;
+
+callsInboundDailyByIntervalReport;
+callsInboundDailyReport;
+callsOutboundDailyByIntervalReport;
+callsOutboundDailyReport;
+callsWaitTimeReport;

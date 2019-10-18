@@ -1,0 +1,17 @@
+column_name
+inv_agent_id
+inv_agent_status
+inv_agent_chk
+inv_agent_name
+inv_agent_shortname
+inv_agent_extension
+inv_agent_legal_id
+inv_agent_internal_id
+inv_agent_type
+inv_agent_supervisor_json
+inv_agent_schedule_json
+inv_agent_client_json
+inv_agent_queue_json
+inv_agent_service_json
+inv_agent_campaign_json
+inv_agent_role_json

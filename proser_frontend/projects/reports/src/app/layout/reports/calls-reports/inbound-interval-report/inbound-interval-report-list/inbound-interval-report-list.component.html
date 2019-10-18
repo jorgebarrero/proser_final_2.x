@@ -1,0 +1,686 @@
+<!----------ALERT MESSAGE------------------------- -->
+<div>
+  <app-alert [alertMessage]="alertMessage"></app-alert>
+</div>
+
+
+<!----------REPORT HEADER------------------------- -->
+<app-reports-report-header [userSelection]="userSelection"
+                           [selectorVisibleFields]="selectorVisibleFields"
+                           (returnResult)="onReturnHeaderResult($event)">
+</app-reports-report-header>
+
+<section class="row button-area report">
+  <!-- ------- BUTTONS -------------------- -->
+
+  <article class=" row mr-auto">
+    <!-- --------------------- -->
+    <div *ngIf="!show_graph_or_table_button && rows_valid">
+      <a class="btn btn-outline-primary " (click)="onShowHideGraphButtons()">
+        Gráfico
+      </a>
+    </div>
+    <!-- --------------------- -->
+    <div *ngIf="show_graph_or_table_button">
+      <a class="btn btn-outline-primary " (click)="onShowHideGraphButtons()">
+        Tabla
+      </a>
+    </div>
+
+    <!-- --------------------- -->
+    <div>
+      <a class="btn btn-outline-primary " (click)="onRecalculate($event)">
+        Recalcular
+      </a>
+    </div>
+    <!-- --------------------- -->
+    <div *ngIf="!show_graph_or_table_button && rows_valid">
+      <a class="btn btn-outline-primary " (click)="exportToExcel(rows)">
+        Exportar excel
+      </a>
+    </div>
+
+  </article>
+
+
+  <!-- ------- FIND FILEDS -------------------- -->
+  <app-reports-report-finder *ngIf="!show_graph_or_table_button" [rows]="rows"
+                             [rows_original]="rows_original"
+                             [initialSelectedFilterField]="initialSelectedFilterField"
+                             [filterFieldList]="filterFieldList"
+                             (returnNumberOfRowsInTable)="onReturnNumberOfRowsInTable($event)"
+                             (returnRowsForTable)="onReturnRowsForTable($event)">
+  </app-reports-report-finder>
+</section>
+
+<section *ngIf="!show">
+  <h1>Obteniendo datos del servidor...</h1>
+</section>
+
+
+<!-- DATATABE---------------------------- -->
+<section class="report" *ngIf="rows && show && !graph">
+  <div>
+    <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'"
+                   [limit]="numberOfRowsInTable.value" [headerHeight]="60"
+                   [footerHeight]="50" [rowHeight]="40" [scrollbarH]="true"
+                   [scrollbarV]="false" [summaryRow]="true" [summaryHeight]="50"
+                   [selectionType]="'single'"
+                   [loadingIndicator]="'Contactando servidor'"
+                   [messages]="{ emptyMessage: 'Sin datos que mostrar' }"
+                   (activate)="onActivate($event)" (select)="onSelect($event)"
+                   data-toggle="modal" role="button" href="#content">
+
+      <!-- FIELDS ----------------------------------- -->
+
+      <!------------------------------------------------- -->
+      <!-- day_name------------------------------------- -->
+      <ngx-datatable-column prop="start_date" width="50" name="start_date"
+                            [summaryTemplate]="start_date" [frozenLeft]="true">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <!-- {{model.fieldInfo('start_date').text}} -->
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | date:'E'}}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #start_date>
+          <p class="right-black-bold">{{rows_total[0].start_date}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+      <!------------------------------------------------- -->
+      <!-- interval_init------------------------------------- -->
+      <ngx-datatable-column prop="interval_init" width="130"
+                            name="interval_init"
+                            [summaryTemplate]="interval_init"
+                            [frozenLeft]="true">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('interval_init').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value }}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #interval_init>
+          <p class="right-black-bold">{{rows_total[0].interval_init}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+      <!------------------------------------------------- -->
+      <!-- start_date------------------------------------- -->
+      <ngx-datatable-column prop="start_date" width="130" name="start_date"
+                            [summaryTemplate]="start_date" [frozenLeft]="true">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('start_date').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | date: "yyyy-MM-dd" }}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #start_date>
+          <p class="right-black-bold">{{rows_total[0].start_date}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+      <!------------------------------------------------- -->
+      <!-- interval_start------------------------------------- -->
+      <ngx-datatable-column prop="interval_start" width="100"
+                            name="interval_start"
+                            [summaryTemplate]="interval_start">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('interval_start').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value }}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #interval_start>
+          <p class="right-black-bold">{{rows_total[0].interval_start}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+      <!------------------------------------------------- -->
+      <!-- interval_end------------------------------------- -->
+      <ngx-datatable-column prop="interval_end" width="100" name="interval_end"
+                            [summaryTemplate]="interval_end">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('interval_end').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value }}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #interval_end>
+          <p class="right-black-bold">{{rows_total[0].interval_end }}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundReceived------------------------------------- -->
+      <ngx-datatable-column prop="inboundReceived" width="100"
+                            name="inboundReceived"
+                            [summaryTemplate]="inboundReceived">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('inboundReceived').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | number: "1.0-0"}}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #inboundReceived>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundReceived | number: "1.0-0"}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundAttended------------------------------------- -->
+      <ngx-datatable-column prop="inboundAttended" width="100"
+                            name="inboundAttended"
+                            [summaryTemplate]="inboundAttended">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('inboundAttended').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | number: "1.0-0"}}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #inboundAttended>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundAttended | number: "1.0-0"}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundBeforeTime------------------------------------- -->
+      <ngx-datatable-column prop="inboundBeforeTime" width="100"
+                            name="inboundBeforeTime"
+                            [summaryTemplate]="inboundBeforeTime">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <!-- {{model.fieldInfo('inboundBeforeTime').text}} -->
+            Atendidas <br> antes de
+            {{idealResponseTime}}"
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | number: "1.0-0"}}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #inboundBeforeTime>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundBeforeTime | number: "1.0-0"}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundAfterTime------------------------------------- -->
+      <ngx-datatable-column prop="inboundAfterTime" width="100"
+                            name="inboundAfterTime"
+                            [summaryTemplate]="inboundAfterTime">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <!-- {{model.fieldInfo('inboundAfterTime').html}} -->
+            Atendidas <br> después de
+            {{idealResponseTime}}"
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | number: "1.0-0"}}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #inboundAfterTime>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundAfterTime | number: "1.0-0"}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundAbandoned------------------------------------- -->
+      <ngx-datatable-column prop="inboundAbandoned" width="100"
+                            name="inboundAbandoned"
+                            [summaryTemplate]="inboundAbandoned">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('inboundAbandoned').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | number: "1.0-0"}}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #inboundAbandoned>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundAbandoned | number: "1.0-0"}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundShort------------------------------------- -->
+      <ngx-datatable-column prop="inboundShort" width="100" name="inboundShort"
+                            [summaryTemplate]="inboundShort">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('inboundShort').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | number: "1.0-0"}}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #inboundShort>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundShort | number: "1.0-0"}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundHungAgent------------------------------------- -->
+      <ngx-datatable-column prop="inboundHungAgent" width="120"
+                            name="inboundHungAgent"
+                            [summaryTemplate]="inboundHungAgent">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('inboundHungAgent').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | number: "1.0-0"}}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #inboundHungAgent>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundHungAgent  | number: "1.0-0"}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundServiceLevel------------------------------------- -->
+      <ngx-datatable-column prop="inboundServiceLevel" width="120"
+                            name="inboundServiceLevel"
+                            [summaryTemplate]="inboundServiceLevel">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('inboundServiceLevel').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | percent: "1.2-2" }}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #inboundServiceLevel>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundServiceLevel | percent: "1.2-2" }}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundAttentionLevel------------------------------------- -->
+      <ngx-datatable-column prop="inboundAttentionLevel" width="120"
+                            name="inboundAttentionLevel"
+                            [summaryTemplate]="inboundAttentionLevel">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('inboundAttentionLevel').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="right-black-normal">{{ value | percent: "1.2-2" }}</p>
+        </ng-template>
+
+        <ng-template #inboundAttentionLevel>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundAttentionLevel | percent: "1.2-2" }}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundAbandonLevel------------------------------------- -->
+      <ngx-datatable-column prop="inboundAbandonLevel" width="120"
+                            name="inboundAbandonLevel"
+                            [summaryTemplate]="inboundAbandonLevel">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('inboundAbandonLevel').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="right-black-normal">{{ value | percent: "1.2-2" }}</p>
+        </ng-template>
+
+        <ng-template #inboundAbandonLevel>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundAbandonLevel | percent: "1.2-2" }}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundTmo------------------------------------- -->
+      <ngx-datatable-column prop="inboundTmo" width="120" name="inboundTmo"
+                            [summaryTemplate]="inboundTmo">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('inboundTmo').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value  | number: "1.0-2"}}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #inboundTmo>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundTmo  | number: "1.0-2"}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+      <!------------------------------------------------- -->
+      <!-- inboundAsa------------------------------------- -->
+      <ngx-datatable-column prop="inboundAsa" width="120" name="inboundAsa"
+                            [summaryTemplate]="inboundAsa">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('inboundAsa').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | number: "1.0-2"}}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #inboundAsa>
+          <p class="right-black-bold">
+            {{rows_total[0].inboundAsa | number: "1.0-2"}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+      <!------------------------------------------------- -->
+      <!-- operation_seconds------------------------------------- -->
+      <ngx-datatable-column prop="operation_seconds" width="120"
+                            name="operation_seconds"
+                            [summaryTemplate]="operation_seconds">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <div class="right-black-bold">
+            <p (click)="sort($event, sortDir, sortFn)">
+              {{model.fieldInfo('operation_seconds').text}}
+            </p>
+          </div>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | number: "1.0-0" }}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #operation_seconds>
+          <p class="right-black-bold">
+            {{rows_total[0].operation_seconds | number: "1.0-0" }}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+      <!------------------------------------------------- -->
+      <!-- operation_time------------------------------------- -->
+      <ngx-datatable-column prop="operation_time" width="120"
+                            name="operation_time"
+                            [summaryTemplate]="operation_time">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('operation_time').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="right-black-normal">{{ value }}</p>
+        </ng-template>
+
+        <ng-template #operation_time>
+          <p class="right-black-bold">{{rows_total[0].operation_time}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+      <!------------------------------------------------- -->
+      <!-- wait_seconds------------------------------------- -->
+      <ngx-datatable-column prop="wait_seconds" width="120" name="wait_seconds"
+                            [summaryTemplate]="wait_seconds">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('wait_seconds').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value | number: "1.0-0" }}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #wait_seconds>
+          <p class="right-black-bold">{{rows_total[0].wait_seconds}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+      <!------------------------------------------------- -->
+      <!-- wait_time------------------------------------- -->
+      <ngx-datatable-column prop="wait_time" width="120" name="wait_time"
+                            [summaryTemplate]="wait_time">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="right-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('wait_time').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <div class="table-column">
+            <p class="right-black-normal">{{ value }}</p>
+          </div>
+        </ng-template>
+
+        <ng-template #wait_time>
+          <p class="right-black-bold">{{rows_total[0].wait_time}}</p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+
+
+
+
+
+
+
+
+
+
+      <!-- ********************************* END **************************** -->
+    </ngx-datatable>
+  </div>
+
+  <hr />
+</section>
+
+<main class="main"></main>
+
+
+
+
+<section *ngIf="graph">
+  <app-reports-inbound-interval-report-graph [userSelection]="userSelection"
+                                             [rows]="rows"
+                                             (valueChange)="onValueChange($event)">
+  </app-reports-inbound-interval-report-graph>
+</section>
+
+
+<!-- <button (click)="onCreateModel(model)">Export</button> -->

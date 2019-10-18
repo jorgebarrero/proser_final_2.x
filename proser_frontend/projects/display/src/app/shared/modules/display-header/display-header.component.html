@@ -1,0 +1,62 @@
+<section class="header-block">
+
+  <!-- ------- REPORT NAME -------------------- -->
+  <article class="header-left">
+    <p class="report-title">{{ userSelection.title }}</p>
+    <p class="report-date">
+      {{ onUserSelectionText().start_date | date:'EEEE yyyy-MM-dd' }}
+      <span
+            *ngIf="!(onUserSelectionText().start_date === onUserSelectionText().end_date)">&nbsp;al&nbsp;{{ onUserSelectionText().end_date | date:'EEEE yyyy-MM-dd' }}
+      </span>
+    </p>
+    <p class="report-time">{{ userSelection.legend }}</p>
+  </article>
+
+  <!-- ------- CALLCENTER NAME -------------------- -->
+  <article class="header-center ">
+    <p class=" callenter-title">{{ env.callcenterName }}</p>
+  </article>
+
+
+  <!-- ------- INFO -------------------- -->
+  <article class="header-right">
+    <p><a class="selector-text-link"
+         (click)="openDetailModal(currentCalls)">Filtre
+        la
+        información aquí</a></p>
+    <span *ngIf="userSelection.mode.name === 'Historic'">Histórico - &nbsp;
+    </span>
+    <p class="report-selection">{{ userSelection.options }}</p>
+  </article>
+</section>
+
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #currentCalls class="modal-full">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Seleccione las opciones el reporte</p>
+
+    <div>
+
+
+      <button type="button" class="btn btn-danger text-lg-center "
+              (click)="activeModal.close()">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+
+
+
+  <div class="" id="result">
+    <app-selector [userSelection]="userSelection"
+                  [selectorVisibleFields]="selectorVisibleFields"
+                  (userSelectionBack)="updateSelection($event, 'userSelectionBack')"
+                  (closeSelector)="closeSelector($event)"
+                  (closeModal)="onCloseModal($event, 'closeModal')">
+    </app-selector>
+  </div>
+</ng-template>
+
+<!-- closeSelector($event) -->

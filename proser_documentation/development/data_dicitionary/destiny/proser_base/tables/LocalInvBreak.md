@@ -1,0 +1,10 @@
+column_name
+inv_break_id
+inv_break_status
+inv_break_chk
+inv_break_name
+inv_break_shortname
+inv_break_description
+inv_break_type
+inv_break_productivity
+inv_break_class

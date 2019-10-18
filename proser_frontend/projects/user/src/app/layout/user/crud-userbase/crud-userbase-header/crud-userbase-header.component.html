@@ -1,0 +1,14 @@
+<section class="table-header">
+
+  <!-- BUTTONS -->
+  <div>
+    <app-user-crud-userbase-header-buttons [crudRecord]="crudRecord">
+    </app-user-crud-userbase-header-buttons>
+  </div>
+
+  <!-- DATATABLE FINDER -->
+  <div class="datatable-finder ml-auto" *ngIf="crudRecord.showDatatableFinder">
+    <app-datatable-finder [crudRecord]="crudRecord"></app-datatable-finder>
+  </div>
+
+</section>

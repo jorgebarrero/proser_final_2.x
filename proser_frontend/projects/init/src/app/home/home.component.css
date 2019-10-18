@@ -1,0 +1,23 @@
+.home .home-container {
+  position: relative;
+}
+
+.home .home-item {
+  position: absolute;
+  top: 20%;
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+}
+
+@media screen and (max-width: 768px) {
+  .home .home-container {
+    position: relative;
+  }
+  .home .home-item {
+    position: absolute;
+    top: 5%;
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+  }
+}
+/*# sourceMappingURL=home.component.css.map */

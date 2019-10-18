@@ -1,0 +1,24 @@
+<main class="frame">
+  <div class="inner">
+    <p class="subtitles text-center">Agentes conectados</p>
+
+    <section class="dashboard">
+
+      <!-- -----PIE -->
+      <article id="parent" class="pie">
+        <div id="child">
+          <app-display-outbound-agents-pie [rows]="rows">
+          </app-display-outbound-agents-pie>
+        </div>
+      </article>
+
+      <!-- LEGEND -->
+      <article class="legend">
+        <div>
+          <app-display-outbound-agents-distribution [rows]="rows">
+          </app-display-outbound-agents-distribution>
+        </div>
+      </article>
+    </section>
+  </div>
+</main>

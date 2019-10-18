@@ -1,0 +1,99 @@
+<div class="main " id="result" *ngIf="rows">
+    <p> {{ title }} </p>
+    <div class="register">
+      <div class="register-form">
+  
+        <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'"
+                       [limit]="10" [headerHeight]="80" [footerHeight]="50"
+                       [rowHeight]="40" [scrollbarH]="true" [scrollbarV]="false"
+                       [summaryRow]="false" [summaryHeight]="40"
+                       [selectionType]="'single'"
+                       [loadingIndicator]="'Contactando servidor'"
+                       [messages]="{ emptyMessage: 'Sin datos que mostrar' }"
+                       (activate)="onActivate($event)" (select)="onSelect($event)"
+                       data-toggle="modal" role="button" href="#content">
+  
+          <!------------------------------------------------- -->
+          <!-- agent_name------------------------------------- -->
+  
+          <ngx-datatable-column prop="agent_name" width="75" name="agent_name">
+  
+            <ng-template let-column="column" let-sort="sortFn"
+                         let-sortDir="sortDir" ngx-datatable-header-template>
+              <p class="cell-title" (click)="sort($event, sortDir, sortFn)">
+                <!-- {{model.fieldInfo('entry_queue_date').text}} -->
+                Agente
+              </p>
+            </ng-template>
+  
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <p class="cell-data">{{ value }}</p>
+            </ng-template>
+          </ngx-datatable-column>
+  
+  
+          <!------------------------------------------------- -->
+          <!-- group_name------------------------------------- -->
+  
+          <ngx-datatable-column prop="name" width="75" name="name">
+  
+            <ng-template let-column="column" let-sort="sortFn"
+                         let-sortDir="sortDir" ngx-datatable-header-template>
+              <p class="cell-title" (click)="sort($event, sortDir, sortFn)">
+                <!-- {{model.fieldInfo('group_name').text}} -->
+                Actividad
+              </p>
+            </ng-template>
+  
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <p class="cell-data">{{ value }}</p>
+            </ng-template>
+          </ngx-datatable-column>
+  
+  
+          <!------------------------------------------------- -->
+          <!-- Cantidad------------------------------------- -->
+  
+          <ngx-datatable-column prop="value" width="75"
+                                name="value">
+  
+            <ng-template let-column="column" let-sort="sortFn"
+                         let-sortDir="sortDir" ngx-datatable-header-template>
+              <p class="cell-title" (click)="sort($event, sortDir, sortFn)">
+                <!-- {{model.fieldInfo('supervisor_name').text}} -->
+                Cantidad
+              </p>
+            </ng-template>
+  
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <p class="cell-data">{{ value }}</p>
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <!------------------------------------------------- -->
+          <!-- duracion------------------------------------- -->
+  
+          <ngx-datatable-column prop="duration" width="75"
+                                name="duration">
+  
+            <ng-template let-column="column" let-sort="sortFn"
+                         let-sortDir="sortDir" ngx-datatable-header-template>
+              <p class="cell-title-right" (click)="sort($event, sortDir, sortFn)">
+                <!-- {{model.fieldInfo('schedule_name').text}} -->
+                Duración
+              </p>
+            </ng-template>
+  
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <p class="cell-data-right">{{ value }}</p>
+            </ng-template>
+          </ngx-datatable-column>
+  
+  
+  
+          <!-- ********************************* END **************************** -->
+        </ngx-datatable>
+  
+      </div>
+    </div>
+  </div>

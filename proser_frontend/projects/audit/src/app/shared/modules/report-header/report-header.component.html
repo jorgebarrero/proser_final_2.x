@@ -1,0 +1,40 @@
+<section class="titles">
+  <article>
+    <p class="display-5">{{ userSelection.title }}</p>
+    <h2>{{ env.callcenterName }}</h2>
+  </article>
+
+  <section>
+    <!-- ------- DATE -------------------- -->
+    <article class="text-right">
+      <p class="display-5" (click)="openModal(new)">
+        <span *ngIf="userSelection.mode.name === 'Historic'">Histórico - &nbsp;
+        </span>
+        {{ onUserSelectionText().start_date | date:'EEEE yyyy-MM-dd' }}
+        <span
+              *ngIf="!(onUserSelectionText().start_date === onUserSelectionText().end_date)">&nbsp;al&nbsp;{{ onUserSelectionText().end_date | date:'EEEE yyyy-MM-dd' }}
+        </span>
+      </p>
+      <p class="small ">{{ userSelection.options }}</p>
+      <p class="small small_tittle">{{ userSelection.legend }}</p>
+    </article>
+  </section>
+</section>
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-full">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Seleccione las opciones el reporte</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <div class="" id="result">
+    <app-selector [userSelection]="userSelection"
+                  [selectorVisibleFields]="selectorVisibleFields"
+                  (userSelectionBack)="updateSelection($event)"
+                  (closeSelector)="closeSelector($event)">
+    </app-selector>
+  </div>
+</ng-template>

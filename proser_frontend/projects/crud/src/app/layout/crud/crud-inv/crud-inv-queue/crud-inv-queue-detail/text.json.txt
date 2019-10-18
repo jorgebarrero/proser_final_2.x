@@ -1,0 +1,23 @@
+{
+  "inv_queue_id": 1,
+  "inv_queue_status": "A",
+  "inv_queue_chk": null,
+  "inv_queue_name": null,
+  "inv_queue_shortname": "Hola",
+  "inv_queue_number": "1004",
+  "inv_queue_type": { "scale": "inbound" },
+  "inv_queue_operation_json": "{\"client\":{\"client\":[],\"service\":[]},\"service\":{\"client\":[],\"service\":[]}}",
+  "inv_queue_system_json": "{\"scale\":{\"scale\":[]}}"
+}
+
+// {
+//   "inv_queue_id": 1,
+//   "inv_queue_status": "A",
+//   "inv_queue_chk": 0,
+//   "inv_queue_name": "string",
+//   "inv_queue_shortname": "string",
+//   "inv_queue_number": "1004",
+//   "inv_queue_type": "{ \"scale\": \"inbound\" }",
+//   "inv_queue_operation_json": "{\"client\":{\"client\":[],\"service\":[]},\"service\":{\"client\":[],\"service\":[]}}",
+//   "inv_queue_system_json": "{\"scale\":{\"scale\":[]}}"
+// }

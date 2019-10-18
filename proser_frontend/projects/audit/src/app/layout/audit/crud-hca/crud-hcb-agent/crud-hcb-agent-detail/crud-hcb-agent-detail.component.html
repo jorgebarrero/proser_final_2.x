@@ -1,0 +1,612 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<section id="register" class="register" *ngIf="action && show_data">
+  <div class="card mt-3">
+    <div class="card-body">
+      <h3 class="h2 mb-3 font-weight-normal text-center">
+        <!-- {{report_title}} -->
+      </h3>
+
+      <form [formGroup]="registerForm">
+        <div class="register-form">
+          <!-------------------------- FIELD START --------------------------->
+
+          <!-- hcb_agent_agent_id -->
+          <div class="form-group" id="hcb_agent_agent_id">
+            <label class="register-label">{{
+              model.fieldInfo('hcb_agent_agent_id').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">{{ selection.hcb_agent_agent_id }}</p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord'"
+              type="text"
+              formControlName="hcb_agent_agent_id"
+              class="form-control register-input disabled"
+              [ngClass]="{ 'is-invalid': f.hcb_agent_agent_id.errors }"
+            />
+
+            <div
+              *ngIf="f.hcb_agent_agent_id.dirty && f.hcb_agent_agent_id.errors"
+              class="register-error"
+            >
+              <div *ngIf="f.hcb_agent_agent_id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- hcb_agent_status -->
+          <div class="form-group" id="hcb_agent_status">
+            <label class="register-label">{{
+              model.fieldInfo('hcb_agent_status').text
+            }}</label>
+            <div *ngIf="true">
+              <p class="register-detail">
+                {{ selection.hcb_agent_status }}
+              </p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord' && false"
+              type="text"
+              formControlName="hcb_agent_status"
+              class="form-control register-input"
+              [ngClass]="{
+                'is-invalid': f.hcb_agent_status.errors
+              }"
+            />
+
+            <div
+              *ngIf="f.hcb_agent_status.dirty && f.hcb_agent_status.errors"
+              class="register-error"
+            >
+              <div *ngIf="f.hcb_agent_status.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- hcb_agent_name -->
+          <div class="form-group" id="hcb_agent_name">
+            <label class="register-label">{{
+              model.fieldInfo('hcb_agent_name').text
+            }}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.hcb_agent_name }}
+              </p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord'"
+              type="text"
+              formControlName="hcb_agent_name"
+              class="form-control register-input"
+              [ngClass]="{ 'is-invalid': f.hcb_agent_name.errors }"
+            />
+
+            <div
+              *ngIf="f.hcb_agent_name.dirty && f.hcb_agent_name.errors"
+              class="register-error"
+            >
+              <div *ngIf="f.hcb_agent_name.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- hcb_agent_schedule_start -->
+          <div class="form-group" id="hcb_agent_schedule_start">
+            <label class="register-label">{{
+              model.fieldInfo('hcb_agent_schedule_start').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.hcb_agent_schedule_start }}
+              </p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord'"
+              type="text"
+              formControlName="hcb_agent_schedule_start"
+              class="form-control register-input disabled"
+              [ngClass]="{ 'is-invalid': f.hcb_agent_schedule_start.errors }"
+            />
+
+            <div
+              *ngIf="
+                f.hcb_agent_schedule_start.dirty && f.hcb_agent_schedule_start.errors
+              "
+              class="register-error"
+            >
+              <div *ngIf="f.hcb_agent_schedule_start.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+           <!-- hcb_agent_extension -->
+           <div class="form-group" id="hcb_agent_extension">
+            <label class="register-label">{{
+              model.fieldInfo('hcb_agent_extension').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.hcb_agent_extension }}
+              </p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord'"
+              type="text"
+              formControlName="hcb_agent_extension"
+              class="form-control register-input disabled"
+              [ngClass]="{ 'is-invalid': f.hcb_agent_extension.errors }"
+            />
+
+            <div
+              *ngIf="
+                f.hcb_agent_extension.dirty && f.hcb_agent_extension.errors
+              "
+              class="register-error"
+            >
+              <div *ngIf="f.hcb_agent_extension.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+
+          <!-- hcb_agent_schedule_end -->
+          <div class="form-group" id="hcb_agent_schedule_end">
+            <label class="register-label">{{
+              model.fieldInfo('hcb_agent_schedule_end').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.hcb_agent_schedule_end }}
+              </p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord'"
+              type="text"
+              formControlName="hcb_agent_schedule_end"
+              class="form-control register-input disabled"
+              [ngClass]="{ 'is-invalid': f.hcb_agent_schedule_end.errors }"
+            />
+
+            <div
+              *ngIf="f.hcb_agent_schedule_end.dirty && f.hcb_agent_schedule_end.errors"
+              class="register-error"
+            >
+              <div *ngIf="f.hcb_agent_schedule_end.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- hcb_agent_schedule_break -->
+          <div class="form-group" id="hcb_agent_schedule_break">
+            <label class="register-label">{{
+              model.fieldInfo('hcb_agent_schedule_break').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.hcb_agent_schedule_break }}
+              </p>
+            </div>
+            <input
+              *ngIf="action.action !== 'showRecord'"
+              type="text"
+              formControlName="hcb_agent_schedule_break"
+              class="form-control register-input disabled"
+              [ngClass]="{ 'is-invalid': f.hcb_agent_schedule_break.errors }"
+            />
+
+            <div
+              *ngIf="
+                f.hcb_agent_schedule_break.dirty && f.hcb_agent_schedule_break.errors
+              "
+              class="register-error"
+            >
+              <div *ngIf="f.hcb_agent_schedule_break.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- here -->
+
+
+
+<!-- hcb_agent_supervisor_json -->
+<div class="form-group" id="hcb_agent_supervisor_json">
+    <label class="register-label">{{
+      model.fieldInfo('hcb_agent_supervisor_json').text
+    }}</label>
+
+    <div *ngIf="action.action === 'showRecord' && false ">
+      <p class="register-detail">
+        {{ selection.hcb_agent_supervisor_json }}
+      </p>
+    </div>
+
+    <div class="form-control register-input">
+      <ng-select
+        [items]="supervisorList"
+        bindLabel="name"
+        placeholder="Supervisor"
+        [dropdownPosition]="'auto'"
+        [searchable]="false"
+        [clearable]="true"
+        [multiple]="false"
+        hideSelected="true"
+        formControlName="hcb_agent_supervisor_json"
+      >
+      </ng-select>
+    </div>
+
+    <div
+      *ngIf="
+        f.hcb_agent_supervisor_json.dirty &&
+        f.hcb_agent_supervisor_json.errors
+      "
+      class="register-error"
+    >
+      <div *ngIf="f.hcb_agent_supervisor_json.errors.required">
+        Este dato es obligatorio
+      </div>
+    </div>
+  </div>
+  <!-------------------------- FIELD END --------------------------->
+
+          <!-- hcb_agent_schedule_json -->
+          <div class="form-group" id="hcb_agent_schedule_json">
+              <label class="register-label">{{
+                model.fieldInfo('hcb_agent_schedule_json').text
+              }}</label>
+  
+              <div *ngIf="action.action === 'showRecord' && false ">
+                <p class="register-detail">
+                  {{ selection.hcb_agent_schedule_json }}
+                </p>
+              </div>
+  
+              <div class="form-control register-input">
+                <ng-select
+                  [items]="scheduleList"
+                  bindLabel="name"
+                  placeholder="Horario"
+                  [dropdownPosition]="'auto'"
+                  [searchable]="false"
+                  [clearable]="true"
+                  [multiple]="false"
+                  hideSelected="true"
+                  formControlName="hcb_agent_schedule_json"
+                >
+                </ng-select>
+              </div>
+  
+              <div
+                *ngIf="
+                  f.hcb_agent_schedule_json.dirty &&
+                  f.hcb_agent_schedule_json.errors
+                "
+                class="register-error"
+              >
+                <div *ngIf="f.hcb_agent_schedule_json.errors.required">
+                  Este dato es obligatorio
+                </div>
+              </div>
+            </div>
+            <!-------------------------- FIELD END --------------------------->
+
+  <!-- hcb_agent_role_json -->
+  <div class="form-group" id="hcb_agent_role_json">
+    <label class="register-label">{{
+      model.fieldInfo('hcb_agent_role_json').text
+    }}</label>
+
+    <div *ngIf="action.action === 'showRecord' && false ">
+      <p class="register-detail">
+        {{ selection.hcb_agent_role_json }}
+      </p>
+    </div>
+
+    <div class="form-control register-input">
+      <ng-select
+        [items]="roleList"
+        bindLabel="name"
+        placeholder="Rol"
+        [dropdownPosition]="'auto'"
+        [searchable]="false"
+        [clearable]="true"
+        [multiple]="false"
+        hideSelected="true"
+        formControlName="hcb_agent_role_json"
+      >
+      </ng-select>
+    </div>
+
+    <div
+      *ngIf="
+        f.hcb_agent_role_json.dirty &&
+        f.hcb_agent_role_json.errors
+      "
+      class="register-error"
+    >
+      <div *ngIf="f.hcb_agent_role_json.errors.required">
+        Este dato es obligatorio
+      </div>
+    </div>
+  </div>
+  <!-------------------------- FIELD END --------------------------->
+
+<!-- hcb_agent_client_json -->
+          <div class="form-group" id="hcb_agent_client_json">
+            <label class="register-label">{{
+              model.fieldInfo('hcb_agent_client_json').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'  && false ">
+              <p class="register-detail">
+                {{ selection.hcb_agent_client_json }}
+              </p>
+            </div>
+
+            <div class="form-control register-input">
+              <ng-select
+                [items]="clientList"
+                bindLabel="name"
+                placeholder="Cliente"
+                [dropdownPosition]="'auto'"
+                [searchable]="false"
+                [clearable]="false"
+                [multiple]="true"
+                hideSelected="true"
+                formControlName="hcb_agent_client_json"
+              >
+              </ng-select>
+            </div>
+
+            <div
+              *ngIf="
+                f.hcb_agent_client_json.dirty &&
+                f.hcb_agent_client_json.errors
+              "
+              class="register-error"
+            >
+              <div *ngIf="f.hcb_agent_client_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- hcb_agent_queue_json -->
+          <div class="form-group" id="hcb_agent_queue_json">
+            <label class="register-label">{{
+              model.fieldInfo('hcb_agent_queue_json').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'  && false ">
+              <p class="register-detail">
+                {{ selection.hcb_agent_queue_json }}
+              </p>
+            </div>
+
+            <div class="form-control register-input">
+              <ng-select
+                [items]="queueList"
+                bindLabel="name"
+                placeholder="Cola"
+                [dropdownPosition]="'auto'"
+                [searchable]="false"
+                [clearable]="false"
+                [multiple]="true"
+                hideSelected="true"
+                formControlName="hcb_agent_queue_json"
+              >
+              </ng-select>
+            </div>
+
+            <div
+              *ngIf="
+                f.hcb_agent_queue_json.dirty &&
+                f.hcb_agent_queue_json.errors
+              "
+              class="register-error"
+            >
+              <div *ngIf="f.hcb_agent_queue_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- hcb_agent_service_json -->
+          <div class="form-group" id="hcb_agent_service_json">
+            <label class="register-label">{{
+              model.fieldInfo('hcb_agent_service_json').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'  && false ">
+              <p class="register-detail">
+                {{ selection.hcb_agent_service_json }}
+              </p>
+            </div>
+
+            <div class="form-control register-input">
+              <ng-select
+                [items]="serviceList"
+                bindLabel="name"
+                placeholder="Servicio"
+                [dropdownPosition]="'auto'"
+                [searchable]="false"
+                [clearable]="false"
+                [multiple]="true"
+                hideSelected="true"
+                formControlName="hcb_agent_service_json"
+              >
+              </ng-select>
+            </div>
+
+            <div
+              *ngIf="
+                f.hcb_agent_service_json.dirty &&
+                f.hcb_agent_service_json.errors
+              "
+              class="register-error"
+            >
+              <div *ngIf="f.hcb_agent_service_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- hcb_agent_campaign_json -->
+          <div class="form-group" id="hcb_agent_campaign_json">
+            <label class="register-label">{{
+              model.fieldInfo('hcb_agent_campaign_json').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'  && false ">
+              <p class="register-detail">
+                {{ selection.hcb_agent_campaign_json }}
+              </p>
+            </div>
+            <!-- <input
+              *ngIf="action.action !== 'showRecord'"
+              type="text"
+              formControlName="hcb_agent_campaign_json"
+              class="form-control register-input disabled"
+              [ngClass]="{
+                'is-invalid': f.hcb_agent_campaign_json.errors
+              }"
+            /> -->
+            <div class="form-control register-input">
+              <ng-select
+                [items]="camapaignList"
+                bindLabel="name"
+                placeholder="Campaña"
+                [dropdownPosition]="'auto'"
+                [searchable]="false"
+                [clearable]="false"
+                [multiple]="true"
+                hideSelected="true"
+                formControlName="hcb_agent_campaign_json"
+              >
+              </ng-select>
+            </div>
+
+            <div
+              *ngIf="
+                f.hcb_agent_campaign_json.dirty &&
+                f.hcb_agent_campaign_json.errors
+              "
+              class="register-error"
+            >
+              <div *ngIf="f.hcb_agent_campaign_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+
+        </div>
+
+
+        <!-------------------------- BUTTONS START --------------------------->
+        <article class="form-group mt-3 mb-0 mr-auto register-button-group">
+          <div>
+            <button
+              type="button"
+              class="btn btn-warning  register-button"
+              (click)="onCancel()"
+            >
+              Cancelar
+            </button>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              class="btn btn-secondary  register-button"
+              *ngIf="action.action === 'newRecord'"
+              (click)="onReset()"
+            >
+              Reiniciar
+            </button>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              class="btn btn-danger  register-button"
+              *ngIf="
+                action.action === 'editRecord' &&
+                selection.hcb_agent_status === 'I'
+              "
+              (click)="onDelete()"
+            >
+              Eliminar
+            </button>
+          </div>
+
+          <!-- <div>
+            <button
+              type="button"
+              class="btn btn-danger  register-button"
+              *ngIf="
+                action.action === 'editRecord' &&
+                selection.hcb_agent_status === 'A'
+              "
+              (click)="onDeactivate()"
+            >
+              Desactivar
+            </button>
+          </div> -->
+
+          <!-- <div>
+            <button
+              type="button"
+              class="btn btn-primary  register-button"
+              *ngIf="
+                action.action === 'editRecord' &&
+                selection.hcb_agent_status === 'I'
+              "
+              (click)="onReactivate()"
+            >
+              Reactivar
+            </button>
+          </div> -->
+
+          <div
+            *ngIf="
+              registerForm.status === 'VALID' &&
+              action.action !== 'showRecord' &&
+              (!registerForm.pristine || show_submit_button)
+            "
+          >
+            <button
+              type="button"
+              class="btn btn-success  register-button"
+              (click)="onSubmit(registerForm.value)"
+            >
+              Guardar
+            </button>
+          </div>
+        </article>
+      </form>
+    </div>
+  </div>
+</section>

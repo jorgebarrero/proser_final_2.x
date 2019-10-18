@@ -1,0 +1,201 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ]
+  },
+  "User": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "AccessToken": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "ACL": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "RoleMapping": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "Role": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "Userbase": {
+    "dataSource": "mysqlProser",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": false
+    }
+  },
+  "Email": {
+    "dataSource": "emailDs",
+    "public": true
+  },
+  "Filter": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvCalendar": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvCalendarDay": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvSchedule": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvScheduleDay": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvService": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvClient": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "HcaQueue": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvSupervisor": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "HcaAgent": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "MainCdr": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvBreak": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvQueue": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvAgent": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvScale": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvCampaign": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "MainAudit": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvReport": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvMenu": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvDashboard": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvDisplay": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "AuxColor": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "AuxHour": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "AuxInterval": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "AuxLine": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "UserSelection": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "HcbAgent": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvQueueConfig": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvSms": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "MainCallEntry": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "RealCurrentCalls": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "RealCurrentAgents": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "RealCurrentBreaks": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "MainQueueLog": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvAgentRole": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "System": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "Command": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "ProShowDisplay": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "ProScheduleChange": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "RecordSelection": {
+    "dataSource": "mysqlProser",
+    "public": true
+  }
+}

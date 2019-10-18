@@ -1,0 +1,33 @@
+{
+  "mysqlProser": {
+    "host": "${REPORTS_DB_HOST}",
+    "port": 3306,
+    "url": "",
+    "database": "${REPORTS_PROSER_DB}",
+    "password": "${REPORTS_DB_PASSWORD}",
+    "name": "mysqlProser",
+    "user": "${REPORTS_DB_USER}",
+    "connector": "mysql",
+    "connectTimeout": 30000,
+    "acquireTimeout": 20000
+  },
+  "emailDs": {
+    "name": "emailDs",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "s114.panelboxmanager.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": true
+        },
+        "auth": {
+          "user": "test@jorgebarrero.com.ve",
+          "pass": "a1!b2$c3%d4&"
+        }
+      }
+    ]
+  }
+}

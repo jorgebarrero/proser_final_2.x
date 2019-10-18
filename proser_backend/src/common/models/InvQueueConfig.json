@@ -1,0 +1,96 @@
+{
+  "name": "InvQueueConfig",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "InvQueueConfig"
+    }
+  },
+  "properties": {
+    "queueconfig_extension": {
+      "type": "number",
+      "id": 1
+    },
+    "queueconfig_descr": {
+      "type": "string"
+    },
+    "queueconfig_grppre": {
+      "type": "string"
+    },
+    "queueconfig_alertinfo": {
+      "type": "string"
+    },
+    "queueconfig_ringing": {
+      "type": "number"
+    },
+    "queueconfig_maxwait": {
+      "type": "string"
+    },
+    "queueconfig_password": {
+      "type": "string"
+    },
+    "queueconfig_ivr_id": {
+      "type": "string"
+    },
+    "queueconfig_dest": {
+      "type": "string"
+    },
+    "queueconfig_cwignore": {
+      "type": "number"
+    },
+    "queueconfig_qregex": {
+      "type": "string"
+    },
+    "queueconfig_agentannounce_id": {
+      "type": "number"
+    },
+    "queueconfig_joinannounce_id": {
+      "type": "number"
+    },
+    "queueconfig_queuewait": {
+      "type": "number"
+    },
+    "queueconfig_use_queue_context": {
+      "type": "number"
+    },
+    "queueconfig_togglehint": {
+      "type": "number"
+    },
+    "queueconfig_qnoanswer": {
+      "type": "number"
+    },
+    "queueconfig_callconfirm": {
+      "type": "number"
+    },
+    "queueconfig_callconfirm_id": {
+      "type": "number"
+    },
+    "queueconfig_monitor_type": {
+      "type": "string"
+    },
+    "queueconfig_monitor_heard": {
+      "type": "number"
+    },
+    "queueconfig_monitor_spoken": {
+      "type": "number"
+    },
+    "queueconfig_callback_id": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,99 @@
+{
+  "name": "MainCallEntry",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "MainCallEntry"
+    }
+  },
+  "properties": {
+    "callentry_id": {
+      "type": "number",
+      "id": true
+    },
+    "callentry_agent_id": {
+      "type": "number"
+    },
+    "callentry_queue_id": {
+      "type": "number"
+    },
+    "callentry_contact_id": {
+      "type": "number"
+    },
+    "callentry_callerid": {
+      "type": "string"
+    },
+    "callentry_datetime_init": {
+      "type": "string"
+    },
+    "callentry_datetime_end": {
+      "type": "string"
+    },
+    "callentry_duration_sec": {
+      "type": "number"
+    },
+    "callentry_status": {
+      "type": "string"
+    },
+    "callentry_transfer": {
+      "type": "string"
+    },
+    "callentry_datetime_entry_queue": {
+      "type": "string"
+    },
+    "callentry_duration_sec_wait": {
+      "type": "number"
+    },
+    "callentry_uniqueid": {
+      "type": "string"
+    },
+    "callentry_campaign_id": {
+      "type": "number"
+    },
+    "callentry_trunk": {
+      "type": "string"
+    },
+    "callentry_date": {
+      "type": "string"
+    },
+    "callentry_queue_time_expired": {
+      "type": "number"
+    },
+    "callentry_type": {
+      "type": "string"
+    },
+    "callentry_auto_campaign": {
+      "type": "number"
+    },
+    "callentry_queue_number": {
+      "type": "string"
+    },
+    "__QUEUELOG__": {
+      "type": "number"
+    },
+    "callentry_who_hung": {
+      "type": "string"
+    },
+    "callentry_hung_agent": {
+      "type": "number"
+    },
+    "callentry_hung_caller": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

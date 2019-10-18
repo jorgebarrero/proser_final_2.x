@@ -1,0 +1,38 @@
+<section class="main">
+
+  <section class="indicadores">
+    <article *ngIf="rows.agentsHistoricAssignationResume">
+      <ul class="inidcadores-items"
+          *ngFor="let item of rows.agentsHistoricAssignationResume"
+          (click)="openDetailModal(historicBreaks, 'asignado-historico') ">
+        <li class="indicadores-descripcion text-left pointer"
+            >
+          {{ item.value }}
+        </li>
+        <li class="indicadores-cantidad pointer"
+            >
+          {{ item.name | shortNames}}
+        </li>
+        <li class="indicadores-porcentaje pointer"
+            >
+          {{ item.duration }}
+        </li>
+      </ul>
+    </article>
+  </section>
+</section>
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #historicBreaks class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-inbound-modal-breaks-historic [modalView]="modalView">
+  </app-dashboard-dashboard-inbound-modal-breaks-historic>
+
+</ng-template>

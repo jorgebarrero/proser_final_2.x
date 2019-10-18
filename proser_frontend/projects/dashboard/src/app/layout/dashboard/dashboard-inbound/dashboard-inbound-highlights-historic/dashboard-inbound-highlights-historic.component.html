@@ -1,0 +1,177 @@
+<main class="grid" *ngIf="rows">
+
+  <!-- LEVELS -->
+
+  <!-- Nivel de servicio -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].inboundServiceLevel}} indicator-pointer "
+         *ngIf="rows.colors"
+         (click)="openDetailModal(new, 'inboundServiceLevel') ">
+      <!-- <div class="indicator-cell "> -->
+      <p class="indicator-label">Nivel de servicio</p>
+      <p class="indicator-number ">
+        {{
+              rows.dashboardInboundCallsIndicators[0]
+                .inboundServiceLevel | percent: "1.2-2"
+            }}
+      </p>
+    </div>
+
+  </article>
+
+
+  <!-- Nivel de atención -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].inboundAttentionLevel}} indicator-pointer "
+         *ngIf="rows.colors"
+         (click)="openDetailModal(new, 'inboundAttentionLevel') ">
+      <p class="indicator-label">Nivel de atención</p>
+      <p class="indicator-number ">
+        {{
+                rows.dashboardInboundCallsIndicators[0]
+                  .inboundAttentionLevel | percent: "1.2-2"
+              }}
+    </div>
+  </article>
+
+
+
+
+
+
+  <!-- CALLS -->
+
+
+  <!-- Llamadas en abandonadas -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].inboundAbandoned}} indicator-pointer "
+         *ngIf="rows.colors"
+         (click)="openDetailModal(callentry, 'abandonada') ">
+      <p class="indicator-label">Llamadas<br /> abandonadas</p>
+      <p class="indicator-number ">
+        {{
+            rows.dashboardInboundCallsIndicators[0].inboundAbandoned
+              }}
+      </p>
+    </div>
+  </article>
+
+
+
+
+  <!-- GRAY INDICATORS -->
+
+
+
+  <!-- Agentes planificados -->
+  <article class=" frame">
+    <div class="indicator-cell gray">
+      <p class="indicator-label">Agentes<br />planificados</p>
+      <p class="indicator-number ">
+        {{
+                        rows.agentsPlannedTotal[0]
+                          .agentsPlannedTotal
+                      }}
+      </p>
+    </div>
+  </article>
+
+
+  <!-- Agentes conectados -->
+  <article class="frame">
+    <div class="indicator-cell gray indicator-pointer "
+         (click)="openDetailModal(historicAgents, 'registrado-historico') ">
+      <p class="indicator-label">Agentes<br />registrados</p>
+      <p class="indicator-number ">
+        {{
+                    rows.agentsLoggedTotal[0]
+                      .agentsLoggedTotal
+                  }}
+      </p>
+    </div>
+  </article>
+
+  <!-- TMO -->
+  <article class="frame">
+    <div class="indicator-cell gray indicator-pointer "
+         (click)="openDetailModal(new, 'inboundTmo') ">
+      <p class="indicator-label">TMO</p>
+      <p class="indicator-number ">
+        {{
+                    rows.dashboardInboundCallsIndicators[0]
+                      .inboundTmo | number: "1.0-0"
+                  }}
+      </p>
+    </div>
+  </article>
+
+</main>
+
+
+<!-- 
+<button (click)="openDetailModal(new, 'inboundServiceLevel') ">new</button>
+<button
+        (click)="openDetailModal(currentCalls, 'en-cola') ">currentCalls</button> -->
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-inbound-modal-text [argument]="argument"
+                                              [rows]="rows">
+  </app-dashboard-dashboard-inbound-modal-text>
+
+</ng-template>
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #callentry class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-inbound-modal-calls [modalView]="modalView">
+  </app-dashboard-dashboard-inbound-modal-calls>
+
+</ng-template>
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #currentAgents class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-inbound-modal-agents [modalView]="modalView">
+  </app-dashboard-dashboard-inbound-modal-agents>
+
+</ng-template>
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #historicAgents class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-inbound-modal-agents-historic [modalView]="modalView">
+  </app-dashboard-dashboard-inbound-modal-agents-historic>
+
+</ng-template>

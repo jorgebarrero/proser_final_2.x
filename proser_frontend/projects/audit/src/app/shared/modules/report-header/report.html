@@ -1,0 +1,92 @@
+<section class="titles">
+  <article>
+    <p class="display-5">Reporte de audit</p>
+    <h2>{{ env.callcenterName }}</h2>
+    <p>{{ userSelection.subtitle }}</p>
+    <p class="small small_tittle">{{ userSelection.report_specification }}</p>
+  </article>
+
+  <article class="text-right">
+    <p class="display-5" (click)="openModal(new)">
+      {{ onUserSelectionText().start_date }}
+    </p>
+  </article>
+</section>
+
+<section id="buttons" class="main row ">
+  <article class="col text-left row">
+    <!-- --------------------- -->
+    <div class="col">
+      <a
+        (click)="show_columns = !show_columns"
+        class="btn btn-outline-primary submenu-btn mr-1"
+        >Data adicional</a
+      >
+    </div>
+    <!-- --------------------- -->
+    <div class="col">
+      <a
+        class="btn btn-outline-primary submenu-btn mr-1"
+        *ngIf="detail"
+        (click)="exportAllToExcel(detail, 'reporte-audit-full')"
+      >
+        Todo excel
+      </a>
+    </div>
+    <!-- --------------------- -->
+    <div class="col">
+      <a
+        class="btn btn-outline-primary submenu-btn mr-1"
+        *ngIf="detail"
+        (click)="exportViewToExcel(detail, 'reporte-audit-vista')"
+      >
+        Vista excel
+      </a>
+    </div>
+    <!-- --------------------- -->
+  </article>
+
+  <article class="col-3"></article>
+
+  <article class="col text-right row">
+    <div class="col">
+      <!-- <ng-select
+        class=" col agent-box"
+        [items]="filterFieldList"
+        bindLabel="name"
+        [clearable]="false"
+        [dropdownPosition]="'bottom'"
+        (change)="onFilterFieldList()"
+        hideSelected="true"
+        [(ngModel)]="selectedFilterField"
+        placeholder="items-"
+      >
+      </ng-select> -->
+    </div>
+    <!-- --------------------- -->
+    <div class="col">
+      <input
+        type="text"
+        class=" agent-box"
+        placeholder="Buscar..."
+        [(ngModel)]="findInList"
+        (keyup)="onUpdateFilter(findInList)"
+      />
+    </div>
+    <!-- --------------------- -->
+    <div class="col">
+      <!-- <ng-select
+        class=" agent-box"
+        [items]="rowsInTableList"
+        bindLabel="value"
+        [clearable]="false"
+        [dropdownPosition]="'bottom'"
+        hideSelected="true"
+        [(ngModel)]="rowsInTableSelected"
+        placeholder="items-"
+      >
+      </ng-select> -->
+    </div>
+    <!-- --------------------- -->
+  </article>
+</section>

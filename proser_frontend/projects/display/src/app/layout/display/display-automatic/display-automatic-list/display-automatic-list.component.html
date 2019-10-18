@@ -1,0 +1,11 @@
+<!----------ALERT MESSAGE------------------------- -->
+<div>
+  <app-alert [alertMessage]="alertMessage"></app-alert>
+</div>
+
+<!----------REPORT HEADER------------------------- -->
+<app-display-display-header [userSelection]="userSelection"
+                            [selectorVisibleFields]="selectorVisibleFields"
+                            [timerConnected]="timerConnected"
+                            (returnResult)="onReturnHeaderResult($event)">
+</app-display-display-header>

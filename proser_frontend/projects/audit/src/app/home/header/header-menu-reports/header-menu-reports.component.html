@@ -1,0 +1,54 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle"
+       aria-controls="dropdown-basic">Reportes</a>
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/audit/layout/current-agents-report">
+          <fa-icon [icon]="faIdBadge"></fa-icon> &nbsp; Agentes actuales
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/audit/layout/current-breaks-report">
+          <fa-icon [icon]="faIdBadge"></fa-icon> &nbsp; Pausas actuales (breaks)
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/audit/layout/current-calls-report">
+          <fa-icon [icon]="faIdBadge"></fa-icon> &nbsp; Llamadas actuales
+        </a>
+      </li>
+
+      <div class="dropdown-divider"></div>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/audit/layout/audit-config/config-env">
+          <fa-icon [icon]="faIdBadge"></fa-icon> &nbsp; Variables de entorno
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+
+
+<!-- --------------------------------------------------------------- -->

@@ -1,0 +1,46 @@
+{
+  "name": "ProShowDisplay",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "pro_show_display_id": {
+      "type": "number",
+      "id": true
+    },
+    "pro_show_display_name": {
+      "type": "string"
+    },
+    "pro_show_display_weekday": {
+      "type": "string"
+    },
+    "pro_show_display_start_time": {
+      "type": "string"
+    },
+    "pro_show_display_end_time": {
+      "type": "string"
+    },
+    "pro_show_display_type": {
+      "type": "string"
+    },
+    "pro_show_display_selection": {
+      "type": "string"
+    },
+    "pro_show_display_view": {
+      "type": "string"
+    },
+    "pro_show_display_status": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

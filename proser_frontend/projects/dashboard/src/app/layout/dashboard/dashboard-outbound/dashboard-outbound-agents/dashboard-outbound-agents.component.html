@@ -1,0 +1,39 @@
+<main class="frame">
+  <div class="inner indicator-pointer" (click)="openDetailModal(new, 'conectado')">
+    <p class="subtitles text-center">Agentes conectados</p>
+
+    <section class="dashboard">
+
+      <!-- -----PIE -->
+      <article id="parent" class="pie">
+        <div id="child">
+          <app-dashboard-outbound-agents-pie [rows]="rows">
+          </app-dashboard-outbound-agents-pie>
+        </div>
+      </article>
+
+      <!-- LEGEND -->
+      <article class="legend">
+        <div>
+          <app-dashboard-outbound-agents-distribution [rows]="rows">
+          </app-dashboard-outbound-agents-distribution>
+        </div>
+      </article>
+    </section>
+  </div>
+</main>
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-full">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-outbound-modal-agents [modalView]="modalView">
+  </app-dashboard-dashboard-outbound-modal-agents>
+
+</ng-template>

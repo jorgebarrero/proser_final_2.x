@@ -1,0 +1,590 @@
+<div>
+  <app-alert [alertMessage]="alertMessage"></app-alert>
+</div>
+
+<app-reports-report-header [userSelection]="userSelection"
+                           [selectorVisibleFields]="selectorVisibleFields"
+                           (returnResult)="onReturnHeaderResult($event)">
+</app-reports-report-header>
+
+<section class="row button-area report">
+  <!-- ------- BUTTONS -------------------- -->
+
+  <article class=" row mr-auto">
+    <!-- --------------------- -->
+    <!--     <div class="buttons">
+      <a (click)="show_columns = !show_columns"
+         class="btn btn-outline-primary">Data adicional</a>
+    </div> -->
+    <!-- --------------------- -->
+    <div class="">
+      <a class="btn btn-outline-primary " (click)="exportToExcel(rows)">
+        Exportar excel
+      </a>
+    </div>
+  </article>
+
+
+  <!-- ------- FIND FILEDS -------------------- -->
+
+  <app-reports-report-finder [rows]="rows" [rows_original]="rows_original"
+                             [initialSelectedFilterField]="initialSelectedFilterField"
+                             [filterFieldList]="filterFieldList"
+                             (returnNumberOfRowsInTable)="onReturnNumberOfRowsInTable($event)"
+                             (returnRowsForTable)="onReturnRowsForTable($event)">
+  </app-reports-report-finder>
+</section>
+
+<section *ngIf="!show">
+  <h1>Obteniendo datos del servidor...</h1>
+</section>
+
+<section class="report" *ngIf="rows && show">
+  <div>
+    <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'"
+                   [limit]="numberOfRowsInTable.value" [headerHeight]="75"
+                   [footerHeight]="50" [rowHeight]="40" [scrollbarH]="true"
+                   [scrollbarV]="false" [summaryRow]="false"
+                   [summaryHeight]="30" [selectionType]="'single'"
+                   [loadingIndicator]="'Contactando servidor'"
+                   [messages]="{ emptyMessage: 'Sin datos que mostrar' }"
+                   (activate)="onActivate($event, 'selected')"
+                   (select)="onSelect($event)" data-toggle="modal" role="button"
+                   href="#content">
+
+
+      <!-- agent_id------------------------------------- -->
+
+      <ngx-datatable-column prop="agent_id" width="70" name="date"
+                            [frozenLeft]="true">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <span [innerHTML]="model.fieldInfo('agent_id').html">
+            </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- agent_name------------------------------------- -->
+
+      <ngx-datatable-column prop="agent_name" width="200" name="date"
+                            [frozenLeft]="true">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('agent_name').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- agent_legal_id------------------------------------- -->
+
+      <ngx-datatable-column prop="agent_legal_id" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('agent_legal_id').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- agent_internal_id------------------------------------- -->
+
+      <ngx-datatable-column prop="agent_internal_id" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('agent_internal_id').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+
+      <!-- supervisor_name------------------------------------- -->
+
+      <ngx-datatable-column prop="supervisor_name" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('supervisor_name').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+
+      <!-- start_date------------------------------------- -->
+
+      <ngx-datatable-column prop="start_date" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('start_date').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value | date:'yyyy-MM-dd' }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- end_date------------------------------------- -->
+
+      <ngx-datatable-column prop="end_date" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('end_date').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value | date:'yyyy-MM-dd' }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+
+      <!-- login_duration_sec------------------------------------- -->
+
+      <ngx-datatable-column prop="login_duration_sec" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <span [innerHTML]="model.fieldInfo('login_duration_sec').html">
+            </span>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- login_duration_time------------------------------------- -->
+
+      <ngx-datatable-column prop="login_duration_time" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <span
+                  [innerHTML]="model.fieldInfo('login_duration_time').html">
+            </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- inbound_calls_attended------------------------------------- -->
+
+      <ngx-datatable-column prop="inbound_calls_attended" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <span
+                  [innerHTML]="model.fieldInfo('inbound_calls_attended').html">
+            </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- inbound_attended_duration_sec------------------------------------- -->
+
+      <ngx-datatable-column prop="inbound_attended_duration_sec" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <span
+                  [innerHTML]="model.fieldInfo('inbound_attended_duration_sec').html">
+            </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- inbound_attended_duration_time------------------------------------- -->
+
+      <ngx-datatable-column prop="inbound_attended_duration_time" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <span [innerHTML]="model.fieldInfo('inbound_attended_duration_time').html">
+            </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- inbound_attended_avg_time------------------------------------- -->
+
+      <ngx-datatable-column prop="inbound_attended_avg_time" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <span [innerHTML]="model.fieldInfo('inbound_attended_avg_time').html">
+            </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value | percent: "1.2-2" }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- outbound_calls_made------------------------------------- -->
+
+      <ngx-datatable-column prop="outbound_calls_made" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <span [innerHTML]="model.fieldInfo('outbound_calls_made').html">
+            </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- outbound_made_sec------------------------------------- -->
+
+      <ngx-datatable-column prop="outbound_made_sec" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <span [innerHTML]="model.fieldInfo('outbound_made_sec').html">
+            </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- outbound_made_time------------------------------------- -->
+
+      <ngx-datatable-column prop="outbound_made_time" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <span [innerHTML]="model.fieldInfo('outbound_made_time').html">
+              </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- outbound_made_avg_time------------------------------------- -->
+
+      <ngx-datatable-column prop="outbound_made_avg_time" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              <span [innerHTML]="model.fieldInfo('outbound_made_avg_time').html">
+                </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value | percent: "1.2-2" }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- outbound_internal_made------------------------------------- -->
+
+      <ngx-datatable-column prop="outbound_internal_made" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              <span [innerHTML]="model.fieldInfo('outbound_internal_made').html">
+                </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- outbound_internal_sec------------------------------------- -->
+
+      <ngx-datatable-column prop="outbound_internal_sec" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              <span [innerHTML]="model.fieldInfo('outbound_internal_sec').html">
+                </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- outbound_internal_time------------------------------------- -->
+
+      <ngx-datatable-column prop="outbound_internal_time" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              <span [innerHTML]="model.fieldInfo('outbound_internal_time').html">
+                </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- outbound_internal_avg_time------------------------------------- -->
+
+      <ngx-datatable-column prop="outbound_internal_avg_time" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              <span [innerHTML]="model.fieldInfo('outbound_internal_avg_time').html">
+                </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value | percent: "1.2-2" }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- auxiliar_duration_sec------------------------------------- -->
+
+      <ngx-datatable-column prop="auxiliar_duration_sec" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              <span [innerHTML]="model.fieldInfo('auxiliar_duration_sec').html">
+                </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- auxiliar_duration_time------------------------------------- -->
+
+      <ngx-datatable-column prop="auxiliar_duration_time" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              <span [innerHTML]="model.fieldInfo('auxiliar_duration_time').html">
+                </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- percent_auxiliar------------------------------------- -->
+
+      <ngx-datatable-column prop="percent_auxiliar" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+              <span [innerHTML]="model.fieldInfo('percent_auxiliar').html">
+                </span>
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value | percent: "1.2-2" }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- assignation_duration_sec------------------------------------- -->
+
+      <ngx-datatable-column prop="assignation_duration_sec" width="100" name="date">
+
+          <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                       ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+                <span [innerHTML]="model.fieldInfo('assignation_duration_sec').html">
+                  </span>
+            </p>
+          </ng-template>
+  
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value }}</p>
+          </ng-template>
+        </ngx-datatable-column>
+
+
+        <!-- assignation_duration_time------------------------------------- -->
+
+      <ngx-datatable-column prop="assignation_duration_time" width="100" name="date">
+
+          <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                       ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+                <span [innerHTML]="model.fieldInfo('assignation_duration_time').html">
+                  </span>
+            </p>
+          </ng-template>
+  
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value }}</p>
+          </ng-template>
+        </ngx-datatable-column>
+
+
+        <!-- percent_assignation------------------------------------- -->
+
+      <ngx-datatable-column prop="percent_assignation" width="100" name="date">
+
+          <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                       ngx-datatable-header-template>
+            <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+                <span [innerHTML]="model.fieldInfo('percent_assignation').html">
+                  </span>
+            </p>
+          </ng-template>
+  
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <p class="left-black-normal">{{ value | percent: "1.2-2" }}</p>
+          </ng-template>
+        </ngx-datatable-column>
+
+
+
+      <!-- ********************************* END **************************** -->
+    </ngx-datatable>
+  </div>
+
+  <hr />
+</section>
+
+<main class="main"></main>
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-full">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <div class="main " id="result" *ngIf="selected">
+    <div class="register">
+      <div class="register-form">
+        <ul class="register-column">
+          <li *ngFor="let item of onObjectToArray(selected)">
+            <div class="two-column">
+              <label class="register-label">{{ item.key }}</label>
+              <p class="register-input">{{ item.value }}</p>
+            </div>
+            <hr />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+<!-- <button (click)="onCreateModel(model)">Export</button> -->
+<!-- *ngIf="show_columns" -->

@@ -1,0 +1,100 @@
+<main class="frame">
+  <section class="tablegraph" *ngIf="rows.dashboardInboundCallsIndicators[0]">
+    <article id="Calls" class="tablegraph-card">
+
+      <p class="tablegraph-subtitles">Llamadas</p>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'recibida')">
+        <p class="tablegraph-text" >
+          Recibidas</p>
+
+        <p class="tablegraph-number">
+          {{ rows.dashboardInboundCallsIndicators[0].inboundReceived | number:'1.0-0'}}
+        </p>
+      </div>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'atendida')">
+        <p class="tablegraph-text" >Atendidas</p>
+        <p class=" tablegraph-number">
+          {{ rows.dashboardInboundCallsIndicators[0].inboundAttended | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'abandonada') ">
+        <p class="tablegraph-text" >Abandonadas</p>
+        <p class=" tablegraph-number">
+          {{ rows.dashboardInboundCallsIndicators[0].inboundAbandoned | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'corta') ">
+        <p class="tablegraph-text" >Cortas (menos de:
+          {{ rows.dashboardInboundCallsIndicators[0].shortTimeDef}}")</p>
+        <p class="tablegraph-number">
+          {{ rows.dashboardInboundCallsIndicators[0].inboundShort | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'antes tiempo ideal') ">
+        <p class="tablegraph-text" >
+          Atendidas en menos de: {{
+            rows.dashboardInboundCallsIndicators[0].idealResponseTime }}"
+        </p>
+        <p class="tablegraph-number">
+          {{ rows.dashboardInboundCallsIndicators[0].inboundBeforeTime | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'despues tiempo ideal') ">
+        <p class="tablegraph-text" >
+          Atendidas en más de: {{
+              rows.dashboardInboundCallsIndicators[0].idealResponseTime }}"
+        </p>
+        <p class="tablegraph-number">
+          {{ rows.dashboardInboundCallsIndicators[0].inboundAfterTime | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'colgada por agente') ">
+        <p class="tablegraph-text" >Colgadas por agente</p>
+        <p class="tablegraph-number">
+          {{ rows.dashboardInboundCallsIndicators[0].inboundHungAgent  }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Perdidas</p>
+        <p class="tablegraph-number">
+          {{ rows.dashboardInboundCallsIndicators[0].inboundLostCallsTotal  }}
+        </p>
+      </div>
+
+    </article>
+  </section>
+</main>
+
+
+
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-inbound-modal-calls [modalView]="modalView">
+  </app-dashboard-dashboard-inbound-modal-calls>
+
+</ng-template>

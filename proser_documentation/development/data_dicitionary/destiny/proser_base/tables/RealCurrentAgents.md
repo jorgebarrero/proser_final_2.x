@@ -1,0 +1,17 @@
+column_name
+rca_audit_login_id
+rca_audit_logout_id
+rca_date
+__AGENT__
+rca_agent_id
+rca_agent_name
+rca_agent_datetime_login
+rca_agent_datetime_logout
+rca_agent_duration
+rca_agent_duration_sec
+rca_agent_status
+__GROUP__
+rca_group_id
+rca_group_name
+rca_subgroup_id
+rca_subgroup_name

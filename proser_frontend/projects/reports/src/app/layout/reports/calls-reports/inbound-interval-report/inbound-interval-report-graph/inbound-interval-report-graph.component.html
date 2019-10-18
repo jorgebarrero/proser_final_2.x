@@ -1,0 +1,11 @@
+<section *ngIf="!show">
+        <h1>Obteniendo datos del servidor...</h1>
+</section>
+
+<div *ngIf="show">
+        <canvas baseChart width="100" height="25" [chartType]="barChartType"
+                [colors]="barChartColors" [legend]="barChartLegend"
+                [labels]="barChartLabels" [datasets]="barChartData"
+                [options]="barChartOptions">
+        </canvas>
+</div>

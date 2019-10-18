@@ -1,0 +1,103 @@
+<main class="grid" *ngIf="rows">
+
+  <!-- LEVELS -->
+
+  <!-- Nivel de contactabilidad -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].outboundContactLevel}}"
+         *ngIf="rows.colors">
+      <!-- <div class="indicator-cell "> -->
+      <p class="indicator-label">Nivel de contactabilidad</p>
+      <p class="indicator-number ">
+        {{
+              rows.displayOutboundCallsIndicators[0]
+                .outboundContactLevel | percent: "1.2-2"
+            }}
+      </p>
+    </div>
+
+  </article>
+
+
+  <!-- Nivel de efectividad -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].outboundEffectiveLevel}}"
+         *ngIf="rows.colors">
+      <p class="indicator-label">Nivel de efectividad</p>
+      <p class="indicator-number ">
+        {{
+                rows.displayOutboundCallsIndicators[0]
+                  .outboundEffectiveLevel | percent: "1.2-2"
+              }}
+    </div>
+  </article>
+
+
+
+
+
+
+  <!-- CALLS -->
+
+
+  <!-- Llamadas en contestadas -->
+  <article class=" frame">
+    <div class="indicator-cell {{rows.colors[0].outboundAnswered}}"
+         *ngIf="rows.colors">
+      <p class="indicator-label">Llamadas<br /> contestadas</p>
+      <p class="indicator-number ">
+        {{
+            rows.displayOutboundCallsIndicators[0].outboundAnswered
+              }}
+      </p>
+    </div>
+  </article>
+
+
+
+
+  <!-- GRAY INDICATORS -->
+
+
+
+  <!-- Agentes planificados -->
+  <article class=" frame">
+    <div class="indicator-cell gray">
+      <p class="indicator-label">Agentes<br />planificados</p>
+      <p class="indicator-number ">
+        {{
+                        rows.agentsPlannedTotal[0]
+                          .agentsPlannedTotal
+                      }}
+      </p>
+    </div>
+  </article>
+
+
+  <!-- Agentes conectados -->
+  <article class="frame">
+    <div class="indicator-cell gray">
+      <p class="indicator-label">Agentes<br />registrados</p>
+      <p class="indicator-number ">
+        {{
+                    rows.agentsLoggedTotal[0]
+                      .agentsLoggedTotal
+                  }}
+      </p>
+    </div>
+  </article>
+
+  <!-- TMO -->
+  <article class="frame">
+    <div class="indicator-cell gray">
+      <p class="indicator-label">TMO</p>
+      <p class="indicator-number ">
+        {{
+                    rows.displayOutboundCallsIndicators[0]
+                      .outboundTMO | number: "1.0-0"
+                  }}
+      </p>
+    </div>
+  </article>
+
+</main>

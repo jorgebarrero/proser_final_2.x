@@ -1,0 +1,331 @@
+<div>
+  <app-alert [alertMessage]="alertMessage"></app-alert>
+</div>
+
+<app-reports-report-header [userSelection]="userSelection"
+                           [selectorVisibleFields]="selectorVisibleFields"
+                           (returnResult)="onReturnHeaderResult($event)">
+</app-reports-report-header>
+
+<section class="row button-area report">
+  <!-- ------- BUTTONS -------------------- -->
+
+  <article class=" row mr-auto">
+    <!-- --------------------- -->
+<!--     <div class="buttons">
+      <a (click)="show_columns = !show_columns"
+         class="btn btn-outline-primary">Data adicional</a>
+    </div> -->
+    <!-- --------------------- -->
+    <div class="">
+      <a class="btn btn-outline-primary " (click)="exportToExcel(rows)">
+        Exportar excel
+      </a>
+    </div>
+  </article>
+
+
+  <!-- ------- FIND FILEDS -------------------- -->
+
+  <app-reports-report-finder [rows]="rows" [rows_original]="rows_original"
+                             [initialSelectedFilterField]="initialSelectedFilterField"
+                             [filterFieldList]="filterFieldList"
+                             (returnNumberOfRowsInTable)="onReturnNumberOfRowsInTable($event)"
+                             (returnRowsForTable)="onReturnRowsForTable($event)">
+  </app-reports-report-finder>
+</section>
+
+<section *ngIf="!show">
+    <h1>Obteniendo datos del servidor...</h1>
+  </section>
+
+<section class="report" *ngIf="rows && show">
+  <div>
+    <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'"
+                   [limit]="numberOfRowsInTable.value" [headerHeight]="75"
+                   [footerHeight]="50" [rowHeight]="40" [scrollbarH]="true"
+                   [scrollbarV]="false" [summaryRow]="false"
+                   [summaryHeight]="30" [selectionType]="'single'"
+                   [loadingIndicator]="'Contactando servidor'"
+                   [messages]="{ emptyMessage: 'Sin datos que mostrar' }"
+                   (activate)="onActivate($event, 'selected')"
+                   (select)="onSelect($event)" data-toggle="modal" role="button"
+                   href="#content">
+
+
+      <!-- rcc_callentry_buton------------------------------------- -->
+
+      <ngx-datatable-column prop="rcc_callentry_buton" width="30"
+                            name="rcc_callentry_buton" headerClass="header"
+                            [summaryFunc]="rcc_callentry_buton"
+                            [summaryTemplate]="rcc_callentry_buton"
+                            [frozenLeft]="true">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            <!-- {{ value | date: "yyyy-MM-dd HH:mm:ss" }} -->
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <button class="btn btn-sm btn-primary" (click)="openModal(new)">
+            <i class="fas fa-phone "></i>
+          </button>
+        </ng-template>
+
+        <ng-template id="rcc_callentry_buton">
+          <p></p>
+        </ng-template>
+
+      </ngx-datatable-column>
+
+      <!-- rcb_break_audit_id------------------------------------- -->
+
+      <ngx-datatable-column prop="rcb_break_audit_id" width="75" name="date"
+                            [frozenLeft]="true">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('rcb_break_audit_id').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- rcb_date------------------------------------- -->
+
+      <ngx-datatable-column prop="rcb_date" width="100" name="date"
+                            [frozenLeft]="true">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('rcb_date').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value | date: "yyyy-MM-dd" }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- inv_agent_name------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_agent_name" width="100" name="date"
+                            [frozenLeft]="true">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('inv_agent_name').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- rcb_break_name------------------------------------- -->
+
+      <ngx-datatable-column prop="rcb_break_name" width="100" name="date"
+                            [frozenLeft]="true">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('rcb_break_name').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- rcb_break_agent_id------------------------------------- -->
+
+      <ngx-datatable-column prop="rcb_break_agent_id" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('rcb_break_agent_id').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- rcb_break_id------------------------------------- -->
+
+      <ngx-datatable-column prop="rcb_break_id" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('rcb_break_id').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- rcb_break_datetime_init------------------------------------- -->
+
+      <ngx-datatable-column prop="rcb_break_datetime_init" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('rcb_break_datetime_init').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{  value | date: "yyyy-MM-dd HH:mm:ss"}}
+          </p>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- rcb_break_datetime_end------------------------------------- -->
+
+      <ngx-datatable-column prop="rcb_break_datetime_end" width="100"
+                            name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('rcb_break_datetime_end').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value | date: "yyyy-MM-dd HH:mm:ss" }}
+          </p>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- rcb_break_duration------------------------------------- -->
+
+      <ngx-datatable-column prop="rcb_break_duration" width="100" name="date">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('rcb_break_duration').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- rcb_break_duration_sec------------------------------------- -->
+
+      <ngx-datatable-column prop="rcb_break_duration_sec" width="100"
+                            name="date" *ngIf="show_columns">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('rcb_break_duration_sec').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- rcb_break_productivity------------------------------------- -->
+
+      <ngx-datatable-column prop="rcb_break_productivity" width="100"
+                            name="date" *ngIf="show_columns">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('rcb_break_productivity').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- agent_supervisor_name------------------------------------- -->
+
+      <ngx-datatable-column prop="agent_supervisor_name" width="100" name="date"
+                            *ngIf="show_columns">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('agent_supervisor_name').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- audit_cdr_queues------------------------------------- -->
+
+      <ngx-datatable-column prop="audit_cdr_queues" width="100" name="date"
+                            *ngIf="show_columns">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="left-black-bold" (click)="sort($event, sortDir, sortFn)">
+            {{model.fieldInfo('audit_cdr_queues').text}}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="left-black-normal">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+
+      <!-- ********************************* END **************************** -->
+    </ngx-datatable>
+  </div>
+
+  <hr />
+</section>
+
+<main class="main"></main>
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-full">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <div class="main " id="result" *ngIf="selected">
+    <div class="register">
+      <div class="register-form">
+        <ul class="register-column">
+          <li *ngFor="let item of onObjectToArray(selected)">
+            <div class="two-column">
+              <label class="register-label">{{ item.key }}</label>
+              <p class="register-input">{{ item.value }}</p>
+            </div>
+            <hr />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+<!-- <button (click)="onCreateModel(model)">Export</button> -->

@@ -1,0 +1,68 @@
+{
+  "name": "System",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "System"
+    }
+  },
+  "properties": {
+    "system_id": {
+      "type": "number",
+      "id": 1
+    },
+    "system_name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": ["READ", "WRITE"]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": ["echo", "pm2", "reboot"]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "system",
+      "permission": "ALLOW",
+      "accessType": ["READ", "WRITE"]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "system",
+      "permission": "ALLOW",
+      "property": ["echo", "pm2", "reboot"]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "accessType": ["READ", "WRITE"]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "property": ["echo", "pm2", "reboot"]
+    }
+  ],
+  "methods": {}
+}

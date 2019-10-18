@@ -1,0 +1,10 @@
+column_name
+inv_scale_id
+inv_scale_status
+inv_scale_chk
+inv_scale_shortname
+inv_scale_name
+inv_scale_red
+inv_scale_yellow
+inv_scale_green
+inv_scale_blue

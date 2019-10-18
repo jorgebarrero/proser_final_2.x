@@ -1,0 +1,231 @@
+<section>
+  <nav class="navbar navbar-expand-lg navbar-dark configheader-menu">
+    <header-menu-brand></header-menu-brand>
+
+    <a routerLink="/init/home" class="chapter nav-link">Home</a>
+
+    <button type="button" class="btn btn-primary"
+            (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed"
+            aria-controls="navigation">Toggle collapse
+    </button>
+    <hr>
+    <!-- <div id="collapseBasic" [collapse]="isCollapsed">
+<div class="well well-lg card card-block card-header">Some content</div>
+</div> -->
+
+    <article class="collapse navbar-collapse" id="navigation">
+
+
+
+
+      <!-- Secciones Menu -->
+      <div class="navbar-nav" *ngIf="currentUser">
+        <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+             [autoClose]="false">
+
+          <a dropdownToggle class="nav-link dropdown-toggle" id="navdrop"
+             role="button" data-toggle="dropdown"
+             data-hover="dropdown">Secciones</a>
+
+          <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+              role="menu" aria-labelledby="button-triggers-manual">
+
+            <!-- MENU ITEM-->
+            <li role="menuitem">
+              <a class="dropdown-item " routerLink="/app1/"
+                 *ngIf="showInMenu >= 10">
+                <i class="fas fa-chart-area"></i> &nbsp; App1
+              </a>
+            </li>
+
+            <!-- MENU ITEM-->
+            <li role="menuitem">
+              <a class="dropdown-item " routerLink="/show/"
+                 *ngIf="showInMenu >= 7">
+                <i class="fas fa-digital-tachograph"></i> &nbsp; Show
+              </a>
+            </li>
+
+            <!-- DIVIDER-->
+            <li class="divider dropdown-divider"></li>
+
+            <!-- MENU ITEM-->
+            <li role="menuitem">
+              <a class="dropdown-item " routerLink="/display/">
+                <i class="fas fa-digital-tachograph"></i> &nbsp; Display
+              </a>
+            </li>
+
+            <!-- MENU ITEM-->
+            <li role="menuitem">
+              <a class="dropdown-item " routerLink="/dashboard/">
+                <i class="fas fa-chart-area"></i> &nbsp; Dashboard
+              </a>
+            </li>
+
+            <!-- MENU ITEM-->
+            <li role="menuitem">
+              <a class="dropdown-item " routerLink="/reports/">
+                <i class="fas fa-swatchbook"></i>&nbsp; Reportes
+              </a>
+            </li>
+
+
+            <!-- DIVIDER-->
+            <li class="divider dropdown-divider"></li>
+
+
+
+            <!-- MENU ITEM-->
+            <li role="menuitem">
+              <a class="dropdown-item " routerLink="/crud/"
+                 *ngIf="showInMenu >= 5">
+                <i class="fas fa-marker"></i> &nbsp; Configuración
+              </a>
+            </li>
+
+            <!-- MENU ITEM-->
+            <li role="menuitem">
+              <a class="dropdown-item " routerLink="/audit/"
+                 *ngIf="showInMenu >= 5">
+                <i class="fas fa-eye"></i> &nbsp; Auditoría
+              </a>
+            </li>
+
+
+            <!-- DIVIDER-->
+            <li class="divider dropdown-divider"></li>
+
+
+            <!-- MENU ITEM-->
+            <li role="menuitem">
+              <a class="dropdown-item " routerLink="/system/"
+                 *ngIf="showInMenu >= 10">
+                <i class="fas fa-magic"></i> &nbsp; Sistema
+              </a>
+            </li>
+
+            <!-- DIVIDER-->
+            <li class="divider dropdown-divider"></li>
+
+
+            <!-- MENU ITEM-->
+            <li role="menuitem">
+              <a class="dropdown-item" routerLink="/user/">
+                <i class="fas fa-user-tie"></i> Usuario
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <!-- end menu -->
+
+
+
+
+      <!-- ---- LEFT MENU --------- -->
+      <ul class="navbar-nav" *ngIf="!currentUser">
+        <!-- ----------------------------------- -->
+        <li class="nav-item dropdown" dropdown>
+          <a class="nav-link dropdown-toggle" dropdownToggle id="navdrop"
+             role="button" data-toggle="dropdown"
+             data-hover="dropdown">Login/registro</a>
+          <!-- ----------------------------------- -->
+          <div class="dropdown-menu" aria-labelledby="navdrop">
+            <a class="dropdown-item configheader-menu"
+               routerLink="/user/layout/login/">
+              <i class="fas fa-user-tie"></i> Login
+            </a>
+
+            <a class="dropdown-item configheader-menu"
+               routerLink="/user/layout/login/login-register/">
+              <i class="fas fa-user-tie"></i> Registro
+            </a>
+
+          </div>
+        </li>
+      </ul>
+
+
+
+      <!-- ---- LEFT MENU --------- -->
+      <ul class="navbar-nav" *ngIf="currentUser">
+        <!-- ----------------------------------- -->
+        <li class="nav-item dropdown" dropdown>
+          <a class="nav-link dropdown-toggle" id="navdrop" role="button"
+             data-toggle="dropdown" data-hover="dropdown">Secciones</a>
+          <!-- ----------------------------------- -->
+          <div class="dropdown-menu" aria-labelledby="navdrop">
+
+            <a class="dropdown-item " routerLink="/app1/"
+               *ngIf="showInMenu >= 10">
+              <i class="fas fa-chart-area"></i> &nbsp; App1
+            </a>
+
+            <a class="dropdown-item " routerLink="/show/"
+               *ngIf="showInMenu >= 7">
+              <i class="fas fa-digital-tachograph"></i> &nbsp; Show
+            </a>
+
+            <!-- ---------------------------------- -->
+            <div class="dropdown-divider" *ngIf="showInMenu >= 7"></div>
+            <!-- ---------------------------------- -->
+
+            <a class="dropdown-item " routerLink="/display/">
+              <i class="fas fa-digital-tachograph"></i> &nbsp; Display
+            </a>
+
+            <a class="dropdown-item " routerLink="/dashboard/">
+              <i class="fas fa-chart-area"></i> &nbsp; Dashboard
+            </a>
+
+            <a class="dropdown-item " routerLink="/reports/">
+              <i class="fas fa-swatchbook"></i>&nbsp; Reportes
+            </a>
+
+            <!----------------------------------- -->
+            <div class="dropdown-divider"></div>
+            <!-- ---------------------------------- -->
+
+            <a class="dropdown-item " routerLink="/crud/"
+               *ngIf="showInMenu >= 5">
+              <i class="fas fa-marker"></i> &nbsp; Configuración
+            </a>
+
+            <a class="dropdown-item " routerLink="/audit/"
+               *ngIf="showInMenu >= 5">
+              <i class="fas fa-eye"></i> &nbsp; Auditoría
+            </a>
+
+            <!-- ---------------------------------- -->
+            <div class="dropdown-divider"></div>
+            <!-- ---------------------------------- -->
+
+            <a class="dropdown-item " routerLink="/system/"
+               *ngIf="showInMenu >= 10">
+              <i class="fas fa-magic"></i> &nbsp; Sistema
+            </a>
+
+
+            <!-- ---------------------------------- -->
+            <div class="dropdown-divider"></div>
+            <!-- ---------------------------------- -->
+
+            <a class="dropdown-item" routerLink="/user/">
+              <i class="fas fa-user-tie"></i> Usuario
+            </a>
+
+
+          </div>
+        </li>
+      </ul>
+
+      <!-- ---- RIGHT MENU --------- -->
+      <div class="navbar-nav ml-auto">
+        <header-menu-user></header-menu-user>
+      </div>
+    </article>
+  </nav>
+</section>

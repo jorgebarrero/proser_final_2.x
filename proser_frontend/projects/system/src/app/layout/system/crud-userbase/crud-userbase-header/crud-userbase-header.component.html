@@ -1,0 +1,18 @@
+<section class="table-header">
+
+  <!-- BUTTONS -->
+  <div>
+    <app-user-crud-userbase-header-buttons [crudRecord]="crudRecord"
+                                           (exportData)="onExport()">
+    </app-user-crud-userbase-header-buttons>
+  </div>
+
+  <!-- DATATABLE FINDER -->
+  <div class="row datatable-finder ml-1 ml-auto"
+       *ngIf="crudRecord.showDatatableFinder">
+    <app-datatable-finder [crudRecord]="crudRecord"></app-datatable-finder>
+    <app-datatable-rowsnumber [crudRecord]="crudRecord">
+    </app-datatable-rowsnumber>
+  </div>
+
+</section>

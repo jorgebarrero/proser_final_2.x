@@ -1,0 +1,91 @@
+<!----------ALERT MESSAGE------------------------- -->
+<div>
+  <app-alert [alertMessage]="alertMessage"></app-alert>
+</div>
+
+<!----------REPORT HEADER------------------------- -->
+<app-display-display-header [userSelection]="userSelection"
+                            [selectorVisibleFields]="selectorVisibleFields"
+                            [timerConnected]="timerConnected"
+                            (returnResult)="onReturnHeaderResult($event)">
+</app-display-display-header>
+
+
+<!-- TODAY -->
+<main class="main" *ngIf="!historic">
+  <!-- HIGHLIGHTS -->
+  <section class="highlights" *ngIf="rows">
+    <article>
+      <!-- <p class="small"> HIGHLIGHTS </p> -->
+      <app-display-outbound-highlights [rows]="rows">
+      </app-display-outbound-highlights>
+    </article>
+  </section>
+
+
+  <section>
+    <div class="board">
+      <article class="pane">
+        <app-display-outbound-calls [rows]="rows"
+                                   [userSelection]="userSelection">
+        </app-display-outbound-calls>
+      </article>
+
+      <article>
+        <app-display-outbound-levels [rows]="rows"
+                                    [userSelection]="userSelection">
+        </app-display-outbound-levels>
+      </article>
+
+      <article>
+        <app-display-outbound-agents [rows]="rows"></app-display-outbound-agents>
+      </article>
+
+      <article>
+        <app-display-outbound-breaks [rows]="rows">
+        </app-display-outbound-breaks>
+      </article>
+    </div>
+  </section>
+</main>
+
+<!-- HISTORIC -->
+<main class="main" *ngIf="historic">
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights" *ngIf="rows">
+    <article>
+      <!-- <p class="small"> HIGHLIGHTS </p> -->
+      <app-display-outbound-highlights-historic [rows]="rows">
+      </app-display-outbound-highlights-historic>
+    </article>
+  </section>
+
+
+  <section>
+    <div class=" board">
+      <article class="pane">
+        <app-display-outbound-calls [rows]="rows"
+                                   [userSelection]="userSelection">
+        </app-display-outbound-calls>
+      </article>
+
+      <article>
+        <app-display-outbound-levels [rows]="rows"
+                                    [userSelection]="userSelection">
+        </app-display-outbound-levels>
+      </article>
+
+      <article>
+        <app-display-display-outbound-agents-historic [rows]="rows">
+        </app-display-display-outbound-agents-historic>
+      </article>
+
+      <article>
+        <app-display-display-outbound-breaks-historic [rows]="rows">
+        </app-display-display-outbound-breaks-historic>
+      </article>
+    </div>
+  </section>
+
+</main>

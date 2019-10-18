@@ -1,0 +1,83 @@
+{
+  "name": "RecordSelection",
+  "base": "Model",
+  "idInjection": true,
+  "properties": {
+    "agent_id": {
+      "type": "any"
+    },
+    "agent_name": {
+      "type": "any"
+    },
+    "agent_supervisor_name": {
+      "type": "any"
+    },
+    "start_date": {
+      "type": "any"
+    },
+    "start_time": {
+      "type": "any"
+    },
+    "call_type": {
+      "type": "any"
+    },
+    "call_source": {
+      "type": "any"
+    },
+    "call_destiny": {
+      "type": "any"
+    },
+    "duration": {
+      "type": "any"
+    },
+    "call_status": {
+      "type": "any"
+    },
+    "call_clasif": {
+      "type": "any"
+    },
+    "record": {
+      "type": "any"
+    },
+    "queue_time": {
+      "type": "any"
+    },
+    "connection_time": {
+      "type": "any"
+    },
+    "end_time": {
+      "type": "any"
+    },
+    "time_hung_agent": {
+      "type": "any"
+    },
+    "time_hung_caller": {
+      "type": "any"
+    },
+    "time_abandoned": {
+      "type": "any"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "projects": {
+      "type": "hasMany",
+      "model": "project",
+      "foreignKey": "ownerId"
+    },
+    "teams": {
+      "type": "hasMany",
+      "model": "team",
+      "foreignKey": "ownerId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

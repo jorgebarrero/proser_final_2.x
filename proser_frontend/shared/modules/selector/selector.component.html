@@ -1,0 +1,626 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<main id="register"
+      *ngIf="userSelection && selectorVisibleFields && show_data && menuOptions"
+      class="main">
+
+  <form [formGroup]="selectorForm" class="register">
+    <section class="register-form">
+      <article class="register-column">
+        <div class="form-group two-column" id="mode"
+             *ngIf="selectorVisibleFields.mode">
+          <label
+                 class="register-label">{{ model.fieldInfo("mode").text}}</label>
+
+          <div>
+            <ng-select class="register-input" [items]="menuOptions.mode"
+                       bindLabel="name" placeholder="Modo"
+                       [dropdownPosition]="'auto'" [searchable]="false"
+                       [clearable]="false" [multiple]="false"
+                       hideSelected="true" formControlName="mode"
+                       (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.mode.dirty && f.mode.errors" class="register-error">
+            <div *ngIf="f.mode.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+
+        <!-- start_date -->
+        <div class="form-group two-column" id="start_date"
+             *ngIf="selectorVisibleFields.start_date">
+          <label
+                 class="register-label">{{model.fieldInfo("start_date").text}}</label>
+
+          <div>
+            <input class="form-control register-input" type="text"
+                   name="start_date" ngbDatepicker #start_date="ngbDatepicker"
+                   (click)="start_date.toggle()" formControlName="start_date"
+                   (ngModelChange)="onNewStartDate()" />
+          </div>
+
+          <div *ngIf="f.start_date.dirty && f.start_date.errors"
+               class="register-error">
+            <div *ngIf="f.start_date.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+
+        <!-------------------------- FIELD END --------------------------->
+
+        <!-- end_date -->
+        <div class="form-group two-column" id="end_date"
+             *ngIf="selectorVisibleFields.end_date">
+          <label
+                 class="register-label">{{model.fieldInfo("end_date").text}}</label>
+
+          <div>
+            <input class="form-control register-input" type="text"
+                   name="end_date" ngbDatepicker #end_date="ngbDatepicker"
+                   (click)="end_date.toggle()" formControlName="end_date"
+                   (ngModelChange)="onNewEndDate()" />
+          </div>
+
+          <div *ngIf="f.end_date.dirty && f.end_date.errors"
+               class="register-error">
+            <div *ngIf="f.end_date.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+        <!-- start_time -->
+        <!-- <div
+          class="form-group two-column"
+          id="start_time"
+          *ngIf="selectorVisibleFields.start_time"
+        >
+          <label class="register-label">{{
+            model.fieldInfo("start_time").text
+          }}</label>
+
+          <div class="register-input">
+            <ng-select
+              [items]="menuOptions.start_time"
+              bindLabel="name"
+              placeholder="Hora inicio"
+              [dropdownPosition]="'auto'"
+              [searchable]="false"
+              (change)="onChange()"
+              [clearable]="false"
+              [multiple]="false"
+              hideSelected="true"
+              formControlName="start_time"
+              (change)="onChange()"
+            >
+            </ng-select>
+          </div>
+
+          <div
+            *ngIf="f.start_time.dirty && f.start_time.errors"
+            class="register-error"
+          >
+            <div *ngIf="f.start_time.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div> -->
+        <!-------------------------- FIELD END --------------------------->
+
+        <!-- end_time -->
+        <!-- <div
+          class="form-group two-column"
+          id="end_time"
+          *ngIf="selectorVisibleFields.end_time"
+        >
+          <label class="register-label">{{
+            model.fieldInfo("end_time").text
+          }}</label>
+
+          <div class="register-input">
+            <ng-select
+              [items]="menuOptions.end_time"
+              bindLabel="name"
+              placeholder="Hora final"
+              [dropdownPosition]="'auto'"
+              [searchable]="false"
+              (change)="onChange()"
+              [clearable]="false"
+              [multiple]="false"
+              hideSelected="true"
+              formControlName="end_time"
+              (change)="onChange()"
+            >
+            </ng-select>
+          </div>
+          <div
+            *ngIf="f.end_time.dirty && f.end_time.errors"
+            class="register-error"
+          >
+            <div *ngIf="f.end_time.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div> -->
+
+
+
+        <!-- start_time_hour -->
+        <div class="form-group two-column" id="start_time"
+             *ngIf="selectorVisibleFields.start_time">
+          <label class="register-label">
+            <!-- {{
+           model.fieldInfo("start_time").text
+         }} -->
+            hrs inicio <br> <span class="text-danger">{{start_time_text}}
+            </span>
+          </label>
+
+          <ngb-timepicker formControlName="start_time_hour"
+                          (ngModelChange)="onChangeStartTime()" seconds="true">
+          </ngb-timepicker>
+
+          <div *ngIf="f.start_time.dirty && f.start_time.errors"
+               class="register-error">
+            <div *ngIf="f.start_time.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+
+
+        <!-- end_time_hour -->
+        <div class="form-group two-column" id="start_time"
+             *ngIf="selectorVisibleFields.end_time">
+          <label class="register-label">
+            <!-- {{
+                  model.fieldInfo("start_time").text
+                }} -->
+            hrs final <br> <span class="text-danger">{{end_time_text}}</span>
+          </label>
+
+          <ngb-timepicker formControlName="end_time_hour" seconds="true"
+                          (ngModelChange)="onChangeEndTime() "></ngb-timepicker>
+
+          <div *ngIf="f.start_time.dirty && f.start_time.errors"
+               class="register-error">
+            <div *ngIf="f.start_time.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+
+
+        <!-------------------------- FIELD END --------------------------->
+      </article>
+
+      <article class="register-column">
+
+        <!-- interval -->
+        <div class="form-group two-column" id="interval"
+             *ngIf="selectorVisibleFields.interval">
+          <label
+                 class="register-label">{{model.fieldInfo("interval").text}}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.interval" bindLabel="name"
+                       placeholder="Intervalo" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="true"
+                       [multiple]="false" hideSelected="true"
+                       formControlName="interval" (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.interval.dirty && f.interval.errors"
+               class="register-error">
+            <div *ngIf="f.interval.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+        <!-- last_minutes -->
+        <div class="form-group two-column" id="last_minutes"
+             *ngIf="selectorVisibleFields.last_minutes">
+          <label
+                 class="register-label">{{model.fieldInfo("last_minutes").text}}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.last_minutes ? menuOptions.last_minutes : []"
+                       bindLabel="name" placeholder="Últimos minutos"
+                       [dropdownPosition]="'auto'" [searchable]="false"
+                       [clearable]="true" [multiple]="false" hideSelected="true"
+                       formControlName="last_minutes"
+                       (change)="onLastMinutes()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.last_minutes.dirty && f.last_minutes.errors"
+               class="register-error">
+            <div *ngIf="f.last_minutes.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+
+
+        <hr>
+
+        <!-- groupBy -->
+        <div class="form-group two-column" id="groupBy"
+             *ngIf="selectorVisibleFields.groupBy">
+          <label
+                 class="register-label">{{ model.fieldInfo("groupBy").text }}</label>
+
+          <div class="register-input">
+            <ng-select [items]="groupList" bindLabel="name"
+                       placeholder="Agrupar por:" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="false"
+                       [multiple]="false" hideSelected="true"
+                       formControlName="groupBy" (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.groupBy.dirty && f.groupBy.errors"
+               class="register-error">
+            <div *ngIf="f.groupBy.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+
+        <hr>
+
+        <!-- status -->
+        <div class="form-group two-column" id="status"
+             *ngIf="selectorVisibleFields.status">
+          <label
+                 class="register-label">{{model.fieldInfo('status').text}}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.status" bindLabel="name"
+                       placeholder="Estatus" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="false"
+                       [multiple]="false" hideSelected="true"
+                       formControlName="status" (change)="onStatusChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.status.dirty && f.status.errors" class="register-error">
+            <div *ngIf="f.status.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+
+        <!-------------------------- FIELD END --------------------------->
+
+
+        <hr>
+
+        <!-- auxiliar -->
+        <div class="form-group two-column" id="auxiliar"
+             *ngIf="selectorVisibleFields.auxiliar">
+          <label
+                 class="register-label">{{ model.fieldInfo("auxiliar").text }}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.auxiliar" bindLabel="name"
+                       placeholder="Auxiliar" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="true" [multiple]="true"
+                       hideSelected="true" formControlName="auxiliar"
+                       (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.mode.dirty && f.mode.errors" class="register-error">
+            <div *ngIf="f.mode.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+
+        <!-- assignation -->
+        <div class="form-group two-column" id="assignation"
+             *ngIf="selectorVisibleFields.assignation">
+          <label
+                 class="register-label">{{ model.fieldInfo("assignation").text }}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.assignation" bindLabel="name"
+                       placeholder="Asignación" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="true" [multiple]="true"
+                       hideSelected="true" formControlName="assignation"
+                       (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.assignation.dirty && f.assignation.errors"
+               class="register-error">
+            <div *ngIf="f.assignation.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+
+      <article class="register-column">
+
+        <!-- supervisor -->
+        <div class="form-group two-column" id="supervisor"
+             *ngIf="selectorVisibleFields.supervisor">
+          <label
+                 class="register-label">{{model.fieldInfo('supervisor').text}}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.supervisor" bindLabel="name"
+                       placeholder="Supervisor" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="true" [multiple]="true"
+                       hideSelected="true" formControlName="supervisor"
+                       (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.supervisor.dirty && f.supervisor.errors"
+               class="register-error">
+            <div *ngIf="f.supervisor.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+
+
+        <!-- agent -->
+        <div class="form-group two-column" id="agent"
+             *ngIf="selectorVisibleFields.agent">
+          <label
+                 class="register-label">{{model.fieldInfo('agent').text}}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.agent" bindLabel="name"
+                       placeholder="Agente" [dropdownPosition]="'auto'"
+                       [searchable]="true" [clearable]="true" [multiple]="true"
+                       hideSelected="true" formControlName="agent"
+                       (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.agent.dirty && f.agent.errors" class="register-error">
+            <div *ngIf="f.agent.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+
+        <!-- role -->
+        <div class="form-group two-column" id="role"
+             *ngIf="selectorVisibleFields.role">
+          <label
+                 class="register-label">{{ model.fieldInfo("role").text }}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.role" bindLabel="name"
+                       placeholder="Rol" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="true" [multiple]="true"
+                       hideSelected="true" formControlName="role"
+                       (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.role.dirty && f.role.errors" class="register-error">
+            <div *ngIf="f.role.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+
+        <!-- schedule -->
+        <div class="form-group two-column" id="schedule"
+             *ngIf="selectorVisibleFields.schedule">
+          <label
+                 class="register-label">{{ model.fieldInfo("schedule").text }}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.schedule" bindLabel="name"
+                       placeholder="Turno" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="true" [multiple]="true"
+                       hideSelected="true" formControlName="schedule"
+                       (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.schedule.dirty && f.schedule.errors"
+               class="register-error">
+            <div *ngIf="f.schedule.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+
+
+
+        <hr>
+
+        <!-- client -->
+        <div class="form-group two-column" id="client"
+             *ngIf="selectorVisibleFields.client">
+          <label class="register-label">{{
+model.fieldInfo('client').text
+}}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.client" bindLabel="name"
+                       placeholder="Cliente" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="true" [multiple]="true"
+                       hideSelected="true" formControlName="client"
+                       (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.client.dirty && f.client.errors" class="register-error">
+            <div *ngIf="f.client.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+        <!-- queue -->
+        <div class="form-group two-column" id="queue"
+             *ngIf="selectorVisibleFields.queue">
+          <label
+                 class="register-label">{{model.fieldInfo('queue').text}}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.queue" bindLabel="name"
+                       placeholder="Cola" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="true" [multiple]="true"
+                       hideSelected="true" formControlName="queue"
+                       (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.queue.dirty && f.queue.errors" class="register-error">
+            <div *ngIf="f.queue.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+        <!-- service -->
+        <div class="form-group two-column" id="service"
+             *ngIf="selectorVisibleFields.service">
+          <label
+                 class="register-label">{{model.fieldInfo('service').text}}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.service" bindLabel="name"
+                       placeholder="Servicio" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="true" [multiple]="true"
+                       hideSelected="true" formControlName="service"
+                       (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.service.dirty && f.service.errors"
+               class="register-error">
+            <div *ngIf="f.service.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+        <!-- campaign -->
+        <div class="form-group two-column" id="campaign"
+             *ngIf="selectorVisibleFields.campaign">
+          <label
+                 class="register-label">{{model.fieldInfo('campaign').text}}</label>
+
+          <div class="register-input">
+            <ng-select [items]="menuOptions.campaign" bindLabel="name"
+                       placeholder="Campaña" [dropdownPosition]="'auto'"
+                       [searchable]="false" [clearable]="true" [multiple]="true"
+                       hideSelected="true" formControlName="campaign"
+                       (change)="onChange()">
+            </ng-select>
+          </div>
+
+          <div *ngIf="f.campaign.dirty && f.campaign.errors"
+               class="register-error">
+            <div *ngIf="f.campaign.errors.required">
+              Este dato es obligatorio
+            </div>
+          </div>
+        </div>
+        <!-------------------------- FIELD END --------------------------->
+        <!-------------------------- FIELD END --------------------------->
+        <!-- --- SECTION 5 --------------------------------------------------->
+
+
+      </article>
+      <article class="register-column">
+
+
+        <div class="button-group">
+
+          <!-- BUTTONS -->
+          <button (click)="onCloseModal()"
+                  class="btn btn-success">Aceptar</button>
+          <button (click)="onCancel()" class="btn btn-warning">Cancelar</button>
+          <button (click)="onReset()"
+                  class="btn btn-secondary">Resetear</button>
+          <hr>
+
+          <button (click)="getUserSelectionMenus()"
+                  class="btn btn-outline-primary">Actualizar Menus</button>
+
+          <hr>
+
+          <!-- END BUTTONS -->
+        </div>
+      </article>
+    </section>
+    <!-- <button (click)="onInit()" class="btn btn-lg btn-primary">Inicializar</button>
+    <button (click)="getUserSelectionMenus()" class="btn btn-lg btn-success">Leer opciones</button> -->
+
+  </form>
+</main>
+
+
+<ng-template>
+
+
+  <!-- orderBy -->
+  <div class="form-group two-column" id="orderBy"
+       *ngIf="selectorVisibleFields.orderBy">
+    <label class="register-label">{{ model.fieldInfo("orderBy").text }}</label>
+
+    <div class="register-input">
+      <ng-select [items]="groupList" bindLabel="name" placeholder="Ordenar por"
+                 [dropdownPosition]="'auto'" [searchable]="false"
+                 [clearable]="true" [multiple]="false" hideSelected="true"
+                 formControlName="orderBy" (change)="onChange()">
+      </ng-select>
+    </div>
+
+    <div *ngIf="f.orderBy.dirty && f.orderBy.errors" class="register-error">
+      <div *ngIf="f.orderBy.errors.required">
+        Este dato es obligatorio
+      </div>
+    </div>
+  </div>
+  <!-------------------------- FIELD END --------------------------->
+
+  <!-- limitBy -->
+  <div class="form-group two-column" id="limitBy"
+       *ngIf="selectorVisibleFields.limitBy">
+    <label class="register-label">{{ model.fieldInfo("limitBy").text }}</label>
+
+    <div class="register-input">
+      <ng-select [items]="list" bindLabel="name" placeholder="Limitar"
+                 [dropdownPosition]="'auto'" [searchable]="false"
+                 [clearable]="true" [multiple]="false" hideSelected="true"
+                 formControlName="limitBy" (change)="onChange()">
+      </ng-select>
+    </div>
+
+    <div *ngIf="f.limitBy.dirty && f.limitBy.errors" class="register-error">
+      <div *ngIf="f.limitBy.errors.required">
+        Este dato es obligatorio
+      </div>
+    </div>
+  </div>
+  <!-------------------------- FIELD END --------------------------->
+</ng-template>

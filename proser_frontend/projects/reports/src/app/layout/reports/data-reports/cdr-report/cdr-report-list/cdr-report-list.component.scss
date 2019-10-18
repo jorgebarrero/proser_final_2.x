@@ -1,0 +1,18 @@
+@import "projects/reports/src/app/shared/styles/reports/standard-reports";
+
+@import "projects/reports/src/app/shared/styles/reports/detail-reports";
+
+/* Style buttons */
+.btn-table {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn-table:hover {
+  background-color: RoyalBlue;
+}

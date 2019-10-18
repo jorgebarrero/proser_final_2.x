@@ -1,0 +1,8 @@
+column_name
+inv_schedule_id
+inv_schedule_status
+inv_schedule_chk
+inv_schedule_type
+inv_schedule_name
+inv_schedule_shortname
+inv_schedule_description

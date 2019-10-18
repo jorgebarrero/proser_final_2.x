@@ -1,0 +1,35 @@
+{
+  "name": "InvReport",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "inv_report_id": {
+      "type": "number",
+      "id": 1,
+      "required": true
+    },
+    "inv_report_name": {
+      "type": "string"
+    },
+    "inv_report_field": {
+      "type": "string"
+    },
+    "inv_report_table": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

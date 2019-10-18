@@ -1,0 +1,135 @@
+{
+  "name": "RealCurrentBreaks",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "RealCurrentBreaks"
+    }
+  },
+  "properties": {
+    "rcb_break_audit_id": {
+      "type": "number",
+      "id": true,
+      "required": true
+    },
+    "rca_break_agent_id": {
+      "type": "number",
+      "required": true
+    },
+    "rcb_break_id": {
+      "type": "number",
+      "required": true
+    },
+    "rcb_break_datetime_init": {
+      "type": "string",
+      "required": true
+    },
+    "rcb_break_datetime_end": {
+      "type": "string",
+      "required": true
+    },
+    "rcb_break_duration": {
+      "type": "string",
+      "required": true
+    },
+    "rcb_break_duration_sec": {
+      "type": "number",
+      "required": true
+    },
+    "rcb_break_name": {
+      "type": "string",
+      "required": true
+    },
+    "rcb_break_productivity": {
+      "type": "number",
+      "required": true
+    },
+    "rcb_date": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    }
+  ],
+  "methods": {}
+}

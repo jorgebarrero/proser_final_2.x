@@ -1,0 +1,32 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle" aria-controls="dropdown-basic">Login</a>
+
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/user/layout/login/">
+          <fa-icon [icon]="faSignInAlt"></fa-icon> &nbsp; Login
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem" *ngIf="env.autoregister">
+        <a class="dropdown-item "
+           routerLink="/user/layout/login/login-register/">
+          <fa-icon [icon]="faDigitalTachograph"></fa-icon> &nbsp; Register
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>

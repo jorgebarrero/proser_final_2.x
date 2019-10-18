@@ -1,0 +1,103 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle"
+       aria-controls="dropdown-basic">Personas</a>
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+      <!-- SUPERVISORES -->
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-supervisor/menu">
+          <fa-icon [icon]="faUserTie"></fa-icon> &nbsp; Supervisores
+        </a>
+      </li>
+
+      <!-- AGENTES -->
+      <div class="dropdown-divider"></div>
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-agent/menu">
+          <fa-icon [icon]="faUsers"></fa-icon> &nbsp; Agentes
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-agent-role/menu">
+          <fa-icon [icon]="faUsersCog"></fa-icon> &nbsp; Roles de Agentes
+        </a>
+      </li>
+
+      <div class="dropdown-divider"></div>
+
+      <!-- AUXILIARES -->
+      <div class="dropdown-divider"></div>
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-assignation/menu">
+          <fa-icon [icon]="faStreetView"></fa-icon> &nbsp; Asignaciones
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-auxiliar/menu">
+          <fa-icon [icon]="faUtensils"></fa-icon> &nbsp; Auxiliares
+        </a>
+      </li>
+
+      <!-- TRUNOS -->
+      <div class="dropdown-divider"></div>
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-schedule/menu">
+          <fa-icon [icon]="faUserClock"></fa-icon> &nbsp; Turnos
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-schedule-day/menu">
+          <fa-icon [icon]="faUserTag"></fa-icon> &nbsp; Turnos dias
+        </a>
+      </li>
+
+      <!-- CALENDARIO -->
+      <div class="dropdown-divider"></div>
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-calendar/menu">
+          <fa-icon [icon]="faCalendarAlt"></fa-icon> &nbsp; Calendario
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/crud/layout/crud/crud-inv-calendar-day/menu">
+          <fa-icon [icon]="faCalendar"></fa-icon> &nbsp; Dias feriados
+        </a>
+      </li>
+
+
+    </ul>
+  </div>
+</div>

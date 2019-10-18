@@ -1,0 +1,142 @@
+<main class="main">
+  <div class="datatable" *ngIf="rows && show_datatable">
+    <!-- [columns]="columns" -->
+    <ngx-datatable class="dark" [rows]="rows" [columnMode]="'force'"
+                   [headerHeight]="40" [footerHeight]="40" [rowHeight]="'35'"
+                   [limit]="numberOfRowsInTable.value" [selected]="selected"
+                   [selectionType]="'single'" [scrollbarH]="true"
+                   [scrollbarV]="false" [summaryRow]="false"
+                   [summaryHeight]="50"
+                   [messages]="{ emptyMessage: 'Sin datos que mostrar' }"
+                   [loadingIndicator]="'Contactando servidor'"
+                   (activate)="onActivate($event)" (select)='onSelect($event)'
+                   data-toggle="modal" role="button" href="#content">
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_supervisor_id" width="20"
+                            [frozenLeft]="true">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="izquierda-negrita " (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('inv_supervisor_id').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="izquierda-negrita">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_supervisor_name" width="100">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('inv_supervisor_name').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <!-- <a (click)="openModal(agent)" class="btn btn-primary-sm">Agente</a> -->
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_supervisor_status" width="20">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('inv_supervisor_status').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_supervisor_type_json" width="30">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('inv_supervisor_type_json').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="celda_derecha_negro">{{ value.name }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_supervisor_schedule_json" width="50">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('inv_supervisor_schedule_json').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="celda_derecha_negro">{{ value.name }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_supervisor_client_json" width="50">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('inv_supervisor_client_json').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="celda_derecha_negro">{{ value | arrayNames }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_supervisor_queue_json" width="50">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('inv_supervisor_queue_json').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="celda_derecha_negro">{{ value | arrayNames }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="inv_supervisor_service_json" width="50">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('inv_supervisor_service_json').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="celda_derecha_negro">{{ value | arrayNames }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- ----------------------------------------------------------------------- -->
+    </ngx-datatable>
+  </div>
+</main>

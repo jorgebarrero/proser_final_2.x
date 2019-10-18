@@ -1,0 +1,24 @@
+<section class="indicadores">
+  <ul *ngFor="let item of rows.agentsConnectedByGroup"
+      class="inidcadores-items">
+    <li>
+      <div class="table">
+        <div class="element">
+          <p class="indicadores-cantidad"> {{ item.value}} </p>
+          <p class="indicadores-cantidad"
+             [ngStyle]="{ 'color': getColor(item.color) }">
+             <!-- <i  class="faUser"></i>  -->
+               <fa-icon [icon]="faUser"></fa-icon>
+              </p>
+          <p class="indicadores-porcentaje">
+            {{ (item.value / (rows.agentsConnectedTotal[0].agentsConnectedTotal)) | percent }}
+          </p>
+          <p class="indicadores-descripcion text-left"> &nbsp;{{ item.name}}
+          </p>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+
+</section>

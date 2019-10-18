@@ -1,0 +1,159 @@
+{
+  "name": "RealCurrentAgents",
+  "settings": {
+    "strict": false,
+    "forceId": false,
+    "replaceOnPUT": true,
+    "idInjection": false,
+    "mysql": {
+      "schema": "system_proser",
+      "table": "RealCurrentAgents"
+    }
+  },
+  "properties": {
+    "rca_audit_login_id": {
+      "type": "number",
+      "id": true,
+      "required": true
+    },
+    "rca_audit_logout_id": {
+      "type": "number",
+      "required": true
+    },
+    "rca_date": {
+      "type": "string",
+      "required": true
+    },
+    "__AGENT__": {
+      "type": "number",
+      "required": true
+    },
+    "rca_agent_id": {
+      "type": "number",
+      "required": true
+    },
+    "rca_agent_name": {
+      "type": "string",
+      "required": true
+    },
+    "rca_agent_datetime_login": {
+      "type": "string",
+      "required": true
+    },
+    "rca_agent_datetime_logout": {
+      "type": "string",
+      "required": true
+    },
+    "rca_agent_duration": {
+      "type": "string",
+      "required": true
+    },
+    "rca_agent_duration_sec": {
+      "type": "number",
+      "required": true
+    },
+    "rca_agent_status": {
+      "type": "string",
+      "required": true
+    },
+    "__GROUP__": {
+      "type": "number",
+      "required": true
+    },
+    "rca_group_id": {
+      "type": "number",
+      "required": true
+    },
+    "rca_group_name": {
+      "type": "string",
+      "required": true
+    },
+    "rca_subgroup_id": {
+      "type": "number",
+      "required": true
+    },
+    "rca_subgroup_name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "config",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "accessType": 
+      [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "develop",
+      "permission": "ALLOW",
+      "property": [
+        "create", 
+        "deleteById", 
+        "findById",
+        "find", 
+        "patchAttributes", 
+        "replaceById"
+      ]
+    }
+  ],
+  "methods": {}
+}

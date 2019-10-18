@@ -1,0 +1,156 @@
+StrongLoop API ExplorerToken Set. 
+DIwOpUEPOH8ZxUejywOubLsScZa4cUQZsgr9errBD6SLuQdeIOKpM7SkyFpqm8fY
+Set Access Token
+proser-loopback
+AccessTokenShow/HideList OperationsExpand Operations
+ACLShow/HideList OperationsExpand Operations
+AuxColorShow/HideList OperationsExpand Operations
+AuxHourShow/HideList OperationsExpand Operations
+AuxIntervalShow/HideList OperationsExpand Operations
+AuxLineShow/HideList OperationsExpand Operations
+FilterShow/HideList OperationsExpand Operations
+HcaAgentShow/HideList OperationsExpand Operations
+HcaQueueShow/HideList OperationsExpand Operations
+HcbAgentShow/HideList OperationsExpand Operations
+InvAgentShow/HideList OperationsExpand Operations
+InvAgentRoleShow/HideList OperationsExpand Operations
+InvBreakShow/HideList OperationsExpand Operations
+InvCalendarShow/HideList OperationsExpand Operations
+InvCalendarDayShow/HideList OperationsExpand Operations
+InvCampaignShow/HideList OperationsExpand Operations
+InvClientShow/HideList OperationsExpand Operations
+InvDashboardShow/HideList OperationsExpand Operations
+POST /InvDashboards/dashboardAgentsIndicatorsList of abandoned calls
+POST /InvDashboards/dashboardAgentsListList of abandoned calls
+POST /InvDashboards/dashboardAutomaticIndicatorsList of abandoned calls
+POST /InvDashboards/dashboardInboundDailyByIntervalReportList of abandoned calls
+POST /InvDashboards/dashboardInboundGroupsReportList of abandoned calls
+Response Class (Status 200)
+ModelModel Schema
+[
+  {}
+]
+
+
+Response Content Type 
+Parameters
+Parameter	Value	Description	Parameter Type	Data Type
+userSelection	
+{ "title": "Dashboard llamadas entrantes", "entity_selection": "Entity Selection", "options": "", "legend": "Hora inicio: 00:00:00 - Hora fin: 23:59:59", "login": { "id": 0, "name": "username", "profile": "profile" }, "mode": { "id": 0, "name": "Histórico", "value": false }, "type": { "id": 0, "name": "Ejecutado" }, "start_date": { "year": 2019, "month": 9, "day": 21 }, "end_date": { "year": 2019, "month": 9, "day": 21 }, "start_time": { "id": 0, "value": "00:00:00" }, "end_time": { "id": 0, "value": "23:59:59" }, "auxiliar": [], "assignation": [], "client": [], "queue": [], "service": [], "campaign": [], "supervisor": [], "agent": [], "role": [], "schedule": [], "status": { "id": 0, "name": "Activo", "value": "A" }, "last_minutes": null, "interval": null, "groupBy": { "id": 6, "name": "TURNO", "table": " InvSchedule", "inv_name": "inv_schedule_name", "MainCallEntry_json_id": "JSON_UNQUOTE(JSON_EXTRACT(callentry_time_json, \"$.schedule[0].id\"))", "MainCdr_json_id": "JSON_UNQUOTE(JSON_EXTRACT(cdr_time_json, \"$.schedule[0].id\"))", "MainAudit_json_id": "JSON_UNQUOTE(JSON_EXTRACT(audit_time_json, \"$.schedule[0].id\"))" }, "orderBy": {}, "limitBy": {}, "start_time_hour": { "hour": 0, "minute": 0, "second": 0, "value": "00:00:00" }, "end_time_hour": { "hour": 23, "minute": 59, "second": 59, "value": "23:59:59" } }
+
+Parameter content type: 
+body	
+ModelModel Schema
+{
+  "title": {},
+  "entity_selection": {},
+  "options": {},
+  "legend": {},
+  "mode": {},
+  "type": {},
+  "start_date": {},
+  "end_date": {},
+  "start_time": {},
+  "end_time": {},
+  "login": {},
+  "auxiliar": {},
+  "assignation": {},
+  "client": {},
+  "queue": {},
+  "service": {},
+  "campaign": {},
+  "supervisor": {},
+  "agent": {},
+  "role": {},
+  "schedule": {},
+  "last_minutes": {},
+  "interval": {},
+  "groupBy": {},
+  "orderBy": {},
+  "limitBy": {},
+  "status": {},
+  "id": 0
+}
+Click to set as parameter value
+Hide Response
+Curl
+curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d "{ \"title\": \"Dashboard llamadas entrantes\", \"entity_selection\": \"Entity Selection\", \"options\": \"\", \"legend\": \"Hora inicio: 00:00:00 - Hora fin: 23:59:59\", \"login\": { \"id\": 0, \"name\": \"username\", \"profile\": \"profile\" }, \"mode\": { \"id\": 0, \"name\": \"Histórico\", \"value\": false }, \"type\": { \"id\": 0, \"name\": \"Ejecutado\" }, \"start_date\": { \"year\": 2019, \"month\": 9, \"day\": 21 }, \"end_date\": { \"year\": 2019, \"month\": 9, \"day\": 21 }, \"start_time\": { \"id\": 0, \"value\": \"00:00:00\" }, \"end_time\": { \"id\": 0, \"value\": \"23:59:59\" }, \"auxiliar\": [], \"assignation\": [], \"client\": [], \"queue\": [], \"service\": [], \"campaign\": [], \"supervisor\": [], \"agent\": [], \"role\": [], \"schedule\": [], \"status\": { \"id\": 0, \"name\": \"Activo\", \"value\": \"A\" }, \"last_minutes\": null, \"interval\": null, \"groupBy\": { \"id\": 6, \"name\": \"TURNO\", \"table\": \" InvSchedule\", \"inv_name\": \"inv_schedule_name\", \"MainCallEntry_json_id\": \"JSON_UNQUOTE(JSON_EXTRACT(callentry_time_json, \\"$.schedule[0].id\\"))\", \"MainCdr_json_id\": \"JSON_UNQUOTE(JSON_EXTRACT(cdr_time_json, \\"$.schedule[0].id\\"))\", \"MainAudit_json_id\": \"JSON_UNQUOTE(JSON_EXTRACT(audit_time_json, \\"$.schedule[0].id\\"))\" }, \"orderBy\": {}, \"limitBy\": {}, \"start_time_hour\": { \"hour\": 0, \"minute\": 0, \"second\": 0, \"value\": \"00:00:00\" }, \"end_time_hour\": { \"hour\": 23, \"minute\": 59, \"second\": 59, \"value\": \"23:59:59\" } }" "http://localhost:3151/api/InvDashboards/dashboardInboundGroupsReport?access_token=DIwOpUEPOH8ZxUejywOubLsScZa4cUQZsgr9errBD6SLuQdeIOKpM7SkyFpqm8fY&access_token=DIwOpUEPOH8ZxUejywOubLsScZa4cUQZsgr9errBD6SLuQdeIOKpM7SkyFpqm8fY"
+Request URL
+http://localhost:3151/api/InvDashboards/dashboardInboundGroupsReport?access_token=DIwOpUEPOH8ZxUejywOubLsScZa4cUQZsgr9errBD6SLuQdeIOKpM7SkyFpqm8fY
+Response Body
+{
+  "total": {
+    "errorTotal": {
+      "code": "ER_BAD_FIELD_ERROR",
+      "errno": 1054,
+      "sqlMessage": "Unknown column 'MAIN.undefined' in 'on clause'",
+      "sqlState": "42S22",
+      "index": 0,
+      "sql": "\n    SELECT\n      \n  now() AS now\n  ,'TURNO' as group_name\n  ,'TURNO' as group_json_id\n  ,'TURNO' as group_item_name\n\n  ,'' as day_name\n  ,'' as week_day\n\n  ,'' AS start_date\n  ,'' AS start_time\n  ,'' AS end_time\n\n   ,6 AS idealResponseTime\n\n  ,SUM(inboundReceived) AS inboundReceived\n\n  ,SUM(inboundAbandoned) AS inboundAbandoned\n\n  ,SUM(inboundAttended) AS inboundAttended\n\n  ,SUM(inboundShort) AS inboundShort\n\n  ,SUM(inboundBeforeTime) AS inboundBeforeTime\n\n  ,SUM(inboundAfterTime) AS inboundAfterTime\n\n  ,SUM(inboundHungAgent) AS inboundHungAgent\n\n  ,SUM(inboundBeforeTime)/SUM(inboundReceived) AS inboundServiceLevel\n\n  ,SUM(inboundAttended)/SUM(inboundReceived) AS inboundAttentionLevel\n\n  ,SUM(inboundAbandoned)/SUM(inboundReceived) AS inboundAbandonLevel\n\n  ,SUM(operation_seconds) AS operation_seconds\n\n  ,SEC_TO_TIME(SUM(operation_seconds)) AS operation_time\n\n  ,SUM(wait_seconds) AS wait_seconds\n\n  ,SEC_TO_TIME(SUM(wait_seconds)) AS wait_time\n\n  ,SUM(operation_seconds)/SUM(inboundAttended) AS inboundTmo\n\n  ,SUM(wait_time_recieve)/SUM(inboundAttended) AS inboundAsa\n    FROM\n      (\n    SELECT\n      \n  now() AS now\n\n  ,'TURNO' as group_name\n  , JSON_UNQUOTE(JSON_EXTRACT(callentry_time_json, \"$.schedule[0].id\")) as group_json_id\n  , MAIN.inv_schedule_name as group_item_name\n\n  ,DAYNAME(callentry_date) as day_name\n  ,WEEKDAY(callentry_date) + 1 as week_day\n\n  ,DATE_FORMAT(callentry_date, \"%Y-%m-%d\") AS start_date\n  \n  ,MIN(DATE_FORMAT(callentry_datetime_init, '%H:%i:%s')) AS start_time\n  \n  ,MAX(DATE_FORMAT(callentry_datetime_end, '%H:%i:%s')) AS end_time\n  \n  ,6 AS idealResponseTime\n  ,5 AS shortTimeDef\n  \n  ,SUM(case when (callentry_status = 'abandonada' OR callentry_status = 'terminada' )then 1 else 0 end) AS inboundReceived\n  \n  ,SUM(case when callentry_status = 'abandonada' then 1 else 0 end) AS inboundAbandoned\n  \n  ,SUM(case when callentry_status = 'terminada' then 1 else 0 end) AS inboundAttended\n  \n  ,SUM(case when callentry_duration_sec <= 5 then 1 else 0 end) AS inboundShort\n  \n  ,SUM(case when (callentry_duration_sec_wait <= 6 AND callentry_status = 'terminada')then 1 else 0 end) AS inboundBeforeTime\n\n  ,SUM(case when callentry_status = 'terminada' then 1 else 0 end) - SUM(case when (callentry_duration_sec_wait <= 6 AND callentry_status = 'terminada')then 1 else 0 end) AS inboundAfterTime\n  \n  ,SUM(callentry_hung_agent) AS inboundHungAgent\n  \n  ,SUM(case when (callentry_status = 'terminada' AND callentry_duration_sec_wait <= 6) then 1 else 0 end)/\n   SUM(case when (callentry_status = 'abandonada' OR callentry_status = 'terminada' )then 1 else 0 end) AS inboundServiceLevel\n  \n  ,SUM(case when callentry_status = 'terminada' then 1 else 0 end)/\n   SUM(case when (callentry_status = 'abandonada' OR callentry_status = 'terminada' )then 1 else 0 end) AS inboundAttentionLevel\n  \n  ,SUM(case when callentry_status = 'abandonada' then 1 else 0 end)/\n   SUM(case when (callentry_status = 'abandonada' OR callentry_status = 'terminada' )then 1 else 0 end) AS inboundAbandonLevel\n  \n  ,SUM(callentry_duration_sec) AS operation_seconds\n  \n  ,SEC_TO_TIME(SUM(callentry_duration_sec)) AS operation_time\n  \n  ,SUM(callentry_duration_sec_wait) AS wait_seconds\n  \n  ,SEC_TO_TIME(SUM(callentry_duration_sec_wait)) AS wait_time\n  \n  ,SUM(case when callentry_status = 'terminada' then callentry_duration_sec else 0 end)/\n   SUM(case when callentry_status = 'terminada' then 1 else 0 end) AS inboundTmo\n  \n  ,SUM(case when callentry_status = 'terminada' then callentry_duration_sec_wait else 0 end)/\n   SUM(case when callentry_status = 'terminada' then 1 else 0 end) AS inboundAsa\n\n  ,SUM(case when callentry_status = 'terminada' then callentry_duration_sec_wait else 0 end) as wait_time_recieve\n\n  \n    FROM\n      \n\nMainCallEntry\n\nLEFT OUTER JOIN InvAgent as AGENT\nON callentry_agent_id = inv_agent_id\n\nLEFT OUTER JOIN InvQueue as QUEUE\nON callentry_queue_id = inv_queue_id\n\n\nLEFT OUTER JOIN  InvSchedule as MAIN\nON JSON_UNQUOTE(JSON_EXTRACT(callentry_time_json, \"$.schedule[0].id\")) = MAIN.undefined\n\n\n-- -----------------------------\nWHERE 1\n\nAND\nQUEUE.inv_queue_type = 'inbound'\n\n-- TIME AND DATE\n\n  AND (\n    DATE(callentry_datetime_entry_queue) BETWEEN '2019-09-21' AND '2019-09-21'\n    OR\n    DATE(callentry_datetime_entry_queue) BETWEEN '2019-09-21' AND '2019-09-21'\n  ) \nAND TIME_TO_SEC(TIME(callentry_datetime_entry_queue)) >= TIME_TO_SEC('00:00:00')\n  AND  TIME_TO_SEC(TIME(callentry_datetime_entry_queue)) < TIME_TO_SEC('23:59:59')\n\nAND callentry_date is not null\n\n-- AGENT\n\n\n-- SUPERVISOR\n\n\n-- SCHEDULE\n\n\n-- ROLE\n\n\n-- CLIENT\n\n\n-- QUEUE\n\n\n-- SERVICE\n\n\n-- CAMPAIGN\n\n\n\nGROUP BY group_json_id\n\n\n-- ---------------------------------------------------------------\n-- END\n\n  ) AS detail\n    "
+    }
+  },
+  "detail": {
+    "errorDetail": {
+      "code": "ER_BAD_FIELD_ERROR",
+      "errno": 1054,
+      "sqlMessage": "Unknown column 'MAIN.undefined' in 'on clause'",
+      "sqlState": "42S22",
+      "index": 0,
+      "sql": "\n    SELECT\n      \n  now() AS now\n\n  ,'TURNO' as group_name\n  , JSON_UNQUOTE(JSON_EXTRACT(callentry_time_json, \"$.schedule[0].id\")) as group_json_id\n  , MAIN.inv_schedule_name as group_item_name\n\n  ,DAYNAME(callentry_date) as day_name\n  ,WEEKDAY(callentry_date) + 1 as week_day\n\n  ,DATE_FORMAT(callentry_date, \"%Y-%m-%d\") AS start_date\n  \n  ,MIN(DATE_FORMAT(callentry_datetime_init, '%H:%i:%s')) AS start_time\n  \n  ,MAX(DATE_FORMAT(callentry_datetime_end, '%H:%i:%s')) AS end_time\n  \n  ,6 AS idealResponseTime\n  ,5 AS shortTimeDef\n  \n  ,SUM(case when (callentry_status = 'abandonada' OR callentry_status = 'terminada' )then 1 else 0 end) AS inboundReceived\n  \n  ,SUM(case when callentry_status = 'abandonada' then 1 else 0 end) AS inboundAbandoned\n  \n  ,SUM(case when callentry_status = 'terminada' then 1 else 0 end) AS inboundAttended\n  \n  ,SUM(case when callentry_duration_sec <= 5 then 1 else 0 end) AS inboundShort\n  \n  ,SUM(case when (callentry_duration_sec_wait <= 6 AND callentry_status = 'terminada')then 1 else 0 end) AS inboundBeforeTime\n\n  ,SUM(case when callentry_status = 'terminada' then 1 else 0 end) - SUM(case when (callentry_duration_sec_wait <= 6 AND callentry_status = 'terminada')then 1 else 0 end) AS inboundAfterTime\n  \n  ,SUM(callentry_hung_agent) AS inboundHungAgent\n  \n  ,SUM(case when (callentry_status = 'terminada' AND callentry_duration_sec_wait <= 6) then 1 else 0 end)/\n   SUM(case when (callentry_status = 'abandonada' OR callentry_status = 'terminada' )then 1 else 0 end) AS inboundServiceLevel\n  \n  ,SUM(case when callentry_status = 'terminada' then 1 else 0 end)/\n   SUM(case when (callentry_status = 'abandonada' OR callentry_status = 'terminada' )then 1 else 0 end) AS inboundAttentionLevel\n  \n  ,SUM(case when callentry_status = 'abandonada' then 1 else 0 end)/\n   SUM(case when (callentry_status = 'abandonada' OR callentry_status = 'terminada' )then 1 else 0 end) AS inboundAbandonLevel\n  \n  ,SUM(callentry_duration_sec) AS operation_seconds\n  \n  ,SEC_TO_TIME(SUM(callentry_duration_sec)) AS operation_time\n  \n  ,SUM(callentry_duration_sec_wait) AS wait_seconds\n  \n  ,SEC_TO_TIME(SUM(callentry_duration_sec_wait)) AS wait_time\n  \n  ,SUM(case when callentry_status = 'terminada' then callentry_duration_sec else 0 end)/\n   SUM(case when callentry_status = 'terminada' then 1 else 0 end) AS inboundTmo\n  \n  ,SUM(case when callentry_status = 'terminada' then callentry_duration_sec_wait else 0 end)/\n   SUM(case when callentry_status = 'terminada' then 1 else 0 end) AS inboundAsa\n\n  ,SUM(case when callentry_status = 'terminada' then callentry_duration_sec_wait else 0 end) as wait_time_recieve\n\n  \n    FROM\n      \n\nMainCallEntry\n\nLEFT OUTER JOIN InvAgent as AGENT\nON callentry_agent_id = inv_agent_id\n\nLEFT OUTER JOIN InvQueue as QUEUE\nON callentry_queue_id = inv_queue_id\n\n\nLEFT OUTER JOIN  InvSchedule as MAIN\nON JSON_UNQUOTE(JSON_EXTRACT(callentry_time_json, \"$.schedule[0].id\")) = MAIN.undefined\n\n\n-- -----------------------------\nWHERE 1\n\nAND\nQUEUE.inv_queue_type = 'inbound'\n\n-- TIME AND DATE\n\n  AND (\n    DATE(callentry_datetime_entry_queue) BETWEEN '2019-09-21' AND '2019-09-21'\n    OR\n    DATE(callentry_datetime_entry_queue) BETWEEN '2019-09-21' AND '2019-09-21'\n  ) \nAND TIME_TO_SEC(TIME(callentry_datetime_entry_queue)) >= TIME_TO_SEC('00:00:00')\n  AND  TIME_TO_SEC(TIME(callentry_datetime_entry_queue)) < TIME_TO_SEC('23:59:59')\n\nAND callentry_date is not null\n\n-- AGENT\n\n\n-- SUPERVISOR\n\n\n-- SCHEDULE\n\n\n-- ROLE\n\n\n-- CLIENT\n\n\n-- QUEUE\n\n\n-- SERVICE\n\n\n-- CAMPAIGN\n\n\n\nGROUP BY group_json_id\n\n\n-- ---------------------------------------------------------------\n-- END\n\n  "
+    }
+  }
+}
+Response Code
+200
+Response Headers
+{
+  "date": "Sun, 22 Sep 2019 12:06:35 GMT",
+  "content-encoding": "gzip",
+  "x-powered-by": "Express",
+  "etag": "W/\"23ac-Vh655fLVeh7TA1MdO/mJCBDaT7k\"",
+  "vary": "Origin, Accept-Encoding",
+  "content-type": "application/json; charset=utf-8",
+  "access-control-allow-origin": "http://localhost:3151",
+  "access-control-allow-credentials": "true",
+  "connection": "keep-alive",
+  "transfer-encoding": "chunked"
+}
+POST /InvDashboards/dashboardInboundIndicatorsList of abandoned calls
+POST /InvDashboards/dashboardInboundListList of abandoned calls
+POST /InvDashboards/dashboardInboundListAuditList of abandoned calls
+POST /InvDashboards/dashboardInboundListCallEntryList of abandoned calls
+POST /InvDashboards/dashboardInboundListCurrentAgentsList of abandoned calls
+POST /InvDashboards/dashboardInboundListCurrentBreaksList of abandoned calls
+POST /InvDashboards/dashboardInboundListCurrentCallsList of abandoned calls
+POST /InvDashboards/dashboardOutboundIndicatorsList of abandoned calls
+POST /InvDashboards/dashboardOutboundListAuditList of abandoned calls
+POST /InvDashboards/dashboardOutboundListCdrList of abandoned calls
+POST /InvDashboards/dashboardOutboundListCurrentAgentsList of abandoned calls
+POST /InvDashboards/dashboardOutboundListCurrentBreaksList of abandoned calls
+POST /InvDashboards/dashboardOutboundListCurrentCallsList of current calls
+InvDisplayShow/HideList OperationsExpand Operations
+InvMenuShow/HideList OperationsExpand Operations
+InvQueueShow/HideList OperationsExpand Operations
+InvQueueConfigShow/HideList OperationsExpand Operations
+InvReportShow/HideList OperationsExpand Operations
+InvScaleShow/HideList OperationsExpand Operations
+InvScheduleShow/HideList OperationsExpand Operations
+InvScheduleDayShow/HideList OperationsExpand Operations
+InvServiceShow/HideList OperationsExpand Operations
+InvSmsShow/HideList OperationsExpand Operations
+InvSupervisorShow/HideList OperationsExpand Operations
+MainAuditShow/HideList OperationsExpand Operations
+MainCallEntryShow/HideList OperationsExpand Operations
+MainCdrShow/HideList OperationsExpand Operations
+MainQueueLogShow/HideList OperationsExpand Operations
+ProScheduleChangeShow/HideList OperationsExpand Operations
+ProShowDisplayShow/HideList OperationsExpand Operations
+RealCurrentAgentsShow/HideList OperationsExpand Operations
+RealCurrentBreaksShow/HideList OperationsExpand Operations
+RealCurrentCallsShow/HideList OperationsExpand Operations
+RoleShow/HideList OperationsExpand Operations
+RoleMapping : Map principals to rolesShow/HideList OperationsExpand Operations
+SystemShow/HideList OperationsExpand Operations
+UserShow/HideList OperationsExpand Operations
+UserbaseShow/HideList OperationsExpand Operations
+[ base url: /api , api version: 1.0.0 ]

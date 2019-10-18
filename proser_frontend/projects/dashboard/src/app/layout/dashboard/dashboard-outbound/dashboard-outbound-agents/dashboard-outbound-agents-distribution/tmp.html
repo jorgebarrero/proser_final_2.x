@@ -1,0 +1,88 @@
+<!-- <section class="indicadores">
+  <ul *ngFor="let item of rows.agentsConnectedByGroup"
+      class="inidcadores-items">
+    <li>
+      <div class="table">
+        <p class="indicadores-cantidad"> {{ item.value}} </p>
+        <p class="indicadores-cantidad"
+           [ngStyle]="{ 'color': getColor(item.color) }"><i
+             class="fas fa-user"></i> </p>
+        <p class="indicadores-porcentaje">
+          {{ (item.value / (rows.agentsConnectedTotal[0].agentsConnectedTotal)) | percent }}
+        </p>
+        <p class="indicadores-descripcion text-left">{{ item.name}} </p>
+      </div>
+    </li>
+
+  </ul>
+
+</section> -->
+
+
+<section class="indicadores">
+
+
+  <article>
+    <div class="table">
+      <p class="indicadores-cantidad"> {{ rows.agentsConnectedByGroup[0].value}}
+      </p>
+      <p class="indicadores-cantidad"
+         [ngStyle]="{ 'color': getColor(rows.agentsConnectedByGroup[0].color) }">
+        <i class="fas fa-user"></i> </p>
+      <p class="indicadores-porcentaje">
+        {{ (rows.agentsConnectedByGroup[0].value / (rows.agentsConnectedTotal[0].agentsConnectedTotal)) | percent }}
+      </p>
+      <p class="indicadores-descripcion text-left">
+        {{ rows.agentsConnectedByGroup[0].name}} </p>
+    </div>
+  </article>
+
+
+
+
+  <article>
+    <p class="indicadores-cantidad"> {{ rows.agentsConnectedByGroup[1].value}}
+    </p>
+    <p class="indicadores-cantidad"
+       [ngStyle]="{ 'color': getColor(rows.agentsConnectedByGroup[1].color) }">
+      <i class="fas fa-user"></i> </p>
+    <p class="indicadores-porcentaje">
+      {{ (rows.agentsConnectedByGroup[1].value / (rows.agentsConnectedTotal[1].agentsConnectedTotal)) | percent }}
+    </p>
+    <p class="indicadores-descripcion text-left">
+      {{ rows.agentsConnectedByGroup[1].name}} </p>
+    </div>
+  </article>
+
+
+
+
+  <article>
+    <p class="indicadores-cantidad"> {{ rows.agentsConnectedByGroup[2].value}}
+    </p>
+    <p class="indicadores-cantidad"
+       [ngStyle]="{ 'color': getColor(rows.agentsConnectedByGroup[2].color) }">
+      <i class="fas fa-user"></i> </p>
+    <p class="indicadores-porcentaje">
+      {{ (rows.agentsConnectedByGroup[2].value / (rows.agentsConnectedTotal[2].agentsConnectedTotal)) | percent }}
+    </p>
+    <p class="indicadores-descripcion text-left">
+      {{ rows.agentsConnectedByGroup[2].name}} </p>
+    </div>
+  </article>
+
+
+  <article>
+    <p class="indicadores-cantidad"> {{ rows.agentsConnectedByGroup[3].value}}
+    </p>
+    <p class="indicadores-cantidad"
+       [ngStyle]="{ 'color': getColor(rows.agentsConnectedByGroup[3].color) }">
+      <i class="fas fa-user"></i> </p>
+    <p class="indicadores-porcentaje">
+      {{ (rows.agentsConnectedByGroup[3].value / (rows.agentsConnectedTotal[3].agentsConnectedTotal)) | percent }}
+    </p>
+    <p class="indicadores-descripcion text-left">
+      {{ rows.agentsConnectedByGroup[3].name}} </p>
+    </div>
+  </article>
+</section>

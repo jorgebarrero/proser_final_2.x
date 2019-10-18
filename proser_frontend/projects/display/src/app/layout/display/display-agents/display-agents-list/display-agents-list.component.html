@@ -1,0 +1,39 @@
+<!----------ALERT MESSAGE------------------------- -->
+<div>
+  <app-alert [alertMessage]="alertMessage"></app-alert>
+</div>
+
+<!----------REPORT HEADER------------------------- -->
+<app-display-display-header [userSelection]="userSelection"
+                            [selectorVisibleFields]="selectorVisibleFields"
+                            [timerConnected]="timerConnected"
+                            (returnResult)="onReturnHeaderResult($event)">
+</app-display-display-header>
+
+
+
+<section>
+  <ul>
+    <li *ngFor="let item of rows.agentsConnectedByGroup">
+      <h1><i class="fas fa-user"></i> &nbsp;{{item.agent_name}}</h1>
+
+      <div class="element">
+        <p class="small">
+          {{ item.rca_agent_status}}-{{item.rca_group_name}}</p>
+        <!-- <p class="indicadores-cantidad"
+             [ngStyle]="{ 'color': getColor(item.color) }"><i
+               class="fas fa-user"></i> </p> -->
+        <p class="indicadores-porcentaje">
+          {{ (item.value / (rows.agentsConnectedTotal[0].agentsConnectedTotal)) | percent }}
+        </p>
+        <p class="indicadores-descripcion text-left"> &nbsp;{{ item.name}}
+        </p>
+      </div>
+
+    </li>
+  </ul>
+
+</section>
+
+
+<!-- {{ rows | json}} -->

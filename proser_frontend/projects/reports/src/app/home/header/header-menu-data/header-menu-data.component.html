@@ -1,0 +1,37 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+    <a id="navdrop" dropdownToggle role="button"
+       class="nav-link dropdown-toggle" aria-controls="dropdown-basic">Data</a>
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/reports/layout/audit-report">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Audit
+        </a>
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " routerLink="/reports/layout/cdr-report">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; Cdr
+        </a>
+      </li>
+
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item "
+           routerLink="/reports/layout/call-entry-report">
+          <fa-icon [icon]="faFileAlt"></fa-icon> &nbsp; CallEntry
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>

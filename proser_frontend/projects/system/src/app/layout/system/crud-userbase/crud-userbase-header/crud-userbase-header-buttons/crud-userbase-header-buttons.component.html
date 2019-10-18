@@ -1,0 +1,77 @@
+<!-- <main class="main submenu-buttons ml-auto"> -->
+<section id="submenu" class="submenu">
+
+  <article class="submenu-buttons">
+
+    <!-- Usuarios -->
+    <div>
+      <a class="btn btn-secondary submenu-btn text-white"
+         *ngIf="crudRecord.buttonMain.value" (click)="onGetAll()">Usuarios</a>
+    </div>
+
+    <!-- Activos -->
+    <div>
+      <a class="btn btn-outline-primary submenu-btn"
+         *ngIf="crudRecord.buttonActiveRecords.value"
+         (click)="onGetActive()">Activos</a>
+    </div>
+
+    <!-- Inactivos -->
+    <div>
+      <a class="btn btn-outline-primary submenu-btn"
+         *ngIf="crudRecord.buttonInactiveRecords.value"
+         (click)="onGetInactive()">Inactivos</a>
+    </div>
+
+    <!-- Todos -->
+    <div>
+      <a class="btn btn-outline-primary submenu-btn"
+         *ngIf="crudRecord.buttonViewAllRecords.value"
+         (click)="onGetAll()">Todos</a>
+    </div>
+
+    <!-- Nuevo -->
+    <div>
+      <a class="btn btn-outline-success submenu-btn" (click)="onNewRecord()"
+         *ngIf="crudRecord.buttonNewRecord.value">
+        Nuevo</a>
+    </div>
+
+    <!-- Detalle -->
+    <div>
+      <a class="btn btn-outline-primary submenu-btn"
+         *ngIf="crudRecord.buttonViewDetailRecord.value && crudRecord.currentRecord.id"
+         (click)="onShowDetail()">Detalle</a>
+    </div>
+
+    <!-- Editar -->
+    <div>
+      <a class="btn btn-outline-success submenu-btn" (click)="onEditRecord()"
+         *ngIf="crudRecord.buttonEditRecord.value && crudRecord.currentRecord.id">
+        Editar</a>
+    </div>
+    <!-- Exportar a excel -->
+    <div>
+      <a class="btn btn-outline-primary submenu-btn"
+         *ngIf="crudRecord.buttonExportExcel.value" (click)="onExport()">
+        Exportar
+      </a>
+    </div>
+
+    <div>
+
+    </div>
+
+
+  </article>
+
+  <!-- Exportar a excel -->
+  <article id="right-menu" class="submenu-buttons ml-auto">
+    <div>
+
+
+    </div>
+  </article>
+
+</section>
+<!-- </main> -->

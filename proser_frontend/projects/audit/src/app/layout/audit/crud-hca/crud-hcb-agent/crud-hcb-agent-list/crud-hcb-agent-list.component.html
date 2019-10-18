@@ -1,0 +1,216 @@
+<main class="main">
+  <div class="datatable" *ngIf="rows && show_datatable">
+    <!-- [columns]="columns"       [columnMode]="'force'"-->
+    <ngx-datatable
+      class="dark"
+      [rows]="rows"
+      [headerHeight]="40"
+      [footerHeight]="40"
+      [rowHeight]="'35'"
+      [limit]="numberOfRowsInTable.value"
+      [selected]="selected"
+      [selectionType]="'single'"
+      (activate)="onActivate($event)"
+      (select)="onSelect($event)"
+    >
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="hcb_agent_date" width="100" [frozenLeft]="true">
+        <ng-template
+          let-column="column"
+          let-sort="sortFn"
+          let-sortDir="sortDir"
+          ngx-datatable-header-template
+        >
+          <p class="izquierda-negrita " (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('hcb_agent_date').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="izquierda-negrita">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="hcb_agent_agent_id" width="50" [frozenLeft]="true">
+        <ng-template
+          let-column="column"
+          let-sort="sortFn"
+          let-sortDir="sortDir"
+          ngx-datatable-header-template
+        >
+          <p class="izquierda-negrita " (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('hcb_agent_agent_id').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="izquierda-negrita">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="hcb_agent_name" width="200">
+        <ng-template
+          let-column="column"
+          let-sort="sortFn"
+          let-sortDir="sortDir"
+          ngx-datatable-header-template
+        >
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('hcb_agent_name').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <!-- <a (click)="openModal(agent)" class="btn btn-primary-sm">Agente</a> -->
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="hcb_agent_status" width="80">
+        <ng-template
+          let-column="column"
+          let-sort="sortFn"
+          let-sortDir="sortDir"
+          ngx-datatable-header-template
+        >
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('hcb_agent_status').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="hcb_agent_extension" width="80">
+        <ng-template
+          let-column="column"
+          let-sort="sortFn"
+          let-sortDir="sortDir"
+          ngx-datatable-header-template
+        >
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('hcb_agent_extension').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <!-- <a (click)="openModal(agent)" class="btn btn-primary-sm">Agente</a> -->
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="hcb_agent_supervisor_name" width="100">
+        <ng-template
+          let-column="column"
+          let-sort="sortFn"
+          let-sortDir="sortDir"
+          ngx-datatable-header-template
+        >
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('hcb_agent_supervisor_name').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <!-- <a (click)="openModal(agent)" class="btn btn-primary-sm">Agente</a> -->
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="hcb_agent_schedule_name" width="100">
+        <ng-template
+          let-column="column"
+          let-sort="sortFn"
+          let-sortDir="sortDir"
+          ngx-datatable-header-template
+        >
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('hcb_agent_schedule_name').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <!-- <a (click)="openModal(agent)" class="btn btn-primary-sm">Agente</a> -->
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="hcb_agent_client_json" width="150">
+        <ng-template
+          let-column="column"
+          let-sort="sortFn"
+          let-sortDir="sortDir"
+          ngx-datatable-header-template
+        >
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('hcb_agent_client_json').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <!-- <a (click)="openModal(agent)" class="btn btn-primary-sm">Agente</a> -->
+          <p class="celda_derecha_negro">{{ extractName(value) }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="hcb_agent_queue_json" width="150">
+        <ng-template
+          let-column="column"
+          let-sort="sortFn"
+          let-sortDir="sortDir"
+          ngx-datatable-header-template
+        >
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('hcb_agent_queue_json').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <!-- <a (click)="openModal(agent)" class="btn btn-primary-sm">Agente</a> -->
+          <p class="celda_derecha_negro">{{ extractName(value) }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="hcb_agent_service_json" width="150">
+        <ng-template
+          let-column="column"
+          let-sort="sortFn"
+          let-sortDir="sortDir"
+          ngx-datatable-header-template
+        >
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ model.fieldInfo('hcb_agent_service_json').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <!-- <a (click)="openModal(agent)" class="btn btn-primary-sm">Agente</a> -->
+          <p class="celda_derecha_negro">{{ extractName(value) }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+    </ngx-datatable>
+  </div>
+</main>

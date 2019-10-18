@@ -1,0 +1,52 @@
+<main class="frame">
+  <section class="tablegraph" *ngIf="rows.displayOutboundCallsIndicators[0]">
+    <article id="Calls" class="tablegraph-card">
+
+      <p class="tablegraph-subtitles">Llamadas</p>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Realizadas</p>
+
+        <p class="tablegraph-number">
+          {{ rows.displayOutboundCallsIndicators[0].outboundMade | number:'1.0-0'}}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Fallidas</p>
+        <p class="tablegraph-number">
+          {{ rows.displayOutboundCallsIndicators[0].outboundFail | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Abandonadas</p>
+        <p class="tablegraph-number">
+          {{ rows.displayOutboundCallsIndicators[0].outboundAbandoned | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Contestadas</p>
+        <p class="tablegraph-number">
+          {{ rows.displayOutboundCallsIndicators[0].outboundAnswered | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Efectivas</p>
+        <p class="tablegraph-number">
+          {{ rows.displayOutboundCallsIndicators[0].outboundEffective | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table ">
+        <p class="tablegraph-text">Colgadas por agente</p>
+        <p class="tablegraph-number">
+          {{ rows.displayOutboundCallsIndicators[0].outboundHungout | number:'1.0-0' }}
+        </p>
+      </div>
+
+    </article>
+  </section>
+</main>

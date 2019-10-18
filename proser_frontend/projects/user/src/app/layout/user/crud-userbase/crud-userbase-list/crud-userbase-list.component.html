@@ -1,0 +1,164 @@
+<!-- <app-alert [alertMessage]="crudRecord.alertMessage"></app-alert> -->
+
+<main class="main">
+  <div class="datatable" *ngIf="crudRecord.rows">
+
+    <ngx-datatable class="dark" [rows]="crudRecord.rows" [columnMode]="'force'"
+                   [limit]="crudRecord.rowsInDatatable.value"
+                   [headerHeight]="40" [footerHeight]="50" [rowHeight]="40"
+                   [scrollbarH]="true" [scrollbarV]="false" [summaryRow]="false"
+                   [summaryHeight]="50" [selectionType]="'single'"
+                   [loadingIndicator]="'Contactando servidor'"
+                   [messages]="{ emptyMessage: 'Sin datos que mostrar' }"
+                   (activate)="onActivate($event)" (select)="onSelect($event)"
+                   data-toggle="modal" role="button" href="#content">
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="id" width="50" [frozenLeft]="true">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="izquierda-negrita " (click)="sort($event, sortDir, sortFn)">
+            {{ crudRecord.model.fieldInfo('id').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="izquierda-negrita">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="firstname" width="100" [frozenLeft]="true">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ crudRecord.model.fieldInfo('firstname').text }}
+
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="lastname" width="100" [frozenLeft]="true">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ crudRecord.model.fieldInfo('lastname').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="username" width="100" [frozenLeft]="true">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ crudRecord.model.fieldInfo('username').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="profile" width="80">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ crudRecord.model.fieldInfo('profile').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="email" width="100">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ crudRecord.model.fieldInfo('email').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="user_legal_id" width="150">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ crudRecord.model.fieldInfo('user_legal_id').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="user_internal_id" width="150">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ crudRecord.model.fieldInfo('user_internal_id').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+
+          <p class="celda_derecha_negro">{{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+      <ngx-datatable-column prop="user_photo_path" width="150">
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"
+                     ngx-datatable-header-template>
+          <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">
+            {{ crudRecord.model.fieldInfo('user_photo_path').text }}
+          </p>
+        </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+
+          <p class="celda_derecha_negro">
+            {{ value }}</p>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+    </ngx-datatable>
+  </div>
+</main>

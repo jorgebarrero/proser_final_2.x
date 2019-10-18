@@ -1,0 +1,13 @@
+column_name
+hca_agent_serial_id
+hca_agent_origin
+hca_agent_date
+hca_agent_id
+hca_agent_name
+hca_agent_extension
+hca_agent_status
+hca_agent_laborday
+__JSON__
+hca_agent_people_json
+hca_agent_operation_json
+hca_agent_time_json

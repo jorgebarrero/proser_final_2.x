@@ -1,0 +1,20 @@
+<main class="frame" *ngIf="rows">
+  <section>
+    <p class="subtitles" *ngIf="title_main">{{title_main}}</p>
+    <!-- AUXILIAR -->
+
+    <p class="subtitles" *ngIf="title_breaks">{{title_breaks}}</p>
+    <article>
+      <app-dashboard-dashboard-inbound-breaks-auxiliar-historic [rows]="rows">
+      </app-dashboard-dashboard-inbound-breaks-auxiliar-historic>
+    </article>
+
+    <!-- ASSIGNATION -->
+    <p class="subtitles" *ngIf="title_assignations">{{title_assignations}}</p>
+    <article>
+      <app-dashboard-dashboard-inbound-breaks-assignations-historic
+                                                                    [rows]="rows">
+      </app-dashboard-dashboard-inbound-breaks-assignations-historic>
+    </article>
+  </section>
+</main>

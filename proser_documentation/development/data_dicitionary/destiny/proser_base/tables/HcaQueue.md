@@ -1,0 +1,12 @@
+column_name
+hca_queue_serial_id
+hca_queue_origin
+hca_queue_date
+hca_queue_start
+hca_queue_id
+hca_queue_number
+hca_queue_name
+hca_queue_status
+__JSON__
+hca_queue_operation_json
+hca_queue_system_json

@@ -1,0 +1,148 @@
+{
+  "name": "UserSelectionFilter",
+  "base": "Model",
+  "idInjection": true,
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "entity_selection": {
+      "type": "string",
+      "required": true
+    },
+    "options": {
+      "type": "string",
+      "required": true
+    },
+    "legend": {
+      "type": "string",
+      "required": true
+    },
+    "mode": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "start_date": {
+      "type": "string",
+      "required": true
+    },
+    "end_date": {
+      "type": "string",
+      "required": true
+    },
+    "start_time": {
+      "type": "string",
+      "required": true
+    },
+    "end_time": {
+      "type": "string",
+      "required": true
+    },
+    "login": {
+      "type": "string",
+      "required": true
+    },
+    "auxiliar": {
+      "type": "string",
+      "required": true
+    },
+    "assignation": {
+      "type": "string",
+      "required": true
+    },
+    "client": {
+      "type": "string",
+      "required": true
+    },
+    "queue": {
+      "type": "string",
+      "required": true
+    },
+    "service": {
+      "type": "string",
+      "required": true
+    },
+    "campaign": {
+      "type": "string",
+      "required": true
+    },
+    "plannedClient": {
+      "type": "string",
+      "required": true
+    },
+    "plannedQueue": {
+      "type": "string",
+      "required": true
+    },
+    "plannedService": {
+      "type": "string",
+      "required": true
+    },
+    "plannedCampaign": {
+      "type": "string",
+      "required": true
+    },
+    "supervisor": {
+      "type": "string",
+      "required": true
+    },
+    "agent": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "schedule": {
+      "type": "string",
+      "required": true
+    },
+    "last_minutes": {
+      "type": "string",
+      "required": true
+    },
+    "interval": {
+      "type": "string",
+      "required": true
+    },
+    "groupBy": {
+      "type": "string",
+      "required": true
+    },
+    "orderBy": {
+      "type": "string",
+      "required": true
+    },
+    "limitBy": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "projects": {
+      "type": "hasMany",
+      "model": "project",
+      "foreignKey": "ownerId"
+    },
+    "teams": {
+      "type": "hasMany",
+      "model": "team",
+      "foreignKey": "ownerId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

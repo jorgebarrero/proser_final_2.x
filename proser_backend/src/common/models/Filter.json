@@ -1,0 +1,123 @@
+{
+  "name": "Filter",
+  "base": "Model",
+  "idInjection": true,
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "filter_hca_agent": {
+      "type": "string"
+    },
+    "filter_hca_queue": {
+      "type": "string"
+    },
+    "filter_inv_agent": {
+      "type": "string"
+    },
+    "filter_inv_queue": {
+      "type": "string"
+    },
+    "filter": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "reportlines": {
+      "type": "string"
+    },
+    "scale": {
+      "type": "string"
+    },
+    "login": {
+      "type": "string"
+    },
+    "today": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string"
+    },
+    "end_date": {
+      "type": "string"
+    },
+    "start_time": {
+      "type": "string"
+    },
+    "end_time": {
+      "type": "string"
+    },
+    "interval": {
+      "type": "string"
+    },
+    "last_minutes": {
+      "type": "string"
+    },
+    "client": {
+      "type": "string"
+    },
+    "queue": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "campaign": {
+      "type": "string"
+    },
+    "supervisor": {
+      "type": "string"
+    },
+    "agent": {
+      "type": "string"
+    },
+    "schedule": {
+      "type": "string"
+    },
+    "substitute": {
+      "type": "string"
+    },
+    "auxiliar": {
+      "type": "string"
+    },
+    "assignation": {
+      "type": "string"
+    },
+    "group_by": {
+      "type": "string"
+    },
+    "group_by_field": {
+      "type": "string"
+    },
+    "order_by": {
+      "type": "string"
+    },
+    "limit_by": {
+      "type": "string"
+    },
+    "total": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

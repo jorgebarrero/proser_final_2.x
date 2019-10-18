@@ -1,0 +1,15 @@
+column_name
+id
+firstname
+lastname
+profile
+realm
+username
+password
+email
+emailVerified
+verificationToken
+memberId
+user_legal_id
+user_internal_id
+user_photo_path

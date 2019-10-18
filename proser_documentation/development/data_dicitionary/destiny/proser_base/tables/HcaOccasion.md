@@ -1,0 +1,13 @@
+column_name
+hca_ocassion_serial_id
+hca_ocassion_origin
+hca_ocassion_date
+hca_ocassion_id
+hca_ocassion_name
+hca_ocassion_extension
+hca_ocassion_status
+hca_ocassion_laborday
+__JSON__
+hca_ocassion_people_json
+hca_ocassion_operation_json
+hca_ocassion_time_json

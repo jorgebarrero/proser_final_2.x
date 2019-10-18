@@ -1,0 +1,13 @@
+@import "shared/styles/crud/crud-detail.scss";
+@import "shared/styles/crud/crud-detail.scss";
+@import "shared/styles/crud/crud-menu.scss";
+
+.table-header {
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  margin-right: 25px;
+}
+
+.datatable-finder {
+  margin-top: 5px;
+}

@@ -1,0 +1,66 @@
+<main class="frame">
+  <section class="tablegraph" *ngIf="rows.dashboardOutboundCallsIndicators[0]">
+    <article id="Calls" class="tablegraph-card">
+
+      <p class="tablegraph-subtitles">Llamadas</p>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'saliente-realizada')">
+        <p class="tablegraph-text">Realizadas</p>
+
+        <p class="tablegraph-number">
+          {{ rows.dashboardOutboundCallsIndicators[0].outboundMade | number:'1.0-0'}}
+        </p>
+      </div>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'saliente-fallida')">
+        <p class="tablegraph-text">Fallidas</p>
+        <p class="tablegraph-number">
+          {{ rows.dashboardOutboundCallsIndicators[0].outboundFail | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'saliente-contestada')">
+        <p class="tablegraph-text">Contestadas</p>
+        <p class="tablegraph-number">
+          {{ rows.dashboardOutboundCallsIndicators[0].outboundAnswered | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'saliente-efectiva')">
+        <p class="tablegraph-text">Efectivas</p>
+        <p class="tablegraph-number">
+          {{ rows.dashboardOutboundCallsIndicators[0].outboundEffective | number:'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="tablegraph-table pointer"
+      (click)="openDetailModal(new, 'saliente-colgada')">
+        <p class="tablegraph-text">Colgadas por agente</p>
+        <p class="tablegraph-number">
+          {{ rows.dashboardOutboundCallsIndicators[0].outboundHungout | number:'1.0-0' }}
+        </p>
+      </div>
+
+    </article>
+  </section>
+</main>
+
+
+<!-- MODAL WINDOW FOR SELECTOR ---------------------------------------------------- -->
+<ng-template #new class="modal-dialog modal-sm">
+  <div class="modal-header modal-primary">
+    <p class="modal-title ">Detalle del registro</p>
+    <button type="button" class="btn btn-danger text-lg-center "
+            (click)="activeModal.close()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <app-dashboard-dashboard-outbound-modal-calls [modalView]="modalView">
+  </app-dashboard-dashboard-outbound-modal-calls>
+
+</ng-template>

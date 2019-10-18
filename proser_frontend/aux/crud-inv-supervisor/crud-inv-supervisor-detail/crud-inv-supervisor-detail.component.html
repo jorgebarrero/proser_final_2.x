@@ -1,0 +1,433 @@
+<app-alert [alertMessage]="alertMessage"></app-alert>
+
+<section id="register" class="register" *ngIf="action && show_data">
+  <div class="card mt-3">
+    <div class="card-body">
+      <h3 class="h2 mb-3 font-weight-normal text-center">
+        <!-- {{report_title}} -->
+      </h3>
+
+      <form [formGroup]="registerForm">
+        <div class="register-form">
+          <!-------------------------- FIELD START --------------------------->
+
+          <!-- inv_supervisor_id -->
+          <div class="form-group" id="inv_supervisor_id">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_id').text
+            }}</label>
+
+            <div *ngIf="true">
+              <p class="register-detail">{{ selection.inv_supervisor_id }}</p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord' && false" type="text"
+                   formControlName="inv_supervisor_id"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.inv_supervisor_id.errors }" />
+
+            <div *ngIf="f.inv_supervisor_id.dirty && f.inv_supervisor_id.errors"
+                 class="register-error">
+              <div *ngIf="f.inv_supervisor_id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- inv_supervisor_status -->
+          <div class="form-group" id="inv_supervisor_status">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_status').text
+            }}</label>
+            <div *ngIf="true">
+              <p class="register-detail">
+                {{ selection.inv_supervisor_status }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord' && false" type="text"
+                   formControlName="inv_supervisor_status"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input" [ngClass]="{
+                'is-invalid': f.inv_supervisor_status.errors
+              }" />
+
+            <div *ngIf="
+                f.inv_supervisor_status.dirty && f.inv_supervisor_status.errors
+              " class="register-error">
+              <div *ngIf="f.inv_supervisor_status.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+
+          <!-------------------------- FIELD END --------------------------->
+
+          <!-- inv_supervisor_name -->
+          <div class="form-group" id="inv_supervisor_name">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_name').text
+            }}</label>
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.inv_supervisor_name }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="inv_supervisor_name"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input"
+                   [ngClass]="{ 'is-invalid': f.inv_supervisor_name.errors }" />
+
+            <div *ngIf="
+                f.inv_supervisor_name.dirty && f.inv_supervisor_name.errors
+              " class="register-error">
+              <div *ngIf="f.inv_supervisor_name.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- inv_supervisor_shortname -->
+          <div class="form-group" id="inv_supervisor_shortname">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_shortname').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.inv_supervisor_shortname }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="inv_supervisor_shortname"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.inv_supervisor_shortname.errors }" />
+
+            <div *ngIf="
+                f.inv_supervisor_shortname.dirty &&
+                f.inv_supervisor_shortname.errors
+              " class="register-error">
+              <div *ngIf="f.inv_supervisor_shortname.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- inv_supervisor_legal_id -->
+          <div class="form-group" id="inv_supervisor_legal_id">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_legal_id').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.inv_supervisor_legal_id }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="inv_supervisor_legal_id"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.inv_supervisor_legal_id.errors }" />
+
+            <div *ngIf="
+                f.inv_supervisor_legal_id.dirty &&
+                f.inv_supervisor_legal_id.errors
+              " class="register-error">
+              <div *ngIf="f.inv_supervisor_legal_id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- inv_supervisor_internal_id -->
+          <div class="form-group" id="inv_supervisor_internal_id">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_internal_id').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord'">
+              <p class="register-detail">
+                {{ selection.inv_supervisor_internal_id }}
+              </p>
+            </div>
+            <input *ngIf="action.action !== 'showRecord'" type="text"
+                   formControlName="inv_supervisor_internal_id"
+                   (change)="onRecordJsonChange()"
+                   class="form-control register-input disabled"
+                   [ngClass]="{ 'is-invalid': f.inv_supervisor_internal_id.errors }" />
+
+            <div *ngIf="
+                f.inv_supervisor_internal_id.dirty &&
+                f.inv_supervisor_internal_id.errors
+              " class="register-error">
+              <div *ngIf="f.inv_supervisor_internal_id.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- inv_supervisor_type_json -->
+
+          <!-- <div class="form-group" id="inv_supervisor_type_json"> -->
+          <div id="inv_supervisor_type_json">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_type_json').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord' && false">
+              <p class="register-detail">
+                {{ selection.inv_supervisor_type_json }}
+              </p>
+            </div>
+
+            <div class="form-control register-input">
+              <ng-select [items]="typeList" bindLabel="name" placeholder="Tipo"
+                         [dropdownPosition]="'auto'" [searchable]="false"
+                         [clearable]="false" [multiple]="false"
+                         hideSelected="true" (change)="onRecordJsonChange()"
+                         formControlName="inv_supervisor_type_json">
+              </ng-select>
+            </div>
+
+            <div *ngIf="
+                f.inv_supervisor_type_json.dirty &&
+                f.inv_supervisor_type_json.errors
+              " class="register-error">
+              <div *ngIf="f.inv_supervisor_type_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- inv_supervisor_schedule_json -->
+          <div class="form-group" id="inv_supervisor_schedule_json">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_schedule_json').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord' && false">
+              <p class="register-detail">
+                {{ selection.inv_supervisor_schedule_json }}
+              </p>
+            </div>
+
+            <div class="form-control register-input">
+              <ng-select [items]="scheduleList" bindLabel="name"
+                         placeholder="Horario" [dropdownPosition]="'auto'"
+                         [searchable]="false" [clearable]="true"
+                         [multiple]="false" hideSelected="true"
+                         (change)="onRecordJsonChange()"
+                         formControlName="inv_supervisor_schedule_json">
+              </ng-select>
+            </div>
+
+            <div *ngIf="
+                f.inv_supervisor_schedule_json.dirty &&
+                f.inv_supervisor_schedule_json.errors
+              " class="register-error">
+              <div *ngIf="f.inv_supervisor_schedule_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- inv_supervisor_client_json -->
+          <div class="form-group" id="inv_supervisor_client_json">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_client_json').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord' && false">
+              <p class="register-detail">
+                {{ selection.inv_supervisor_client_json }}
+              </p>
+            </div>
+
+            <div class="form-control register-input">
+              <ng-select [items]="clientList" bindLabel="name"
+                         placeholder="Cliente" [dropdownPosition]="'auto'"
+                         [searchable]="false" [clearable]="false"
+                         [multiple]="true" hideSelected="true"
+                         (change)="onRecordJsonChange()"
+                         formControlName="inv_supervisor_client_json">
+              </ng-select>
+            </div>
+
+            <div *ngIf="
+                f.inv_supervisor_client_json.dirty &&
+                f.inv_supervisor_client_json.errors
+              " class="register-error">
+              <div *ngIf="f.inv_supervisor_client_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- inv_supervisor_queue_json -->
+          <div class="form-group" id="inv_supervisor_queue_json">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_queue_json').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord' && false">
+              <p class="register-detail">
+                {{ selection.inv_supervisor_queue_json }}
+              </p>
+            </div>
+
+            <div class="form-control register-input">
+              <ng-select [items]="queueList" bindLabel="name" placeholder="Cola"
+                         [dropdownPosition]="'auto'" [searchable]="false"
+                         [clearable]="false" [multiple]="true"
+                         hideSelected="true" (change)="onRecordJsonChange()"
+                         formControlName="inv_supervisor_queue_json">
+              </ng-select>
+            </div>
+
+            <div *ngIf="
+                f.inv_supervisor_queue_json.dirty &&
+                f.inv_supervisor_queue_json.errors
+              " class="register-error">
+              <div *ngIf="f.inv_supervisor_queue_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- inv_supervisor_service_json -->
+          <div class="form-group" id="inv_supervisor_service_json">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_service_json').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord' && false">
+              <p class="register-detail">
+                {{ selection.inv_supervisor_service_json }}
+              </p>
+            </div>
+
+            <div class="form-control register-input">
+              <ng-select [items]="serviceList" bindLabel="name"
+                         placeholder="Servicio" [dropdownPosition]="'auto'"
+                         [searchable]="false" [clearable]="false"
+                         [multiple]="true" hideSelected="true"
+                         (change)="onRecordJsonChange()"
+                         formControlName="inv_supervisor_service_json">
+              </ng-select>
+            </div>
+
+            <div *ngIf="
+                f.inv_supervisor_service_json.dirty &&
+                f.inv_supervisor_service_json.errors
+              " class="register-error">
+              <div *ngIf="f.inv_supervisor_service_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+          <!-- inv_supervisor_campaign_json -->
+          <div class="form-group" id="inv_supervisor_campaign_json">
+            <label class="register-label">{{
+              model.fieldInfo('inv_supervisor_campaign_json').text
+            }}</label>
+
+            <div *ngIf="action.action === 'showRecord' && false">
+              <p class="register-detail">
+                {{ selection.inv_supervisor_campaign_json }}
+              </p>
+            </div>
+            <!-- <input
+              *ngIf="action.action !== 'showRecord'"
+              type="text"
+              formControlName="inv_supervisor_campaign_json"
+              class="form-control register-input disabled"
+              [ngClass]="{
+                'is-invalid': f.inv_supervisor_campaign_json.errors
+              }"
+            /> -->
+            <div class="form-control register-input">
+              <ng-select [items]="camapaignList" bindLabel="name"
+                         placeholder="Campaña" [dropdownPosition]="'auto'"
+                         [searchable]="false" [clearable]="false"
+                         [multiple]="true" hideSelected="true"
+                         (change)="onRecordJsonChange()"
+                         formControlName="inv_supervisor_campaign_json">
+              </ng-select>
+            </div>
+
+            <div *ngIf="
+                f.inv_supervisor_campaign_json.dirty &&
+                f.inv_supervisor_campaign_json.errors
+              " class="register-error">
+              <div *ngIf="f.inv_supervisor_campaign_json.errors.required">
+                Este dato es obligatorio
+              </div>
+            </div>
+          </div>
+          <!-------------------------- FIELD END --------------------------->
+        </div>
+        <!-------------------------- BUTTONS --------------------------->
+        <article class="form-group mt-3 mb-0 mr-auto register-button-group">
+          <div>
+            <button type="button" class="btn btn-warning  register-button"
+                    (click)="onCancel()">
+              Cancelar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-secondary  register-button"
+                    *ngIf="action.action === 'newRecord'" (click)="onReset()">
+              Reiniciar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-danger  register-button" *ngIf="
+                action.action === 'editRecord' &&
+                selection.inv_supervisor_status === 'I'
+              " (click)="onDelete()">
+              Eliminar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-danger  register-button" *ngIf="
+                action.action === 'editRecord' &&
+                selection.inv_supervisor_status === 'A'
+              " (click)="onDeactivate()">
+              Desactivar
+            </button>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-primary  register-button"
+                    *ngIf="
+                action.action === 'editRecord' &&
+                selection.inv_supervisor_status === 'I'
+              " (click)="onReactivate()">
+              Reactivar
+            </button>
+          </div>
+
+          <div *ngIf="
+              registerForm.status === 'VALID' &&
+              action.action !== 'showRecord' &&
+              (!registerForm.pristine || show_submit_button)
+            ">
+            <button type="button" class="btn btn-success  register-button"
+                    (click)="onSubmit(registerForm.value)">
+              Guardar
+            </button>
+          </div>
+        </article>
+      </form>
+    </div>
+  </div>
+</section>
+
+<button (click)="onFormRecord()">record</button>

@@ -1,0 +1,3 @@
+{
+  "init": { "HELLO": "Hola {{value}}", "TITLE_INIT": "Bienvenidos a Proser" }
+}

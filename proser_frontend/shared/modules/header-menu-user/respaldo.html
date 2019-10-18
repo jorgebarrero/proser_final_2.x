@@ -1,0 +1,35 @@
+<ul class="navbar-nav ml-auto">
+  <li class="nav-item dropdown"></li>
+
+  <li class="nav-item dropdown" ngbDropdown>
+    <a
+      class="nav-link "
+      id="navdrop"
+      role="button"
+      data-toggle="dropdown"
+      data-hover="dropdown"
+    >
+      <span class="nav-link active small">
+        <span *ngIf="currentUser"> &nbsp; <i class="fas fa-user"></i> </span>
+        <span *ngIf="currentUser"> &nbsp; <app-now-user></app-now-user></span>
+        <span *ngIf="currentUser">
+          &nbsp; <app-connection></app-connection
+        ></span>
+        <span *ngIf="currentUser">
+          &nbsp; <app-now-time></app-now-time
+        ></span> </span
+    ></a>
+
+    <div class="dropdown-menu" aria-labelledby="navdrop">
+      <a class="dropdown-item " (click)="onProfile()">
+        <i class="fas fa-id-badge"></i> Perfil
+      </a>
+
+      <div class="dropdown-divider"></div>
+
+      <a class="dropdown-item " (click)="onLogout()">
+        <i class="fas fa-power-off"></i> Logout
+      </a>
+    </div>
+  </li>
+</ul>

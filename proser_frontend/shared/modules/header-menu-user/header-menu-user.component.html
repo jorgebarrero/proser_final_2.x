@@ -1,0 +1,40 @@
+<!-- Secciones Menu -->
+<div class="navbar-nav">
+  <div class="nav-item dropdown" dropdown #dropdown="bs-dropdown"
+       [autoClose]="true">
+
+
+
+    <a id="navdrop" dropdownToggle role="button" class="nav-link"
+       aria-controls="dropdown-basic">
+      <span class="nav-link active small">
+        <span *ngIf="currentUser"> &nbsp; <fa-icon [icon]="faUser"></fa-icon>
+        </span>
+        <span *ngIf="currentUser"> &nbsp; <app-now-user></app-now-user></span>
+        <span *ngIf="currentUser">
+          &nbsp; <app-connection></app-connection></span>
+        <span *ngIf="currentUser">
+          &nbsp; <app-now-time></app-now-time></span> </span>
+    </a>
+
+    <ul id="dropdown-triggers-manual" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-triggers-manual">
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " (click)="onProfile()">
+          <fa-icon [icon]="faIdBadge"></fa-icon> &nbsp; Perfil
+        </a>
+
+      </li>
+
+      <!-- MENU ITEM-->
+      <li role="menuitem">
+        <a class="dropdown-item " (click)="onLogout()">
+          <fa-icon [icon]="faSignOutAlt"></fa-icon> &nbsp; Logout
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>

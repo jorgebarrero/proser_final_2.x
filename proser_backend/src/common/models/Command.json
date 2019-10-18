@@ -1,0 +1,21 @@
+{
+  "name": "Command",
+  "base": "Model",
+  "settings": {},
+  "properties": {
+    "command": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
