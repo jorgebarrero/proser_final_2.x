@@ -45,7 +45,7 @@
     "core-js": "^3.1.4",
     "file-saver": "^2.0.2",
     "goog-webfont-dl": "^1.0.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.3.2",
     "ng-animate": "^0.3.4",
