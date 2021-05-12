@@ -59,7 +59,7 @@
     "ng-pick-datetime-moment": "^1.0.8",
     "ngx-bootstrap": "^5.1.1",
     "node-http-ping": "^0.3.1",
-    "nodemailer": "^6.2.1",
+    "nodemailer": "^6.4.16",
     "redis": "^2.8.0",
     "request": "^2.88.0",
     "rxjs": "^6.4.0",
