@@ -55,7 +55,7 @@
     "loopback": "^3.25.1",
     "loopback-boot": "^2.28.0",
     "loopback-connector-mysql": "^5.3.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng-pick-datetime-moment": "^1.0.8",
     "ngx-bootstrap": "^5.1.1",
     "node-http-ping": "^0.3.1",
